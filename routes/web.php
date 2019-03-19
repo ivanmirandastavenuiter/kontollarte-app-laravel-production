@@ -123,7 +123,7 @@ Route::post('csrf-response', function(Request $request, Factory $validator) {
 
 })->name('csrf.response');
 
+Auth::routes();
 
-
-
+Route::get('/home', 'HomeController@index')->name('home');
 
