@@ -1,5 +1,7 @@
 # MVC Implementation on Kontollarte app
 
+On production. Last release: phase 3. 
+
 ## Updates
 
 ### First phase
