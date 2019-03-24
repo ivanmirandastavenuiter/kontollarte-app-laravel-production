@@ -1,6 +1,6 @@
 # MVC Implementation on Kontollarte app
 
-On production. Last release: phase 3. 
+On production. Last release: phase 4. 
 
 ## Updates
 
@@ -23,5 +23,11 @@ On production. Last release: phase 3.
 * Validation 
 * CSS added
 
+### Fourth phase
+
+* Email verification added
+* CSS added
+* Controllers validation updated
+* Dynamic messages on errors
 
 

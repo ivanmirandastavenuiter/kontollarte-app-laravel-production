@@ -1,4 +1,4 @@
-@extends('layouts.master-register')
+@extends('layouts.master')
 
 @section('content')
 <!-- Main container -->
@@ -126,6 +126,7 @@
                         </a>
                     </div>
                 </div>
+                
             </form>
         </div>     
     </div>

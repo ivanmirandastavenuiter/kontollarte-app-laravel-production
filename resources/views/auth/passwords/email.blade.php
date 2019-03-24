@@ -1,21 +1,20 @@
-@extends('layouts.master-reset')
+@extends('layouts.master')
 
 @section('content')
 <div class="container-fluid main">
 
-    <div class="container col-md-12 decorative-upper">
+    <div class="container-fluid col-md-12 decorative-upper">
 
     </div>
 
-    <div class="container col-md-12 form-container-1">
+    <div class="container-fluid col-md-12 form-container-1">
 
-        <div class="container col-md-6 form-container-2">
+        <div class="container-fluid col-md-6 form-container-2">
             <div class="title-container">
                 <h3 class="display-4 title">{{ __('Reset Password') }}</h3>
             </div>
 
             <div class="form-container">
-
             
                 @if (session('status'))
                     <div class="alert alert-success" role="alert">
@@ -46,10 +45,15 @@
                     </div>
 
                     <div class="form-group row mb-0">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <button type="submit" class="btn btn-primary">
                                 {{ __('Send Password Reset Link') }}
                             </button>
+
+                            <a role="button" href="{{ route('login') }}" class="btn btn-warning">
+                                {{ __('Back to login') }}
+                            </a>
+
                         </div>
                     </div>
 
