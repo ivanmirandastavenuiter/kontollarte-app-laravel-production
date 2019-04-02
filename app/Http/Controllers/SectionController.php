@@ -41,4 +41,14 @@ class SectionController extends Controller
 
         return view('sections.welcome', ['dummyInfo' => $dummyInfo]);
     }
+
+        /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('session.manager');
+    }
 }

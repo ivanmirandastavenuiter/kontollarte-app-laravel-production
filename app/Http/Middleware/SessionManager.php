@@ -2,9 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Controllers\SessionController;
 use Closure;
+use Session;
 
-class AlwaysRedirect
+class SessionManager
 {
     /**
      * Handle an incoming request.
@@ -15,9 +17,7 @@ class AlwaysRedirect
      */
     public function handle($request, Closure $next)
     {
-        if ($request->path() == 'about') {
-            return redirect('/');
-        }
-        return $next($request);
+        return SessionController::getInstance($request)
+                        ->handleRequest() ?: $next($request);
     }
 }

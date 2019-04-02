@@ -13,6 +13,7 @@
         {{ $dummyInfo }}
     </div>
     @endif
+   
 
     @if(count($errors->all()))
     <div class="row">
