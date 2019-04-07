@@ -12,7 +12,7 @@ class Paint extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'date', 'description', 'image', 'userId'
+        'paintName', 'paintDate', 'paintDescription', 'paintImage', 'userId'
     ];
 
     /**
@@ -21,4 +21,14 @@ class Paint extends Model
      * @var string
      */
     protected $primaryKey = 'paintId';
+
+    /**
+     * Gets the user related with the paint.
+     *
+     * @return User \App\User
+     */
+    public function user() 
+    {
+        return $this->belongsTo('App\User', 'userId', 'userId');
+    }
 }

@@ -12,7 +12,7 @@ class Gallery extends Model
      * @var array
      */
     protected $fillable = [
-        'galleryId', 'name', 'address', 'email', 'web'
+        'galleryId', 'galleryName', 'galleryAddress', 'galleryEmail', 'galleryWeb'
     ];
 
     /**
@@ -35,4 +35,16 @@ class Gallery extends Model
      * @var string
      */
     protected $keyType = 'string';
+
+    /**
+     * Gets the users related with the gallery.
+     *
+     * @return array \App\User
+     */
+    public function users() 
+    {
+        return $this->belongsToMany('App\User', 'galleries_users', 'galleryId', 'userId')
+            ->withTimestamps()
+            ->withPivot('gallerySignup');
+    }
 }

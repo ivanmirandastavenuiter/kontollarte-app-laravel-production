@@ -17,12 +17,8 @@ class CreateMessagesTable extends Migration
             $table->bigIncrements('messageId');
             $table->text('messageBody');
             $table->date('messageDate');
-            $table->unsignedBigInteger('userId');
+            $table->bigInteger('userId');
             $table->timestamps();
-            $table->foreign('userId')
-                    ->references('userId')->on('users')
-                    ->onDelete('cascade')
-                    ->onUpdate('cascade');
         });
     }
 

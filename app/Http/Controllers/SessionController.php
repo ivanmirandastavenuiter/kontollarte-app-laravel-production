@@ -14,7 +14,7 @@ class SessionController extends Controller implements ISession
 {
     const CURRENT_USER_SESSION = 'currentUserSession';
     const CURRENT_USER_LOGGED = 'currentUserLogged';
-    const MAX_SESSION_TIME = 0.15;
+    const MAX_SESSION_TIME = 15;
 
     private static $instance = null;
     
@@ -27,6 +27,10 @@ class SessionController extends Controller implements ISession
     private function __construct()
     {
         $this->status = true;
+    }
+
+    public function getUserLogged() {
+        return $this->userLogged;
     }
 
     public function setRequest(Request $request) {
@@ -161,7 +165,7 @@ class SessionController extends Controller implements ISession
 
     private function updateLastActivityTime()
     {
-        echo 'Update at: ' . date("H:i", time());
+        //echo 'Update at: ' . date("H:i", time());
         $this->lastActivityTime = time();
     }
 

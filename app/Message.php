@@ -12,7 +12,7 @@ class Message extends Model
      * @var array
      */
     protected $fillable = [
-        'body', 'date', 'userId'
+        'messageBody', 'messageDate', 'userId'
     ];
 
     /**
@@ -21,4 +21,25 @@ class Message extends Model
      * @var string
      */
     protected $primaryKey = 'messageId';
+
+    /**
+     * Gets the user related with the message.
+     *
+     * @return \App\User
+     */
+    public function user() 
+    {
+        return $this->belongsTo('App\User', 'userId', 'userId');
+    }
+
+    /**
+     * Gets the receivers related with the message.
+     *
+     * @return array \App\Receiver
+     */
+    public function receivers() 
+    {
+        return $this->belongsToMany('App\Receiver', 'messages_receivers', 'messageId', 'receiverId')
+            ->withTimestamps();
+    }
 }

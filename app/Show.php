@@ -12,7 +12,7 @@ class Show extends Model
      * @var array
      */
     protected $fillable = [
-        'showId', 'startingDate', 'endingDate', 'name', 'description', 'order', 'userId'
+        'showId', 'showStartingDate', 'showEndingDate', 'showName', 'showDescription', 'showOrder', 'userId'
     ];
 
     /**
@@ -36,7 +36,24 @@ class Show extends Model
      */
     protected $keyType = 'string';
 
-    
+    /**
+     * Gets the image related with the show.
+     *
+     * @return \App\Image
+     */
+    public function image() 
+    {
+        return $this->hasOne('App\Image', 'showId', 'showId');
+    }
 
+    /**
+     * Gets the user related with the show.
+     *
+     * @return User \App\User
+     */
+    public function user() 
+    {
+        return $this->belongsTo('App\User', 'userId', 'userId');
+    }
 
 }

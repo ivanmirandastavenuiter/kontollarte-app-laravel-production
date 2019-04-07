@@ -32,6 +32,11 @@
             <title>Reset password</title>
             @break
 
+        @case('show')
+	        <link rel="stylesheet" href="{{ URL::to('css/show.css') }}" class="css">
+            <script type="text/javascript" src="{{ URL::to('js/shows-script.js') }}"></script>
+            <title>Shows</title>
+            @break
 
     @endswitch
 

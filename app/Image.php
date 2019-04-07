@@ -12,7 +12,7 @@ class Image extends Model
      * @var array
      */
     protected $fillable = [
-        'url', 'height', 'width', 'showId'
+        'imageUrl', 'imageHeight', 'imageWidth', 'showId'
     ];
 
         /**
@@ -21,4 +21,14 @@ class Image extends Model
      * @var string
      */
     protected $primaryKey = 'imageId';
+
+    /**
+     * Gets the show related with the image.
+     *
+     * @return \App\Image
+     */
+    public function show() 
+    {
+        return $this->belongsTo('App\Show', 'showId', 'showId');
+    }
 }

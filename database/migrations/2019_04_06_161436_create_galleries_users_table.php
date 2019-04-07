@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMessagesTable extends Migration
+class CreateGalleriesUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,20 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
-            $table->bigIncrements('messageId');
-            $table->text('messageBody');
-            $table->date('messageDate');
+        Schema::create('galleries_users', function (Blueprint $table) {
+            $table->increments('galleriesUsersId');
             $table->unsignedBigInteger('userId');
+            $table->string('galleryId');
+            $table->date('gallerySignup');
             $table->timestamps();
+
             $table->foreign('userId')
                     ->references('userId')->on('users')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
+
+            $table->foreign('galleryId')
+                    ->references('galleryId')->on('galleries')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
         });
@@ -33,6 +39,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messages');
+        Schema::dropIfExists('galleries_users');
     }
 }

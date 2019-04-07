@@ -12,7 +12,7 @@ class Receiver extends Model
      * @var array
      */
     protected $fillable = [
-        'email', 'name'
+        'receiverEmail', 'receiverName'
     ];
 
     /**
@@ -21,4 +21,15 @@ class Receiver extends Model
      * @var string
      */
     protected $primaryKey = 'receiverId';
+
+    /**
+     * Gets the messages related with the receiver.
+     *
+     * @return array \App\Message
+     */
+    public function messages() 
+    {
+        return $this->belongsToMany('App\Message', 'messages_receivers', 'receiverId', 'messageId')
+            ->withTimestamps();
+    }
 }

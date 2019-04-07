@@ -1,6 +1,6 @@
 # MVC Implementation on Kontollarte app
 
-On production. Last release: phase 5. 
+On production. Last release: phase 6. 
 
 ## Updates
 
@@ -35,4 +35,10 @@ On production. Last release: phase 5.
 * Session control custom class
 * Middleware injection
 * Modifications on native laravel login controller
+
+### Sixth phase 
+
+* Migration configuration
+* Model creation and relations established
+* First approach to controllers
 

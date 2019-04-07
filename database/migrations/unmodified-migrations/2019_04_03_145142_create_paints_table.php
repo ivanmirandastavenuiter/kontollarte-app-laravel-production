@@ -19,12 +19,8 @@ class CreatePaintsTable extends Migration
             $table->date('paintDate')->nullable();
             $table->text('paintDescription')->nullable();
             $table->string('paintImage');
-            $table->unsignedBigInteger('userId');
+            $table->bigInteger('userId');
             $table->timestamps();
-            $table->foreign('userId')
-                    ->references('userId')->on('users')
-                    ->onDelete('cascade')
-                    ->onUpdate('cascade');
         });
     }
 

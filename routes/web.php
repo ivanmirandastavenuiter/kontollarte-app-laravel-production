@@ -72,9 +72,25 @@ use Illuminate\Validation\Factory;
 // })->name('sections.welcome');
 
 Route::get('/', [
-    'uses' => 'SectionController@getWelcomePage',
-    'as' => 'sections.welcome'
+    'uses' => 'ShowController@display',
+    'as' => 'shows.display.root'
 ]);
+
+Route::group(['prefix' => 'shows'], function() {
+
+    Route::get('display', [
+        'uses' => 'ShowController@display',
+        'as' => 'shows.display'
+    ]);
+
+    Route::get('next', [
+        'uses' => 'ShowController@getNextSliderImage',
+        'as' => 'shows.next'
+    ]);
+
+});
+
+
 
 Route::group(['prefix' => 'sections'], function() {
 
