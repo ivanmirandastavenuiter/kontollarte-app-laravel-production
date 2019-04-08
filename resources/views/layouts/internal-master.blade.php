@@ -11,6 +11,8 @@
     @include('partials.view-type')
 </head>
 <body>
+    @include('partials.navbar')
+    @include('sections.messages.show-messages')
     @yield('content')
 </body>
 </html>

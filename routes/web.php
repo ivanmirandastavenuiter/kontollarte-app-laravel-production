@@ -88,6 +88,16 @@ Route::group(['prefix' => 'shows'], function() {
         'as' => 'shows.next'
     ]);
 
+    Route::get('previous', [
+        'uses' => 'ShowController@getPreviousSliderImage',
+        'as' => 'shows.previous'
+    ]);
+
+    Route::get('count', [
+        'uses' => 'ShowController@getNumberOfShows',
+        'as' => 'shows.count'
+    ]);
+
 });
 
 

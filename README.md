@@ -2,6 +2,9 @@
 
 On production. Last release: phase 6. 
 
+Currently working on controllers development.
+Javascript code added.
+
 ## Updates
 
 ### First phase

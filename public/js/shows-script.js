@@ -2,13 +2,19 @@ $(document).ready(function() {
 
     function loadNextShowImage() {
 
+    var route = window.location.href.endsWith('public/')
+                  ? 'shows/next'
+                  : 'next';
+
+                  console.log(route)
+
 	  var position = $('.slider-container').data('position');
 
     var img = $('.carousel-item > img');
 
       $.ajax({
           method  : "GET",
-          url     : "next",
+          url     : route,
           dataType: "json",
           data: { "position" : position },
           success : function(data) {  
@@ -53,15 +59,21 @@ $(document).ready(function() {
 
     function loadPrevShowImage() {
 
+      var route = window.location.href.endsWith('public/')
+                    ? 'shows/previous'
+                    : 'previous';
+
+                    console.log(route)
+
       var position = $('.slider-container').data('position');
 
       var img = $('.carousel-item > img');
 
       $.ajax({
           method  : "GET",
-          url     : "index.php",
+          url     : route,
           dataType: "json",
-          data: { "mod" : "show", "op" : "getPreviousSliderImage", "position" : position },
+          data: { "position" : position },
           success : function(data) {
 
             var showData = data.showData;
@@ -159,12 +171,17 @@ $(document).ready(function() {
 
     function checkShowsOnDatabase() {
 
+    var route = window.location.href.endsWith('public/')
+                ? 'shows/count'
+                : 'count';
+
+                console.log(route)
+
           $.ajax({
             method  : "GET",
             async: false,
-            url     : "index.php",
+            url     : route,
             dataType: "text",
-            data: { "mod" : "show", "op" : "getAllShows" },
             success : function(data) {
 
               if (data == 0) {

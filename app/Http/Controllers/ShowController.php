@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Show;
+use App\Image;
 use App\Libraries\API\ApiDataProvider;
 use App\Http\Controllers\SessionController;
 
@@ -70,6 +71,33 @@ class ShowController extends Controller
     
     }
 
+    private static function parseDataToJSON($show, $nextPosition) {
+
+        $imgData = [
+            "link" => $show->image->imageUrl,
+            "height" => $show->image->imageHeight,
+            "width" => $show->image->imageWidth
+        ];
+
+        $showData = [
+            "id" => $show->showId,
+            "startingDate" => $show->showStartingDate,
+            "endingDate" => $show->showEndingDate,
+            "name" => $show->showName,
+            "description" => $show->showDescription,
+            "imgData" => $imgData
+        ];
+
+        $res = [
+            "error" => false,
+            "showData" => $showData,
+            "newPosition" => $nextPosition
+        ];
+
+        echo json_encode($res);
+
+    }
+
     public function getNextSliderImage(Request $request) {
 
         $this->session = SessionController::getInstance($request);
@@ -90,81 +118,110 @@ class ShowController extends Controller
                 // Eager loading
                 $show = Show::where('showOrder', $nextPosition)->with('image')->first(); 
 
-                $imgData = [
-                    "link" => $show->image->imageUrl,
-                    "height" => $show->image->imageHeight,
-                    "width" => $show->image->imageWidth
-                ];
+                ShowController::parseDataToJSON($show, $nextPosition);
 
-                $showData = [
-                    "id" => $show->showId,
-                    "startingDate" => $show->showStartingDate,
-                    "endingDate" => $show->showEndingDate,
-                    "name" => $show->showName,
-                    "description" => $show->showDescription,
-                    "imgData" => $imgData
-                ];
-
-                $res = [
-                    "error" => false,
-                    "showData" => $showData,
-                    "newPosition" => $nextPosition
-                ];
-
-                echo json_encode($res);
-
-              
-            }// else {
+            } else {
         
-            //         $at = new apiTool();
-            //         $currentShow = $at->getShowsThroughOffset(1, rand(1, 500));
-                
-            //         $imgData = $at->getShowImage($currentShow[0]['id']);
+                    $ap = new ApiDataProvider();
+                    $currentShow = $ap->getShowsThroughOffset(1, rand(1, 500));
+                    $imgData = $ap->getShowImage($currentShow[0]['id']);
                     
-            //         $showData = [
-            //             "id" => $currentShow[0]['id'],
-            //             "startingDate" => strtok($currentShow[0]['created_at'], 'T'),
-            //             "endingDate" => strtok($currentShow[0]['end_at'], 'T'),
-            //             "name" => $currentShow[0]['name'],
-            //             "description" => !empty($currentShow[0]['description']) ? $currentShow[0]['description'] : 'Description not available',
-            //             "imgData" => $imgData
-            //         ];
+                    $showData = [
+                        "id" => $currentShow[0]['id'],
+                        "startingDate" => strtok($currentShow[0]['created_at'], 'T'),
+                        "endingDate" => strtok($currentShow[0]['end_at'], 'T'),
+                        "name" => $currentShow[0]['name'],
+                        "description" => !empty($currentShow[0]['description']) ? $currentShow[0]['description'] : 'Description not available',
+                        "imgData" => $imgData
+                    ];
                     
-            //         $res = [
-            //             "error" => false,
-            //             "showData" => $showData
-            //         ] ;
+                    $res = [
+                        "error" => false,
+                        "showData" => $showData
+                    ] ;
                     
-            //         if (!isset($currentShow) || empty($imgData)):
-            //             $res["error"] = true ;
-            //         endif ;
-                
-            //         $currentShow = new Show(
-            //             $currentShow[0]['id'],
-            //             strtok($currentShow[0]['created_at'], 'T'),
-            //             strtok($currentShow[0]['end_at'], 'T'),
-            //             $currentShow[0]['name'],
-            //             !empty($currentShow[0]['description']) ? $currentShow[0]['description'] : 'Description not available',
-            //             $imgData
-            //         );
+                    if (!isset($currentShow) || empty($imgData)) {
+                        $res["error"] = true ;
+                    }
 
-            //         $currentShow->insert($nextPosition, $currentUser->getId());
-            //         $currentShow->insertImage();
+                    // Create method creates new instance and makes an insert into database
+                    $currentShow = Show::create([
+                        'showId' => $showData['id'],
+                        'showStartingDate' => $showData['startingDate'],
+                        'showEndingDate' => $showData['endingDate'],
+                        'showName' => $showData['name'],
+                        'showDescription' => $showData['description'],
+                        'showOrder' => $nextPosition,
+                        'userId' => $currentUser->userId
+                    ]);
+
+                    $currentImage = new Image([
+                        'imageUrl' => $imgData['link'],
+                        'imageHeight' => $imgData['height'],
+                        'imageWidth' => $imgData['width']
+                    ]);
+
+                    // The relationship allows to save it directly into database
+                    $currentShow->image()->save($currentImage);
+
+                    ($nextPosition == 25) 
+                                ? $res['newPosition'] = 1 
+                                : $res['newPosition'] = $nextPosition;
                 
-            //         if ($nextPosition == 25) $res['newPosition'] = 1; else $res['newPosition'] = $nextPosition;
+                    echo json_encode($res);
                 
-            //         echo json_encode($res) ;
-                
-            // }
+            }
     
         } else {
 
             if ($nextPosition > 25) $nextPosition = 1;
     
-            $res = Show::getShowByOrder($nextPosition);    
-            echo json_encode($res);
+            // Eager loading
+            $show = Show::where('showOrder', $nextPosition)->with('image')->first(); 
+
+            ShowController::parseDataToJSON($show, $nextPosition);
     
         }
-
     }
+
+    public function getPreviousSliderImage(Request $request) {
+
+        $this->session = SessionController::getInstance($request);
+        $currentUser = $this->session->getUserLogged();
+
+        $numberOfRows = Show::all()->count();
+    
+        $position = 0;
+        if (!empty($request->input('position')))
+            $position = $request->input('position') - 1;
+
+        if ($numberOfRows > 0) {
+
+            if ($position > 0) {
+
+                $show = Show::where('showOrder', $position)->with('image')->first(); 
+                ShowController::parseDataToJSON($show, $position);
+
+            } else {
+
+                $position = $numberOfRows;
+
+                $show = Show::where('showOrder', $position)->with('image')->first(); 
+                ShowController::parseDataToJSON($show, $position);
+            }
+        } else {
+
+            $res = [
+                "error" => true,
+                "newPosition" => $position
+            ];
+
+            echo json_encode($res);
+        }
+    }
+
+    public function getNumberOfShows() {
+        echo Show::all()->count();
+    }
+
 }
