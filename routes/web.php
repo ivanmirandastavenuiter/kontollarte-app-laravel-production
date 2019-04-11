@@ -100,6 +100,20 @@ Route::group(['prefix' => 'shows'], function() {
 
 });
 
+Route::group(['prefix' => 'account'], function() {
+
+    Route::get('display', [
+        'uses' => 'AccountController@display',
+        'as' => 'account.display'
+    ]);
+
+    Route::post('validate', [
+        'uses' => 'AccountController@validateUpdate',
+        'as' => 'account.validate'
+    ]);
+    
+});
+
 
 
 Route::group(['prefix' => 'sections'], function() {

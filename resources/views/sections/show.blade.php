@@ -1,6 +1,9 @@
 @extends('layouts.internal-master')
 
 @section('content')
+
+@include('sections.messages.show-messages')
+
 <div class="container-fluid main-container">
 
     <div class="col-12" id="show-view-title">

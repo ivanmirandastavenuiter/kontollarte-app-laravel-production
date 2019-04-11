@@ -38,6 +38,13 @@
             <title>Shows</title>
             @break
 
+        @case('account')
+	        <link rel="stylesheet" href="{{ URL::to('css/account.css') }}" class="css">
+            <script type="text/javascript" src="{{ URL::to('js/account-script.js') }}"></script>
+            <title>Account</title>
+            @break
+
+
     @endswitch
 
 @endisset

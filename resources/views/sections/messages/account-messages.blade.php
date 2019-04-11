@@ -11,49 +11,73 @@
         </button>
       </div>
       <div class="modal-body">
-        
-            <!-- Form body -->
 
-      <?php 
-              if ($this->userSession->checkIfIndexExists('current-user'))
-              $currentUser = $this->userSession->getValueByIndex('current-user', true);
-      ?>
+      @if ($errors->any())
+        <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+      @endif
 
-      <form action="" method="get" id="update-form">
+      <div class="message-status" message-status=true></div>
+
+      <script>
+      
+      $(document).ready(function () {
+
+        $('#update-user').on('hidden.bs.modal', function (e) {
+
+          var messagesShown = $('.message-status').attr('message-status')
+
+          if (messagesShown) {
+            $('.alert.alert-danger').css('display', 'none')
+          }
+
+          $('.message-status').attr('message-status', false)
+        })
+
+      })
+
+      </script>
+
+      <!-- Form body -->
+
+      <form action="{{ route('account.validate') }}" method="post" id="update-form">
+        @csrf
   			<div class="form-group">
     			<label for="username">Username</label>
-    			<input type="text" class="form-control" name="username" value="<?php if(!empty($currentUser->getUsername())) echo $currentUser->getUsername(); ?>" placeholder="Username">
+    			<input type="text" class="form-control" name="username" value="{{ $currentUser->username }}" placeholder="Username">
   			</div>
             <div class="form-group">
     			<label for="name">Name</label>
-    			<input type="text" class="form-control" name="name" value="<?php if(!empty($currentUser->getName())) echo $currentUser->getName(); ?>" placeholder="Name">
+    			<input type="text" class="form-control" name="name" value="{{ $currentUser->name }}" placeholder="Name">
   			</div>
             <div class="form-group">
     			<label for="surname">Surname</label>
-    			<input type="text" class="form-control" name="surname" value="<?php if(!empty($currentUser->getSurname())) echo $currentUser->getSurname(); ?>" placeholder="Surname">
+    			<input type="text" class="form-control" name="surname" value="{{ $currentUser->surname }}" placeholder="Surname">
   			</div>
             <div class="form-group">
     			<label for="email">Email</label>
-    			<input type="email" class="form-control" name="email" value="<?php if(!empty($currentUser->getEmail())) echo $currentUser->getEmail(); ?>" placeholder="Email">
+    			<input type="email" class="form-control" name="email" value="{{ $currentUser->email }}" placeholder="Email">
   			</div>
             <div class="form-group">
     			<label for="phone">Phone</label>
-    			<input type="text" class="form-control" pattern="[0-9]{9}" name="phone" value="<?php if(!empty($currentUser->getPhone())) echo $currentUser->getPhone(); ?>" placeholder="Phone">
+    			<input type="text" class="form-control" pattern="[0-9]{9}" name="phone" value="{{ $currentUser->phone }}" placeholder="Phone">
         </div>
-          <input type="hidden" name="mod" value="user" />
-          <input type="hidden" name="op" value="validateUpdate" />
-          <input type="hidden" name="update-form" value="true">
-          <button type="button" class="btn btn-warning" data-toggle="modal" data-dismiss="modal" data-target="#confirm-update">Update</button>
+          <button type="submit" class="btn btn-warning">Update</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 		  </form>
 
-        <script>
+        <!-- <script>
 
         function submitForm() {
             $("#update-form").submit();
         }
         
-        </script>
+        </script> -->
         
       </div>
     </div>

@@ -39,7 +39,7 @@ class SessionController extends Controller implements ISession
         }
     }
 
-    public function setUserLogged(Request $request, $currentUser) {
+    public function setUserLogged($currentUser) {
 
         if ($this->requestIsValid()) {
             $this->put(self::CURRENT_USER_LOGGED, $currentUser);
