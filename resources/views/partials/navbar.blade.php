@@ -9,7 +9,7 @@
                 <a class="nav-link" href="{{ route('account.display') }}">Account</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Paintings</a> 
+                <a class="nav-link" href="{{ route('paintings.display') }}">Paintings</a> 
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="">Galleries</a> 

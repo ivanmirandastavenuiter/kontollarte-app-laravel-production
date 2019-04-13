@@ -44,6 +44,12 @@
             <title>Account</title>
             @break
 
+        @case('paintings')
+	        <link rel="stylesheet" href="{{ URL::to('css/paintings.css') }}" class="css">
+            <script type="text/javascript" src="{{ URL::to('js/paintings-script.js') }}"></script>
+            <title>Paintings</title>
+            @break
+
 
     @endswitch
 

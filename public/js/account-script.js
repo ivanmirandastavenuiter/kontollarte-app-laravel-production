@@ -1,20 +1,16 @@
 $(document).ready(function() {
 
-    var result = $('.result-response').attr('data-result-response');
+    // $('#btn-update').click(function() {
+    //     $('#update-form').submit()
+    // })
 
-    switch(result) {
-        case 'update-success':
-            $('#update-success').modal('show')
-            break;
-        case 'user-exists':
-            $('#u-user-exists').modal('show')
-            break;
-        case 'empty-parameters':
-            $('#register-error').modal('show')
-            break;
-        case 'delete-success':
-            $('#delete-success').modal('show')
-            break;
-        }
+    // $('#btn-cross-delete').click(function() {
+    //     $('#cross-delete-form').submit()
+    // })
 
-})
+    // $('#btn-close-delete').click(function() {
+    //     $('#close-delete-form').submit()
+    // })
+
+
+});

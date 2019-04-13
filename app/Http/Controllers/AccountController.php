@@ -19,13 +19,18 @@ class AccountController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('session.manager');
+       $this->middleware('session.manager');
+    }
+
+    private function getUserLogged(Request $request):User
+    {
+        $this->session = SessionController::getInstance($request);
+        return $this->session->getUserLogged();
     }
 
     public function display(Request $request) 
     {
-        $this->session = SessionController::getInstance($request);
-        $currentUser = $this->session->getUserLogged();
+        $currentUser = $this->getUserLogged($request);
 
         return view('sections.account')
                     ->with([
@@ -41,22 +46,27 @@ class AccountController extends Controller
                                      $request->messages());
 
         // Extracts previous user data
-        $this->session = SessionController::getInstance($request);
-        $currentUser = $this->session->getUserLogged();
+        $currentUser = $this->getUserLogged($request);
 
         // Set new user data on database and session
         $currentUser->update($request->validated());
         $this->session->setUserLogged($currentUser);
 
+        // Redirects to get route to avoid resending the post route
+        return redirect()->route('account.display');
+    }
+
+    public function deleteAccount(Request $request)  
+    {
+        $currentUser = $this->getUserLogged($request);
+        $currentUser->delete();
+
         return view('sections.account')
                     ->with([
                         'view' => 'account',
-                        'currentUser' => $currentUser,
+                        'delete' => true,
+                        'currentUser' => $currentUser
                     ]);
-
-    
-
-
 
     }
 }

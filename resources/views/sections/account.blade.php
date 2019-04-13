@@ -11,7 +11,15 @@
 <div class="row">
     <div class="col-12">
         <div id="table-info-item">
-        
+
+        @isset($delete)
+            @if($delete)
+            <script>
+                $('#delete-success').modal('show');
+            </script>
+            @endif
+        @endisset
+
         @if ($errors->any())
         <script>
             $('#update-user').modal('show');

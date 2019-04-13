@@ -177,7 +177,7 @@ class SessionController extends Controller implements ISession
                 : $this->flush();
         } else {
             return redirect()->route('login');
-        } 
+        }
     }
 
     private function isValid($value)

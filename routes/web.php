@@ -111,7 +111,26 @@ Route::group(['prefix' => 'account'], function() {
         'uses' => 'AccountController@validateUpdate',
         'as' => 'account.validate'
     ]);
+
+    Route::post('delete', [
+        'uses' => 'AccountController@deleteAccount',
+        'as' => 'account.delete'
+    ]);
     
+});
+
+Route::group(['prefix' => 'paintings'], function() {
+
+   Route::get('display', [
+        'uses' => 'PaintingsController@display',
+        'as' => 'paintings.display'
+   ]);
+
+   Route::get('load/{id}/{imagesLoaded}/{imagesToLoad}', [
+        'uses' => 'PaintingsController@loadMorePictures',
+        'as' => 'paintings.load'
+   ]);
+
 });
 
 

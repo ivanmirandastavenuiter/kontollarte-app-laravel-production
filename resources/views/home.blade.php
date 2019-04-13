@@ -6,6 +6,10 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Dashboard</div>
+    <pre>
+    {{ var_dump(Session::get('currentUserSession')) }}
+    </pre>
+        
 
                 <div class="card-body">
                     @if (session('status'))
