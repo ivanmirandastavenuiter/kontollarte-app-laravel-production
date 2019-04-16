@@ -29,3 +29,9 @@
 	text-align: center !important;
 	padding: 20px !important;
 }
+
+.upload-success {
+	text-align: center;
+	width: 500px;
+	margin: 30px auto !important;
+}

@@ -9,10 +9,26 @@
     </div>
 
     <div id="btn-upload-container">
-        <button type="submit" id="btn-upload" data-toggle="modal" data-target="#upload-picture" type="button" class="btn btn-danger">Upload new picture</button>
+        <button type="submit" id="btn-upload" data-toggle="modal" data-target="#upload-paint" type="button" class="btn btn-danger">Upload new picture</button>
     </div>
 
     <div id="main-wrapper" data-page="0" data-loaded-images="0" data-total-images="0">
+
+    <div class="upload-success">
+    
+    @if (session('uploadSuccess'))
+        <div class="alert alert-success">
+            {{ 'Image has been successfully uploaded' }}
+        </div>
+    @endif
+
+    </div>
+
+    @if ($errors->any())
+        <script>
+            $('#upload-paint').modal('show');
+        </script>
+    @endif
 
     @isset($customPaintings)
     <script>
@@ -25,6 +41,7 @@
         @foreach($paintings as $paint)
 
         <div class="row" id="photo-item">
+
             <div class="col-12">
                 <img src="{{ URL::to($paint->paintImage) }}" height="300" width="500">
             </div>
@@ -61,4 +78,5 @@
     <div id="btn-container">
         <button id="btn-load" onclick="loadPaints(this.value)" value="{{ $currentUser->userId }}" type="button" class="btn btn-primary btn-lg btn-block">Load More</button>
     </div>
+
 @endsection('content')

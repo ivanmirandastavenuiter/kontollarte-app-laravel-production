@@ -124,12 +124,22 @@ Route::group(['prefix' => 'paintings'], function() {
    Route::get('display', [
         'uses' => 'PaintingsController@display',
         'as' => 'paintings.display'
-   ]);
+    ]);
 
    Route::get('load/{id}/{imagesLoaded}/{imagesToLoad}', [
         'uses' => 'PaintingsController@loadMorePictures',
         'as' => 'paintings.load'
-   ]);
+    ]);
+
+   Route::post('upload', [
+       'uses' => 'PaintingsController@uploadPaint',
+       'as' => 'paintings.upload'
+    ]);
+
+   Route::post('get_image_preview', [
+        'uses' => 'PaintingsController@getImagePreview',
+        'as' => 'paintings.get_preview'
+    ]);
 
 });
 
