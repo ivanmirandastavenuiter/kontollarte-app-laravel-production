@@ -2,8 +2,8 @@
 
 On production. Last release: phase 6. 
 
-Currently working on controllers development.
-Javascript code added.
+Incidences on GalleriesController solved. Developing last controller.
+Implementing mail service.
 
 ## Updates
 
