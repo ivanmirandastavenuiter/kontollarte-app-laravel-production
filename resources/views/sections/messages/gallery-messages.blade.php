@@ -154,8 +154,11 @@
 
       </div>
       <div class="modal-footer">
-          <a id="confirm-delete-gallery-id" class="btn btn-danger">Agree and delete</a>
-          <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+         <form action="" method="post" id="confirm-gallery-id-delete-form">
+            @csrf
+            <button type="submit" class="btn btn-danger">Agree and delete</button>
+            <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+        </form>
       </div>
     </div>
   </div>
@@ -177,8 +180,11 @@
         This gallery will be added to your personal list. Agree?
       </div>
       <div class="modal-footer">
-          <a id="confirm-gallery-id" class="btn btn-danger">Agree and add</a>
-          <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+        <form action="" method="post" id="confirm-gallery-id-add-form">
+            @csrf
+            <button type="submit" class="btn btn-danger">Agree and add</button>
+            <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+        </form>
       </div>
     </div>
   </div>

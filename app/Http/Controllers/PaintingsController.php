@@ -91,33 +91,21 @@ class PaintingsController extends Controller
             ];
 
             Paint::create($attributes);
-            $this->deletePreviews('images\paintings\previews');
             return redirect('paintings/display')->with('uploadSuccess', true);
         }
 
     }
 
-    private function deletePreviews($previewsPath) 
+    public function deletePreviews() 
     {
-        if (!is_dir($previewsPath)) {
-            throw new InvalidArgumentException("Path provided is not a directory");
-        }
+        $previewsPath = "images/paintings/previews/";
 
-        if (substr($previewsPath, strlen($previewsPath) - 1, 1) != '/') {
-            $previewsPath .= '/';
-        }
-
-        $files = glob($previewsPath . '*', GLOB_MARK);
+        $files = glob($previewsPath . '*', GLOB_NOSORT);
 
         foreach ($files as $file) {
-            if (is_dir($file)) {
-                $this->deletePreviews($file);
-            } else {
                 unlink($file);
-            }
         }
 
-        rmdir($previewsPath);
     }
 
     public function getImagePreview(Request $request) 

@@ -49,7 +49,18 @@
             <script type="text/javascript" src="{{ URL::to('js/paintings-script.js') }}"></script>
             <title>Paintings</title>
             @break
+        
+        @case('galleries')
+	        <link rel="stylesheet" href="{{ URL::to('css/gallery.css') }}" class="css">
+            <script type="text/javascript" src="{{ URL::to('js/galleries-script.js') }}"></script>
+            <title>Galleries</title>
+            @break
 
+        @case('messages')
+	        <link rel="stylesheet" href="{{ URL::to('css/messages.css') }}" class="css">
+            <script type="text/javascript" src="{{ URL::to('js/messages-script.js') }}"></script>
+            <title>Messages</title>
+            @break
 
     @endswitch
 

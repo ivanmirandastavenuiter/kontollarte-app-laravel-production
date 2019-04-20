@@ -12,10 +12,10 @@
                 <a class="nav-link" href="{{ route('paintings.display') }}">Paintings</a> 
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Galleries</a> 
+                <a class="nav-link" href="{{ route('galleries.display') }}">Galleries</a> 
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Messages</a> 
+                <a class="nav-link" href="{{ route('messages.display') }}">Messages</a> 
             </li>
         </ul>
     </div>

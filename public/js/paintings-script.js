@@ -1,15 +1,38 @@
 
-function uploadPaint() {
+$(document).ready(function() {
 
-    $(document).ready(function() {
+    var skipClose = false;
 
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $("input[name='_token']")[0].value
-            }
-        });
+    $('#uploadImage').change(function() {
+        $('.btn-prev').attr('disabled', false);
 
-        $("#btn-prev").click(function() {
+        var previewSet = $('#preview').html().length > 0;
+
+        if (previewSet) {
+            skipClose = true;
+            $('.btn-close').click();
+        }
+
+    });
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $("input[name='_token']")[0].value
+        }
+    });
+
+    $(".btn-prev").click(function() {
+
+        var className = $(this)[0].className;
+        console.log(className);
+
+        if (className.endsWith('btn-info') && !skipClose) {
+
+            $('.btn-close').toggleClass('btn-prev btn-close btn-success btn-info');
+            $('.btn-prev').html('Preview');
+            $('#preview').html('').fadeOut();
+
+        } else {
 
             var image = $("#uploadImage")[0].files[0];
             var formData = new FormData();
@@ -24,10 +47,6 @@ function uploadPaint() {
                     contentType: false,
                     cache: false,
                     processData: false, // Needed in case of sending DOM objects
-                    beforeSend : function() {
-                        $("#preview").fadeOut();
-                        $("#err").fadeOut();
-                    },
                     success: function(data) {
                         
                         var fixedUrl = document.location.href
@@ -38,11 +57,15 @@ function uploadPaint() {
                         var success = JSON.parse(data).success;
 
                         imgData = imgData.split("src='")[0]
-                                         .concat("src='", fixedUrl, imgData.split("src='")[1]);
+                                            .concat("src='", fixedUrl, imgData.split("src='")[1]);
 
                         if (success) {
                             if (imgData != '') {
                                 $("#preview").html(imgData).fadeIn();
+                                $('.btn-prev').toggleClass('btn-prev btn-close btn-success btn-info');
+                                $('.btn-close').html('Back');
+                                cleanPreviewsFolder();
+                                skipClose = false;
                             }
                         }
 
@@ -54,7 +77,30 @@ function uploadPaint() {
 
             }
 
-        });
+        }
+
+    });
+
+});
+
+function cleanPreviewsFolder() {
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $("input[name='_token']")[0].value
+        }
+    });
+
+    $.ajax({
+        url: "delete_preview",
+        type: "POST",
+        cache: false,
+        success: function(data) {
+            console.log('Current preview sucessfully deleted');
+        },
+        error: function(e) {
+            console.log("Exception: " + e)
+        }                     
     });
 
 }
@@ -125,4 +171,3 @@ function controlLoadButtonFlow() {
 // Executed automatically
 
 controlLoadButtonFlow();
-uploadPaint();

@@ -51,6 +51,17 @@ class SessionController extends Controller implements ISession
         $this->save();
     }
 
+    public function updateUserLogged($currentUser) {
+
+        if ($this->requestIsValid()) {
+            $this->put(self::CURRENT_USER_LOGGED, $currentUser);
+            $this->lastActivityTime = time();
+        }
+        
+        $this->save();
+
+    }
+
     public function get($key) 
     {
         if ($this->requestIsValid()) {
@@ -183,7 +194,7 @@ class SessionController extends Controller implements ISession
     private function isValid($value)
     {
         if (!is_null($value)) {
-            return !is_object($value) 
+            return is_string($value) 
                     ? !empty(trim($value))
                     : !empty($value);
         } 

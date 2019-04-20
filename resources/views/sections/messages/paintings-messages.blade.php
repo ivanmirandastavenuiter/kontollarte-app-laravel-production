@@ -72,7 +72,7 @@
           <div id="err"></div>
   
           <button type="submit" class="btn btn-warning">Upload</button>
-          <button type="button" class="btn btn-success" id="btn-prev">Preview</button>
+          <button type="button" class="btn btn-success btn-prev" disabled>Preview</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 		    </form>
       
