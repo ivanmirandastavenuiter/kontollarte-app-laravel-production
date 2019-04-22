@@ -2,7 +2,12 @@
 
 On production. Last release: phase 6. 
 
+<<<<<<< HEAD
 Controllers finished. Entire project translated to Laravel. Next task: items upload on ebay with Laravel Dusk.
+=======
+Incidences on GalleriesController solved. Developing last controller.
+Implementing mail service.
+>>>>>>> ca93e4cefeb8bde38ec953da5c19f68a293c17d3
 
 ## Updates
 
