@@ -1,13 +1,8 @@
 # MVC Implementation on Kontollarte app
 
-On production. Last release: phase 6. 
+On production. Last release: phase 7.
 
-<<<<<<< HEAD
-Controllers finished. Entire project translated to Laravel. Next task: items upload on ebay with Laravel Dusk.
-=======
-Incidences on GalleriesController solved. Developing last controller.
-Implementing mail service.
->>>>>>> ca93e4cefeb8bde38ec953da5c19f68a293c17d3
+Controllers finished. Project translated to Laravel. Next task: automation with Laravel Dusk to upload items on Ebay.
 
 ## Updates
 
