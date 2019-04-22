@@ -80,6 +80,9 @@ class PaintingsController extends Controller
 
         $finalImage = rand(1000,1000000) . $imageName;
         
+        $exp = "([¿\?!¡',\s])"; // It cleans unwanted characters
+        $finalImage = preg_replace($exp, "", $finalImage);
+        
         if ($uploadedFile->move($path, $finalImage)) {
 
             $attributes = [

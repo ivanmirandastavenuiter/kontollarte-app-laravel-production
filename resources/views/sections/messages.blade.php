@@ -10,6 +10,20 @@
             <h2>Messages</h2>
         </div>
 
+        <div class="alert-container">
+
+            @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success')}}
+            </div>
+            @elseif (session('fail'))
+            <div class="alert alert-danger">
+                {{ session('fail')}}
+            </div>
+            @endif
+
+        </div>
+
         <div class="container-fluid table-container">
 
             <div class="col-12" id="message-table-title">
@@ -84,8 +98,6 @@
                         </div>
 
                         <div class="message-btn-container">
-                            <input type="hidden" name="mod" value="message">
-                            <input type="hidden" name="op" value="handleMessageRequest">
                             <button type="button" class="btn btn-danger submit-btn">Send</button>
                         </div>
 

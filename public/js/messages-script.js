@@ -13,11 +13,11 @@ $(document).ready(function() {
 
         $.ajax({
         method  : "GET",
-        url     : "index.php",
+        url     : "handle_request",
         dataType: "json",
-        data: { "mod" : "message", "op" : "handleMessageRequest", "message-body" : messageBody, "galleriesList" : galleriesSelected },
-        success : function(data) {  
-
+        data: { "messageBody" : messageBody, "galleriesList" : galleriesSelected },
+        success : function(data) { 
+            
             if(data.result) {
 
                 $('#confirm-message .modal-body .message-content')[0].innerHTML = '';
@@ -29,17 +29,23 @@ $(document).ready(function() {
                 $.each(data.receivers, function() {
                 $('#confirm-message .modal-body .receivers-content ul')
                         .append(
-                            '<li>' + this.name + ' - ' + this.email + '</li>');
+                            '<li>' + this.galleryName + ' - ' + this.galleryEmail + '</li>');
                 });
 
-                $.each(data.pictures, function() {
+                var fixedUrl = document.location.href
+                                    .split("public")[0]
+                                    .concat('public/');
+
+                                   
+
+                $.each(data.paintings, function() {
                 $('#confirm-message .modal-body .jobs-content')
                         .append(
-                            "<p><strong>" + this.name + "</strong></p>" + 
-                            "<img src='" + this.image + "' width='450' height='400'>" +
+                            "<p><strong>" + this.paintName + "</strong></p>" + 
+                            "<img src='" + fixedUrl + this.paintImage + "' width='450' height='400'>" +
                             "<div class='custom-control custom-checkbox'>" 
-                                + "<input type='checkbox' data-paint-id='" + this.id + "' class='custom-control-input usr-pics' id='paint" + this.id + "'>"
-                                + "<label class='custom-control-label' for='paint" + this.id + "'>Include this job</label>"
+                                + "<input type='checkbox' data-paint-id='" + this.paintId + "' class='custom-control-input usr-pics' id='paint" + this.paintId + "'>"
+                                + "<label class='custom-control-label' for='paint" + this.paintId + "'>Include this job</label>"
                             + "</div>");
                 });
 
@@ -47,21 +53,23 @@ $(document).ready(function() {
 
                     e.preventDefault();
 
-                    var selectedPictures = [];
+                    var selectedPaints = [];
                     $('.custom-control-input.usr-pics').each(function() {
                         if (this.checked) {
                             inputData = this;
-                            $.each(data.pictures, function() { 
-                                if (this.id == inputData.dataset.paintId) {
-                                    selectedPictures.push(this);
+                            $.each(data.paintings, function() { 
+                                if (this.paintId == inputData.dataset.paintId) {
+                                    selectedPaints.push(this);
                                 }
                             });
                         }
                     })
 
+                    console.log(selectedPaints)
+
                     $('input#message-content').attr('value', JSON.stringify(data.messageBody));
                     $('input#receivers').attr('value', JSON.stringify(data.receivers));
-                    $('input#pictures').attr('value', JSON.stringify(selectedPictures));
+                    $('input#pictures').attr('value', JSON.stringify(selectedPaints));
 
                     this.submit();
 
@@ -94,7 +102,13 @@ function enableDisableSubmitButton() {
     $(document).ready(function() {
         if ($('#message-body')[0].textContent.length > 0) {
             if ($('.galleries-checkbox-container')[0].children[1].children.length > 0) {
-                $('.submit-btn').prop('disabled', false)
+                checked = false;
+                $("input[id^='customCheck']").each(function() {
+                    if(this.checked == true) {
+                        checked = true;
+                    }
+                })
+                checked ? $('.submit-btn').prop('disabled', false) : $('.submit-btn').prop('disabled', true)
             }
         } else {
             $('.submit-btn').prop('disabled', true)
@@ -103,6 +117,13 @@ function enableDisableSubmitButton() {
 
 }
 
+function changeOnCheckboxClick() {
+    $(document).ready(function() {
+        $("input[id^='customCheck']").click(function() {
+            enableDisableSubmitButton();
+        })
+    })
+}
+
 enableDisableSubmitButton();
-
-
+changeOnCheckboxClick();

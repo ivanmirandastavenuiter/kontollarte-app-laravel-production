@@ -2,8 +2,7 @@
 
 On production. Last release: phase 6. 
 
-Currently working on controllers development.
-Javascript code added.
+Controllers finished. Entire project translated to Laravel. Next task: items upload on ebay with Laravel Dusk.
 
 ## Updates
 
@@ -45,3 +44,9 @@ Javascript code added.
 * Model creation and relations established
 * First approach to controllers
 
+### Seventh phase
+
+* Controllers finished
+* Javascript/jQuery introduced for info recovery
+* AJAX functions
+* PHP mailer integrated

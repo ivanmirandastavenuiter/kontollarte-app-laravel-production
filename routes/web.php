@@ -212,6 +212,16 @@ Route::group(['prefix' => 'paintings'], function() {
          'uses' => 'MessagesController@display',
          'as' => 'messages.display'
      ]);
+
+     Route::get('handle_request', [
+        'uses' => 'MessagesController@handleMessageRequest',
+        'as' => 'messages.request'
+    ]);
+
+    Route::post('execute_request', [
+        'uses' => 'MessagesController@executeMessageRequest',
+        'as' => 'messages.execute'
+    ]);
  
  
  });

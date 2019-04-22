@@ -34,8 +34,8 @@
       </div>
       <div class="modal-body">
 
-        <form method="get" id="message-form">
-
+        <form action="{{ route('messages.execute') }}" method="post" id="message-form">
+            @csrf
             <p>The following message will be sent:</p>   
 
             <p><strong>Message content: </strong></p>
@@ -57,8 +57,6 @@
             <input type="hidden" name="message-content" id="message-content">
             <input type="hidden" name="receivers[]" id="receivers">
             <input type="hidden" name="pictures[]" id="pictures">
-            <input type="hidden" name="mod" value="message">
-            <input type="hidden" name="op" value="executeMessageRequest">
 
             <button type="submit" class="btn btn-warning">Confirm</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Undo</button>
