@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Show;
 use App\Image;
+use URL; 
 use App\Libraries\API\ApiDataProvider;
 use App\Http\Controllers\SessionController;
 
@@ -98,8 +99,8 @@ class ShowController extends Controller
 
     }
 
-    public function getNextSliderImage(Request $request) {
-
+    public function getNextSliderImage(Request $request) 
+    {
         $this->session = SessionController::getInstance($request);
         $currentUser = $this->session->getUserLogged();
 
@@ -222,6 +223,13 @@ class ShowController extends Controller
 
     public function getNumberOfShows() {
         echo Show::all()->count();
+    }
+
+    public function getUrlHashToken(Request $request) {
+        return $request->has('parameters') ? 
+                        URL::signedRoute($request->input('route'), 
+                                            ['position' => $request->input('parameters')]) :
+                        URL::signedRoute($request->input('route'));
     }
 
 }

@@ -6,13 +6,15 @@ $(document).ready(function() {
     });
 
     $(document).on('click', '.dlt-btn', function() {
+
         var deleteId = $(this).data('delete-id');
+        var hash = getUrlHashToken('galleries.details', deleteId.split("/")[1])
         $('.modal-footer #confirm-gallery-id-delete-form').attr('action', deleteId.trim());
         $.ajax({
             method  : "GET",
             url     : "details",
             contentType: "json",
-            data: { "galleryId" : deleteId.split("/")[1] },
+            data: { "galleryId" : deleteId.split("/")[1], "signature" : hash },
             success : function(data) {
 
                 console.log(data);
@@ -36,10 +38,13 @@ $(document).ready(function() {
     });
 
     $(document).on('click', '.refresh-galleries-btn', function() {
+
+        var hash = getUrlHashToken('galleries.reload');
         
         $.ajax({
             method  : "GET",
             url     : "reload",
+            data    : { "signature" : hash },
             dataType: "html",
             success : function(data) {
                 $('.cards-container').append(data);
@@ -52,3 +57,60 @@ $(document).ready(function() {
     });
 
 })
+
+function getUrlHashToken(route, parameters = null) {
+
+    result = '';
+
+    $.ajaxSetup({
+      headers: {
+          'X-CSRF-TOKEN': $("input[name='_token']")[0].value
+      }
+    });
+
+    method = window.location.href.endsWith('public/')
+                ? 'shows/get_hash_url_token'
+                : 'get_hash_url_token'
+
+    if (parameters !== null) {
+
+      console.log('Not null');
+
+      $.ajax({
+          method      : "post",
+          url         : method,
+          async       : false,
+          cache       : false,
+          data        : { "route" : route, "parameters" : parameters},
+          dataType    : "text",
+          success     : function(data) {
+            result = data.split('signature=')[1].trim();
+          },
+          error       : function(errorThrown) {
+            console.log('Error thrown: ' + errorThrown);
+          }
+    });
+
+    } else {
+
+      console.log('yesfuckingfgotdamnull?');
+
+      $.ajax({
+          method      : "post",
+          url         : method,
+          async       : false,
+          cache       : false,
+          data        : { "route" : route },
+          dataType    : "text",
+          success     : function(data) {
+            result = data.split('signature=')[1].trim();
+          },
+          error       : function(errorThrown) {
+            console.log('Error thrown: ' + errorThrown);
+          }
+      });
+
+    }
+
+    return result;
+  }

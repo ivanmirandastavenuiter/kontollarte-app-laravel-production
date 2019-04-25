@@ -50,4 +50,10 @@
     text-align: center !important;
     padding: 20px !important;
   }
+
+  .alert-container {
+    margin: 30px auto;
+    width: 600px;   
+    text-align: center;
+  }
   

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Receiver;
 use App\Message;
 use App\Paint;
+use URL;
 use DateTime;
 use Autoload;
 use PHPMailer\PHPMailer\PHPMailer;
@@ -205,5 +206,15 @@ class MessagesController extends Controller
 EX;
     
         file_put_contents($path, $HTMLCode);
+    }
+
+    public function getUrlHashToken(Request $request) {
+        return $request->has('parameters') ? 
+                        URL::signedRoute($request->input('route'), 
+                                            [
+                                                'messageBody' => $request->input('parameters')['messageBody'],
+                                                'galleriesList' => $request->input('parameters')['galleriesList']
+                                            ]) :
+                        URL::signedRoute($request->input('route'));
     }
 }

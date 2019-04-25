@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use App\Http\Controllers\SessionController;
 use Closure;
 use Session;
+use URL;
 
 class SessionManager
 {

@@ -3,6 +3,7 @@
 On production. Last release: phase 7.
 
 Controllers finished. Project translated to Laravel. Next task: automation with Laravel Dusk to upload items on Ebay.
+Get routes covered with URL::signedRoute() method.
 
 ## Updates
 

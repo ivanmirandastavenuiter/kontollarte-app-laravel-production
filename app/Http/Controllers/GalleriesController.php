@@ -8,6 +8,7 @@ use App\Libraries\API\ApiDataProvider;
 use App\User;
 use App\Gallery;
 use DateTime;
+use URL;
 
 class GalleriesController extends Controller
 {
@@ -193,6 +194,13 @@ class GalleriesController extends Controller
                         'galleriesReloadedList' => $galleriesReloadedList
                     ]);
 
+    }
+
+    public function getUrlHashToken(Request $request) {
+        return $request->has('parameters') ? 
+                        URL::signedRoute($request->input('route'), 
+                                            ['galleryId' => $request->input('parameters')]) :
+                        URL::signedRoute($request->input('route'));
     }
 
 }

@@ -5,10 +5,10 @@ $(document).ready(function() {
     var route = window.location.href.endsWith('public/')
                   ? 'shows/next'
                   : 'next';
-
-                  console.log(route)
-
-	  var position = $('.slider-container').data('position');
+    
+    var position = $('.slider-container').data('position');
+    
+    var hash = getUrlHashToken('shows.next', position);
 
     var img = $('.carousel-item > img');
 
@@ -16,7 +16,7 @@ $(document).ready(function() {
           method  : "GET",
           url     : route,
           dataType: "json",
-          data: { "position" : position },
+          data: { "signature" : hash , "position" : position },
           success : function(data) {  
 
             if (!data.error) {
@@ -63,9 +63,9 @@ $(document).ready(function() {
                     ? 'shows/previous'
                     : 'previous';
 
-                    console.log(route)
-
       var position = $('.slider-container').data('position');
+
+      var hash = getUrlHashToken('shows.previous', position);
 
       var img = $('.carousel-item > img');
 
@@ -73,7 +73,7 @@ $(document).ready(function() {
           method  : "GET",
           url     : route,
           dataType: "json",
-          data: { "position" : position },
+          data: { "signature" : hash, "position" : position },
           success : function(data) {
 
             var showData = data.showData;
@@ -175,12 +175,13 @@ $(document).ready(function() {
                 ? 'shows/count'
                 : 'count';
 
-                console.log(route)
+    var hash = getUrlHashToken('shows.count');
 
           $.ajax({
             method  : "GET",
             async: false,
             url     : route,
+            data    : { "signature" : hash },
             dataType: "text",
             success : function(data) {
 
@@ -219,6 +220,63 @@ $(document).ready(function() {
 
       return dimensions;
 
+    }
+
+    function getUrlHashToken(route, parameters = null) {
+
+      result = '';
+
+      $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $("input[name='_token']")[0].value
+        }
+      });
+
+      method = window.location.href.endsWith('public/')
+                  ? 'shows/get_hash_url_token'
+                  : 'get_hash_url_token'
+
+      if (parameters !== null) {
+
+        console.log('Not null');
+
+        $.ajax({
+            method      : "post",
+            url         : method,
+            async       : false,
+            cache       : false,
+            data        : { "route" : route, "parameters" : parameters},
+            dataType    : "text",
+            success     : function(data) {
+              result = data.split('signature=')[1].trim();
+            },
+            error       : function(errorThrown) {
+              console.log('Error thrown: ' + errorThrown);
+            }
+      });
+
+      } else {
+
+        console.log('yesfuckingfgotdamnull?');
+
+        $.ajax({
+            method      : "post",
+            url         : method,
+            async       : false,
+            cache       : false,
+            data        : { "route" : route },
+            dataType    : "text",
+            success     : function(data) {
+              result = data.split('signature=')[1].trim();
+            },
+            error       : function(errorThrown) {
+              console.log('Error thrown: ' + errorThrown);
+            }
+        });
+
+      }
+
+      return result;
     }
 
 }) ;

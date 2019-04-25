@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\SessionController;
 use App\Http\Requests\UploadPaintRequest;
 use App\User;
+use URL;
 use Validator;
 use App\Paint;
 
@@ -132,6 +133,17 @@ class PaintingsController extends Controller
 
         echo json_encode($resultResponse);
 
+    }
+
+    public function getUrlHashToken(Request $request) {
+        return $request->has('parameters') ? 
+                        URL::signedRoute($request->input('route'), 
+                                            [
+                                                'id' => $request->input('parameters')['id'],
+                                                'imagesLoaded' => $request->input('parameters')['imagesLoaded'],
+                                                'imagesToLoad' => $request->input('parameters')['imagesToLoad']
+                                            ]) :
+                        URL::signedRoute($request->input('route'));
     }
 
 
