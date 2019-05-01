@@ -49,7 +49,7 @@
           @csrf
           <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" class="form-control" name="username" value="{{ $currentUser->username }}" placeholder="Username">
+            <input type="text" class="form-control" id="username" name="username" value="{{ $currentUser->username }}" placeholder="Username">
           </div>
               <div class="form-group">
             <label for="name">Name</label>
@@ -67,7 +67,7 @@
             <label for="phone">Phone</label>
             <input type="text" class="form-control" pattern="[0-9]{9}" name="phone" value="{{ $currentUser->phone }}" placeholder="Phone">
           </div>
-            <input type="submit" class="btn btn-warning" value="Update" />
+            <input type="submit" class="btn btn-warning" id="accsubmit" value="Update" />
             <button class="btn btn-danger" data-dismiss="modal">Close</button>
         </form>
 

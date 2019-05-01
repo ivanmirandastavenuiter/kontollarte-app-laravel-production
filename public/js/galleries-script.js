@@ -17,7 +17,7 @@ $(document).ready(function() {
             data: { "galleryId" : deleteId.split("/")[1], "signature" : hash },
             success : function(data) {
 
-                console.log(data);
+              console.log(data);
 
                 $('.name > p')[0].innerHTML = '';
                 $('.region > p')[0].innerHTML = '';
@@ -28,6 +28,8 @@ $(document).ready(function() {
                 $('.region > p').append('<strong>Region: </strong>' + JSON.parse(data).region);
                 $('.site > p').append('<strong>Site: </strong>' + JSON.parse(data).site);
                 $('.email > p').append('<strong>Email: </strong>' + JSON.parse(data).email);
+
+                $('#confirm-delete-gallery-id').modal('show');
                   
             },
             error : function(e) {
@@ -55,6 +57,13 @@ $(document).ready(function() {
         })
 
     });
+
+    $('#confirm-delete-gallery-id').on('hidden.bs.modal', function (e) {
+        $('.name > p')[0].innerHTML = '';
+        $('.region > p')[0].innerHTML = '';
+        $('.site > p')[0].innerHTML = '';
+        $('.email > p')[0].innerHTML = '';
+    })
 
 })
 

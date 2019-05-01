@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('account.display') }}">Account</a>
+                <a class="nav-link" id="account-nav" href="{{ route('account.display') }}">Account</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('paintings.display') }}">Paintings</a> 
@@ -16,6 +16,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('messages.display') }}">Messages</a> 
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('sales.display') }}">Sales</a> 
             </li>
         </ul>
     </div>

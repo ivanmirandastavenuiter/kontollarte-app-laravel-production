@@ -26,8 +26,6 @@
         
         </div>
 
-
-
         <div class="container-fluid table-container">
 
             <div class="col-12" id="gallery-table-title">
@@ -64,7 +62,7 @@
                     <td>{{ $currentGallery->galleryWeb }}</td>
                     <td><a class="btn btn-danger dlt-btn" 
                                 data-delete-id="delete/{{ $currentGallery->galleryId }} "
-                                data-toggle="modal" href="#confirm-delete-gallery-id">
+                                data-toggle="modal" href="">
                                 Delete</a></td>
                     </tr>
 

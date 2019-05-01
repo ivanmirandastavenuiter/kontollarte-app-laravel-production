@@ -180,6 +180,15 @@ Route::group(['prefix' => 'paintings'], function() {
  
  });
 
+ Route::group(['prefix' => 'sales'], function() {
+
+    Route::get('display', [
+        'uses' => 'SalesController@display',
+        'as' => 'sales.display'
+    ]);
+
+ });
+
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -9,6 +9,10 @@ use App\User;
 use App\Gallery;
 use DateTime;
 use URL;
+use Artisan;
+use App;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
 
 class GalleriesController extends Controller
 {
@@ -26,54 +30,68 @@ class GalleriesController extends Controller
 
     public function display(Request $request) {
 
-        $this->session = SessionController::getInstance($request);
-        $currentUser = $this->session->getUserLogged();
-        $currentUser->refresh();
+        $pathToArtisan = 'C:\xampp\htdocs\k24';
+        
+        echo exec("cd $pathToArtisan && php artisan dusk");
 
-        if($request->old('refresh') !== null && !$request->old('refresh')) {
+        // $process = new Process("cd $pathToArtisan && php artisan dusk");
+        // $process->run();
 
-            $galleriesPageList = $this->session->get('galleriesPageList') ?: collect();
-            $galleriesUserList = $currentUser->galleries ?: collect();
+        // // executes after the command finishes
+        // if (!$process->isSuccessful()) {
+        //     throw new ProcessFailedException($process);
+        // }
 
-            return view('sections.galleries')
-                        ->with([
-                            'view' => 'galleries',
-                            'galleriesPageList' => $galleriesPageList,
-                            'galleriesUserList' => $galleriesUserList
-                        ]);
+        // echo $process->getOutput();
 
-        }
+        // $this->session = SessionController::getInstance($request);
+        // $currentUser = $this->session->getUserLogged();
+        // $currentUser->refresh();
 
-        $this->session->forget('galleriesPageList');
+        // if($request->old('refresh') !== null && !$request->old('refresh')) {
 
-        $ap = new ApiDataProvider();
-        $request = $ap->getGalleriesTrhoughOffset(6, rand(1, 500));
-        $galleriesPageList = collect();
+        //     $galleriesPageList = $this->session->get('galleriesPageList') ?: collect();
+        //     $galleriesUserList = $currentUser->galleries ?: collect();
 
-        foreach($request as $gallery) {
+        //     return view('sections.galleries')
+        //                 ->with([
+        //                     'view' => 'galleries',
+        //                     'galleriesPageList' => $galleriesPageList,
+        //                     'galleriesUserList' => $galleriesUserList
+        //                 ]);
 
-            $currentGallery = new Gallery ([
-                'galleryId' =>  $gallery['id'],
-                'galleryName' => !empty($gallery['name']) ? $gallery['name'] : 'Name not provided',
-                'galleryAddress' => !empty($gallery['region']) ? $gallery['region'] : 'Region not provided',
-                'galleryEmail' => !empty($gallery['email']) ? $gallery['email'] : 'Email not provided',
-                'galleryWeb' => !empty($gallery['_links']['website']['href']) ? $gallery['_links']['website']['href'] : 'Site not provided'
-            ]);
+        // }
 
-            $galleriesPageList->push($currentGallery);
-        }
+        // $this->session->forget('galleriesPageList');
 
-        $this->session->put('galleriesPageList', $galleriesPageList);
+        // $ap = new ApiDataProvider();
+        // $request = $ap->getGalleriesTrhoughOffset(6, rand(1, 500));
+        // $galleriesPageList = collect();
 
-        $galleriesUserList = $currentUser->galleries ?: collect();
+        // foreach($request as $gallery) {
+
+        //     $currentGallery = new Gallery ([
+        //         'galleryId' =>  $gallery['id'],
+        //         'galleryName' => !empty($gallery['name']) ? $gallery['name'] : 'Name not provided',
+        //         'galleryAddress' => !empty($gallery['region']) ? $gallery['region'] : 'Region not provided',
+        //         'galleryEmail' => !empty($gallery['email']) ? $gallery['email'] : 'Email not provided',
+        //         'galleryWeb' => !empty($gallery['_links']['website']['href']) ? $gallery['_links']['website']['href'] : 'Site not provided'
+        //     ]);
+
+        //     $galleriesPageList->push($currentGallery);
+        // }
+
+        // $this->session->put('galleriesPageList', $galleriesPageList);
+
+        // $galleriesUserList = $currentUser->galleries ?: collect();
 
 
-        return view('sections.galleries')
-                    ->with([
-                        'view' => 'galleries',
-                        'galleriesPageList' => $galleriesPageList,
-                        'galleriesUserList' => $galleriesUserList
-                    ]);
+        // return view('sections.galleries')
+        //             ->with([
+        //                 'view' => 'galleries',
+        //                 'galleriesPageList' => $galleriesPageList,
+        //                 'galleriesUserList' => $galleriesUserList
+        //             ]);
 
     }
 
@@ -94,7 +112,7 @@ class GalleriesController extends Controller
             if (!$selectedGallery->isEmpty()
                     && $selectedGallery->count() > 0
                     && $selectedGallery !== null) {
-                        
+
                 $currentUser->galleries()->save($replicated, ['gallerySignup' => new DateTime()]);
                 $currentUser->refresh();
                 $this->session->updateUserLogged($currentUser);
@@ -147,13 +165,13 @@ class GalleriesController extends Controller
         $galleriesPageList = $this->session->get('galleriesPageList');
 
         if ($currentUser->galleries->contains($galleryId)) {
-            
+
             $currentUser->galleries()
                     ->first()
                     ->where('galleries.galleryId', $galleryId)
                     ->first()
                     ->delete();
-            
+
             $currentUser->refresh();
             $this->session->updateUserLogged($currentUser);
 
@@ -197,8 +215,8 @@ class GalleriesController extends Controller
     }
 
     public function getUrlHashToken(Request $request) {
-        return $request->has('parameters') ? 
-                        URL::signedRoute($request->input('route'), 
+        return $request->has('parameters') ?
+                        URL::signedRoute($request->input('route'),
                                             ['galleryId' => $request->input('parameters')]) :
                         URL::signedRoute($request->input('route'));
     }
