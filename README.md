@@ -1,9 +1,9 @@
 # MVC Implementation on Kontollarte app
 
-On production. Last release: phase 7.
+Status: done.
 
-Controllers finished. Project translated to Laravel. Next task: automation with Laravel Dusk to upload items on Ebay.
-Get routes covered with URL::signedRoute() method.
+Kontollarte domain: http://www.kontollarte.com
+Kontollarte docs: http://www.kontollarte.com/documentacion
 
 ## Updates
 
@@ -51,3 +51,12 @@ Get routes covered with URL::signedRoute() method.
 * Javascript/jQuery introduced for info recovery
 * AJAX functions
 * PHP mailer integrated
+
+### Eighth phase
+
+* CSS rebuilt
+* jQuery fixes
+* Implementation of IHasher interface
+* Full responsive behavior
+
+
