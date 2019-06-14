@@ -5,7 +5,9 @@ Status: done.
 Kontollarte domain: http://www.kontollarte.com
 
 Kontollarte docs: http://www.kontollarte.com/documentacion
+
 Usuario: kontollarte1
+
 Contraseña: admin1
 
 ## Updates
