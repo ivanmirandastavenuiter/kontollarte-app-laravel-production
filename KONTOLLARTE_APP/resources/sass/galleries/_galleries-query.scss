@@ -1,0 +1,39 @@
+@media (max-width: 767px) {
+    
+    .pg-title-container,
+    .table-item-main-container {
+        text-align: center !important;
+        flex-flow: column;
+    }
+    .table-item-secondary-container,
+    .load-more-second-container {
+        text-align: center;
+    }
+    .table-item-secondary-container .dlt-btn {
+        margin: 0;
+    }
+    .table-item-secondary-container .item-details{
+        text-indent: 0;
+    }
+    .ng-title-container {
+        text-align: center;
+    }
+   
+}
+
+@media (max-width: 1005px) {
+
+    .item-details {
+        text-indent: 100px;
+    }
+    .dlt-btn {
+        margin: 25px 0 0 100px;
+    }
+}
+
+
+
+
+
+
+

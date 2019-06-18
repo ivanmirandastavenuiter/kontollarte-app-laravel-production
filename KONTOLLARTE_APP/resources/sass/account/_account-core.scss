@@ -1,0 +1,244 @@
+/* Page core css */
+
+.account-body-container {
+	background: #665687;
+	-webkit-background: #665687;
+    -moz-background: #665687;
+    -ms-background: #665687;
+    -o-background: #665687;
+}
+
+.account-box-container {
+	margin-top: 100px;
+	margin-bottom: 100px;
+	color: #000;
+	
+}
+
+.account-box-left {
+	border-right: 1px solid #fff;
+	font-family: 'Raleway', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	font-size: 0.9em;
+	color: #fff;
+}
+
+.account-box-right {
+	font-family: 'Merriweather', serif;
+	letter-spacing: 5px;
+	font-size: 0.9em;
+	padding-left: 20px;
+	color: #fff;
+}
+
+.ac-title-container {
+	color: #190933;
+}
+
+.ac-title-container {
+	padding: 100px 100px 100px 105px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 2em;
+	letter-spacing: 5px;
+}
+
+.modal-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: .8em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.modal-content {
+    border-radius: 0;
+}
+
+.form-group > label {
+    font-family: 'Raleway', sans-serif;
+    font-size: .7em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+#confirm-delete .modal-body p {
+	font-family: 'Merriweather', serif;
+	letter-spacing: 5px;
+	font-size: 0.9em;
+	text-align: center;
+	line-height: 40px;
+}
+
+.form-control {
+	border: none;
+	outline: none;
+	border-radius: 0;
+}
+
+.form-group {
+	padding: 10px;
+}
+
+.form-group > input {
+	font-family: 'Merriweather', serif;
+	letter-spacing: 5px;
+	font-size: 0.8em;
+	border-bottom: 1px solid #190933;
+}
+
+#update-form, #confirm-delete .modal-body {
+    padding: 60px;
+}
+
+#update-form .form-group:nth-last-child(2) {
+    padding-bottom: 40px !important;
+}
+
+.confirm-btn-container {
+	text-align: center;
+}
+
+#delete-form {
+	width: 400px;
+}
+
+.confirm-delete-btn-container {
+	margin: 0 auto;
+}
+
+#confirm-delete .modal-footer {
+	justify-content: center;
+	border: none;
+}
+
+.confirm-update-btn,
+.confirm-upd-close-btn,
+.confirm-delete-btn,
+.confirm-delete-close-btn {
+	border-radius: 0;
+	font-family: 'Raleway', sans-serif;
+    font-size: .8em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.alert-success {
+	width: 600px;
+    margin: 0 auto 35px auto;
+	text-align: center;
+	font-family: 'Merriweather', serif;
+	letter-spacing: 5px;
+	background: #5DD9C1;
+	-webkit-background: #5DD9C1;
+    -moz-background: #5DD9C1;
+    -ms-background: #5DD9C1;
+    -o-background: #5DD9C1;
+	color: #196657;
+	border-color: #196657;
+	border-radius: 0;
+}
+
+.alert-danger {
+	margin: 0 60px;
+	font-size: .9em;
+	font-family: 'Merriweather', serif;
+	letter-spacing: 5px;
+	background: #e86666;
+	-webkit-background: #e86666;
+    -moz-background: #e86666;
+    -ms-background: #e86666;
+    -o-background: #e86666;
+	
+	color: #4c0606;
+	border-color: #ed1515;
+	border-radius: 0;
+}
+
+.alert-danger {
+	margin-bottom: 0;
+}
+
+.alert-danger ul, .alert-success ul {
+	margin-bottom: 0 !important;
+}
+
+#delete-success .modal-footer {
+	justify-content: center;
+	border: none;
+}
+
+#delete-success .modal-body p {
+	font-family: 'Merriweather', serif;
+	letter-spacing: 5px;
+	font-size: 0.8em;
+	text-align: center;
+	line-height: 40px;
+}
+
+#delete-success .modal-body {
+    padding: 60px;
+}
+
+.dlt-close-btn {
+	border-radius: 0;
+	font-family: 'Raleway', sans-serif;
+    font-size: .8em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.balance-margin {
+	margin-top: 0px;
+}
+
+.balance-margin-wrap {
+	margin-top: 929px;
+}
+
+#update-user, 
+#confirm-delete {
+	z-index: 9999;
+}
+
+#update-user .close,
+#confirm-delete .close {
+	color: #fff;
+}
+
+#update-user .modal-header,
+#confirm-delete .modal-header {
+	background: #190933;
+	-webkit-background: #190933;
+    -moz-background: #190933;
+    -ms-background: #190933;
+    -o-background: #190933;
+	color: #fff;
+	border-radius: 0;
+}
+
+.form-control:focus {
+	background-color: transparent;
+	border-bottom: 1px solid #190933;
+    outline: 0;
+    box-shadow: none;
+}
+
+.form-group {
+	color: #190933;
+}
+
+.balance-margin {
+	margin-top: 0px;
+}
+
+.balance-margin-wrap {
+	margin-top: 777px;
+}
+
+.form-control {
+	background: transparent;
+	-webkit-background: transparent;
+    -moz-background: transparent;
+    -ms-background: transparent;
+    -o-background: transparent;
+}

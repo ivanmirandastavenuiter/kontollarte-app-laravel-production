@@ -1,0 +1,118 @@
+.submit-btn {
+  color: #fff;
+  background: #665687;
+  -webkit-background: #665687;
+  -moz-background: #665687;
+  -ms-background: #665687;
+  -o-background: #665687;
+	border-color: #665687;
+}
+
+.submit-btn:hover {
+	color: #fff !important;
+  background: #423263;
+  -webkit-background: #423263;
+  -moz-background: #423263;
+  -ms-background: #423263;
+  -o-background: #423263;
+	border-color: #423263;
+}
+
+.submit-btn:active {
+	color: #fff !important;
+  background: #24193a !important;
+  -webkit-background: #24193a;
+  -moz-background: #24193a;
+  -ms-background: #24193a;
+  -o-background: #24193a;
+	border-color: #24193a !important;
+}
+
+.submit-btn:focus {
+	box-shadow: 0 0 0 0.2rem rgba(102, 86, 135, .5)
+}
+
+.submit-btn:not(:disabled):not(.disabled).active:focus, 
+.submit-btn:not(:disabled):not(.disabled):active:focus, 
+.show > .submit-btn.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(102, 86, 135, .5)
+}
+
+.confirm-btn {
+	color: #190933;
+  background: #5DD9C1;
+  -webkit-background: #5DD9C1;
+  -moz-background: #5DD9C1;
+  -ms-background: #5DD9C1;
+  -o-background: #5DD9C1;
+	border-color: #5DD9C1;
+}
+
+.confirm-btn:hover {
+	color: #fff;
+  background: #41baa2;
+  -webkit-background: #41baa2;
+  -moz-background: #41baa2;
+  -ms-background: #41baa2;
+  -o-background: #41baa2;
+	border-color: #41baa2;
+}
+
+.confirm-btn:active {
+	color: #fff !important;
+  background: #2d8473 !important;
+  -webkit-background: #2d8473;
+  -moz-background: #2d8473;
+  -ms-background: #2d8473;
+  -o-background: #2d8473;
+	border-color: #2d8473 !important;
+}
+
+.confirm-btn:focus {
+	box-shadow: 0 0 0 0.2rem rgba(93, 217, 193, .5)
+}
+
+.confirm-btn:not(:disabled):not(.disabled).active:focus, 
+.confirm-btn:not(:disabled):not(.disabled):active:focus, 
+.show > .confirm-btn.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(93, 217, 193, .5)
+}
+
+.confirm-close {
+	color: #190933;
+  background: #A5DDF8;
+  -webkit-background: #A5DDF8;
+  -moz-background: #A5DDF8;
+  -ms-background: #A5DDF8;
+  -o-background: #A5DDF8;
+	border-color: #A5DDF8;
+}
+
+.confirm-close:hover {
+	color: #fff;
+  background: #75acc6;
+  -webkit-background: #75acc6;
+  -moz-background: #75acc6;
+  -ms-background: #75acc6;
+  -o-background: #75acc6;
+	border-color: #75acc6;
+}
+
+.confirm-close:active {
+	color: #fff !important;
+  background: #3b748e !important;
+  -webkit-background: #3b748e;
+  -moz-background: #3b748e;
+  -ms-background: #3b748e;
+  -o-background: #3b748e;
+	border-color: #3b748e !important;
+}
+
+.confirm-close:focus {
+	box-shadow: 0 0 0 0.2rem rgba(165, 221, 248, .5)
+}
+.confirm-close:not(:disabled):not(.disabled).active:focus, 
+.confirm-close:not(:disabled):not(.disabled):active:focus, 
+.show > .confirm-close.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(165, 221, 248, .5)
+}

@@ -1,0 +1,21 @@
+@keyframes title-left {
+
+    0% {
+        left: -720px;
+    }
+    100% {
+        left: 0;
+    }
+
+}
+
+@keyframes title-right {
+
+    0% {
+        right: -720px;
+    }
+    100% {
+        right: 0;
+    }
+
+}

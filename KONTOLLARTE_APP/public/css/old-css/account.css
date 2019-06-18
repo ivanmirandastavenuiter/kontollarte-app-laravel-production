@@ -1,0 +1,553 @@
+/* Header squared title */
+
+.title-container {
+	background: #190933;
+	-webkit-background: 190933;
+    -moz-background: 190933;
+    -ms-background: 190933;
+    -o-background: 190933;
+    color: #190933;
+	font-family: 'Merriweather', serif;
+	margin-top: 173px;
+	transition: margin .5s;
+	-webkit-transition: margin .5s;
+    -moz-transition: margin .5s;
+    -ms-transition: margin .5s;
+    -o-transition: margin .5s;
+}
+
+.title-before-container {
+	position: relative;
+	left: -720px;
+	min-width: 230px;
+	background: #5DD9C1;
+	-webkit-background: #5DD9C1;
+    -moz-background: #5DD9C1;
+    -ms-background: #5DD9C1;
+    -o-background: #5DD9C1;
+	margin: 0 auto;
+	text-align: center;
+	padding: 40px 45px 20px 40px;
+	animation: title-left .9s ease-in 0s 1 forwards;
+	-webkit-animation: title-left .9s ease-in 0s 1 forwards;
+    -moz-animation: title-left .9s ease-in 0s 1 forwards;
+    -ms-animation: title-left .9s ease-in 0s 1 forwards;
+    -o-animation: title-left .9s ease-in 0s 1 forwards;
+}
+
+.title-main-container {
+	position: relative;
+	right: -720px;
+	min-width: 230px;
+	background: #fff;
+	-webkit-background: #fff;
+    -moz-background: #fff;
+    -ms-background: #fff;
+    -o-background: #fff;
+	margin: 0 auto;
+	animation: title-right .9s ease-in 0s 1 forwards;
+	-webkit-animation: title-right .9s ease-in 0s 1 forwards;
+    -moz-animation: title-right .9s ease-in 0s 1 forwards;
+    -ms-animation: title-right .9s ease-in 0s 1 forwards;
+    -o-animation: title-right .9s ease-in 0s 1 forwards;
+}
+
+.title-before {
+	font-size: 1.3em;
+	letter-spacing: 5px;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 35px;
+}
+
+.title-main {
+	text-transform: uppercase;
+	font-family: 'Raleway', sans-serif;
+	font-size: 1.5em;
+	letter-spacing: 5px;
+	color: #190933;
+	text-align: center;
+}
+
+/* Page core css */
+
+.account-body-container {
+	background: #665687;
+	-webkit-background: #665687;
+    -moz-background: #665687;
+    -ms-background: #665687;
+    -o-background: #665687;
+}
+
+.account-box-container {
+	margin-top: 100px;
+	margin-bottom: 100px;
+	color: #000;
+	
+}
+
+.account-box-left {
+	border-right: 1px solid #fff;
+	font-family: 'Raleway', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	font-size: 0.9em;
+	color: #fff;
+}
+
+.account-box-right {
+	font-family: 'Merriweather', serif;
+	letter-spacing: 5px;
+	font-size: 0.9em;
+	padding-left: 20px;
+	color: #fff;
+}
+
+.ac-title-container {
+	color: #190933;
+}
+
+.ac-title-container {
+	padding: 100px 100px 100px 105px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 2em;
+	letter-spacing: 5px;
+}
+
+.modal-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: .8em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.modal-content {
+    border-radius: 0;
+}
+
+.form-group > label {
+    font-family: 'Raleway', sans-serif;
+    font-size: .7em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+#confirm-delete .modal-body p {
+	font-family: 'Merriweather', serif;
+	letter-spacing: 5px;
+	font-size: 0.9em;
+	text-align: center;
+	line-height: 40px;
+}
+
+.form-control {
+	border: none;
+	outline: none;
+	border-radius: 0;
+}
+
+.form-group {
+	padding: 10px;
+}
+
+.form-group > input {
+	font-family: 'Merriweather', serif;
+	letter-spacing: 5px;
+	font-size: 0.8em;
+	border-bottom: 1px solid #190933;
+}
+
+#update-form, #confirm-delete .modal-body {
+    padding: 60px;
+}
+
+#update-form .form-group:nth-last-child(2) {
+    padding-bottom: 40px !important;
+}
+
+.confirm-btn-container {
+	text-align: center;
+}
+
+#delete-form {
+	width: 400px;
+}
+
+.confirm-delete-btn-container {
+	margin: 0 auto;
+}
+
+#confirm-delete .modal-footer {
+	justify-content: center;
+	border: none;
+}
+
+.confirm-update-btn,
+.confirm-upd-close-btn,
+.confirm-delete-btn,
+.confirm-delete-close-btn {
+	border-radius: 0;
+	font-family: 'Raleway', sans-serif;
+    font-size: .8em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.alert-success {
+	width: 600px;
+    margin: 0 auto 35px auto;
+	text-align: center;
+	font-family: 'Merriweather', serif;
+	letter-spacing: 5px;
+	background: #5DD9C1;
+	-webkit-background: #5DD9C1;
+    -moz-background: #5DD9C1;
+    -ms-background: #5DD9C1;
+    -o-background: #5DD9C1;
+	color: #196657;
+	border-color: #196657;
+	border-radius: 0;
+}
+
+.alert-danger {
+	margin: 0 60px;
+	font-size: .9em;
+	font-family: 'Merriweather', serif;
+	letter-spacing: 5px;
+	background: #e86666;
+	-webkit-background: #e86666;
+    -moz-background: #e86666;
+    -ms-background: #e86666;
+    -o-background: #e86666;
+	
+	color: #4c0606;
+	border-color: #ed1515;
+	border-radius: 0;
+}
+
+.alert-danger {
+	margin-bottom: 0;
+}
+
+.alert-danger ul, .alert-success ul {
+	margin-bottom: 0 !important;
+}
+
+#delete-success .modal-footer {
+	justify-content: center;
+	border: none;
+}
+
+#delete-success .modal-body p {
+	font-family: 'Merriweather', serif;
+	letter-spacing: 5px;
+	font-size: 0.8em;
+	text-align: center;
+	line-height: 40px;
+}
+
+#delete-success .modal-body {
+    padding: 60px;
+}
+
+.dlt-close-btn {
+	border-radius: 0;
+	font-family: 'Raleway', sans-serif;
+    font-size: .8em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.balance-margin {
+	margin-top: 0px;
+}
+
+.balance-margin-wrap {
+	margin-top: 929px;
+}
+
+#update-user, 
+#confirm-delete {
+	z-index: 9999;
+}
+
+#update-user .close,
+#confirm-delete .close {
+	color: #fff;
+}
+
+#update-user .modal-header,
+#confirm-delete .modal-header {
+	background: #190933;
+	-webkit-background: #190933;
+    -moz-background: #190933;
+    -ms-background: #190933;
+    -o-background: #190933;
+	color: #fff;
+	border-radius: 0;
+}
+
+.form-control:focus {
+	background-color: transparent;
+	border-bottom: 1px solid #190933;
+    outline: 0;
+    box-shadow: none;
+}
+
+.form-group {
+	color: #190933;
+}
+
+.balance-margin {
+	margin-top: 0px;
+}
+
+.balance-margin-wrap {
+	margin-top: 777px;
+}
+
+.form-control {
+	background: transparent;
+	-webkit-background: transparent;
+    -moz-background: transparent;
+    -ms-background: transparent;
+    -o-background: transparent;
+}
+
+/* Buttons */
+
+.update-btn, .delete-btn { 
+	font-family: 'Raleway', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 0.8em;
+	border-radius: 0;
+}
+
+.update-btn {
+	color: #190933;
+	background: #5DD9C1;
+	-webkit-background: #5DD9C1;
+    -moz-background: #5DD9C1;
+    -ms-background: #5DD9C1;
+    -o-background: #5DD9C1;
+	border-color: #5DD9C1;
+}
+
+.update-btn:hover {
+	color: #fff;
+	background: #41baa2;
+	-webkit-background: #41baa2;
+    -moz-background: #41baa2;
+    -ms-background: #41baa2;
+    -o-background: #41baa2;
+	border-color: #41baa2;
+}
+
+.update-btn:active {
+	color: #fff !important;
+	background: #2d8473 !important;
+	-webkit-background: #2d8473;
+    -moz-background: #2d8473;
+    -ms-background: #2d8473;
+    -o-background: #2d8473;
+	border-color: #2d8473 !important;
+}
+
+.update-btn:focus {
+	box-shadow: 0 0 0 0.2rem rgba(93, 217, 193, .5)
+}
+
+.update-btn:not(:disabled):not(.disabled).active:focus, 
+.update-btn:not(:disabled):not(.disabled):active:focus, 
+.show > .update-btn.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(93, 217, 193, .5)
+}
+
+.delete-btn {
+	color: #190933;
+	background: #A5DDF8;
+	-webkit-background: #A5DDF8;
+    -moz-background: #A5DDF8;
+    -ms-background: #A5DDF8;
+    -o-background: #A5DDF8;
+	border-color: #A5DDF8;
+}
+
+.delete-btn:hover {
+	color: #fff;
+	background: #75acc6;
+	-webkit-background: #75acc6;
+    -moz-background: #75acc6;
+    -ms-background: #75acc6;
+    -o-background: #75acc6;
+	border-color: #75acc6;
+}
+
+.delete-btn:active {
+	color: #fff !important;
+	background: #3b748e !important;
+	-webkit-background: #3b748e;
+    -moz-background: #3b748e;
+    -ms-background: #3b748e;
+    -o-background: #3b748e;
+	border-color: #3b748e !important;
+}
+
+.delete-btn:focus {
+	box-shadow: 0 0 0 0.2rem rgba(165, 221, 248, .5)
+}
+
+.delete-btn:not(:disabled):not(.disabled).active:focus, 
+.delete-btn:not(:disabled):not(.disabled):active:focus, 
+.show > .delete-btn.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(165, 221, 248, .5)
+}
+
+.confirm-update-btn,
+.confirm-delete-btn {
+	color: #190933;
+	background: #5DD9C1;
+	-webkit-background: #5DD9C1;
+    -moz-background: #5DD9C1;
+    -ms-background: #5DD9C1;
+    -o-background: #5DD9C1;
+	border-color: #5DD9C1;
+}
+
+.confirm-update-btn:hover,
+.confirm-delete-btn:hover {
+	color: #fff;
+	background: #41baa2;
+	-webkit-background: #41baa2;
+    -moz-background: #41baa2;
+    -ms-background: #41baa2;
+    -o-background: #41baa2;
+	border-color: #41baa2;
+}
+
+.confirm-update-btn:active,
+.confirm-delete-btn:active {
+	color: #fff !important;
+	background: #2d8473 !important;
+	-webkit-background: #2d8473;
+    -moz-background: #2d8473;
+    -ms-background: #2d8473;
+    -o-background: #2d8473;
+	border-color: #2d8473 !important;
+}
+
+.confirm-update-btn:focus,
+.confirm-delete-btn:focus {
+	box-shadow: 0 0 0 0.2rem rgba(93, 217, 193, .5)
+}
+
+.confirm-update-btn:not(:disabled):not(.disabled).active:focus, 
+.confirm-update-btn:not(:disabled):not(.disabled):active:focus, 
+.show > .confirm-update-btn.dropdown-toggle:focus,
+.confirm-delete-btn:not(:disabled):not(.disabled).active:focus, 
+.confirm-delete-btn:not(:disabled):not(.disabled):active:focus, 
+.show > .confirm-delete-btn.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(93, 217, 193, .5)
+}
+
+.confirm-upd-close-btn,
+.confirm-delete-close-btn {
+	color: #190933;
+	background: #A5DDF8;
+	-webkit-background: #A5DDF8;
+    -moz-background: #A5DDF8;
+    -ms-background: #A5DDF8;
+    -o-background: #A5DDF8;
+	border-color: #A5DDF8;
+}
+
+.confirm-upd-close-btn:hover,
+.confirm-delete-close-btn:hover {
+	color: #fff;
+	background: #75acc6;
+	-webkit-background: #75acc6;
+    -moz-background: #75acc6;
+    -ms-background: #75acc6;
+    -o-background: #75acc6;
+	border-color: #75acc6;
+}
+
+.confirm-upd-close-btn:active,
+.confirm-delete-close-btn:active {
+	color: #fff !important;
+	background: #3b748e !important;
+	-webkit-background: #3b748e;
+    -moz-background: #3b748e;
+    -ms-background: #3b748e;
+    -o-background: #3b748e;
+	border-color: #3b748e !important;
+}
+
+.confirm-upd-close-btn:focus,
+.confirm-delete-close-btn:focus {
+	box-shadow: 0 0 0 0.2rem rgba(165, 221, 248, .5)
+}
+
+.confirm-upd-close-btn:not(:disabled):not(.disabled).active:focus, 
+.confirm-upd-close-btn:not(:disabled):not(.disabled):active:focus, 
+.show > .confirm-upd-close-btn.dropdown-toggle:focus,
+.confirm-delete-close-btn:not(:disabled):not(.disabled).active:focus, 
+.confirm-delete-close-btn:not(:disabled):not(.disabled):active:focus, 
+.show > .confirm-delete-close-btn.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(165, 221, 248, .5)
+}
+
+/* Animations */
+
+@keyframes title-left {
+
+	0% {
+		left: -720px;
+	}
+	100% {
+		left: 0;
+	}
+
+}
+
+@keyframes title-right {
+
+	0% {
+		right: -720px;
+	}
+	100% {
+		right: 0;
+	}
+
+}
+
+/* Media queries */
+
+@media (max-width: 768px) {
+
+	.account-box-right, .account-box-left { 
+		text-align: center;
+		padding-right: 0 !important;
+		padding-left: 0 !important;
+		border-right: none !important;
+	}
+	.btn-container { text-align: center; }
+	.ac-title-container {
+		text-align: center;
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

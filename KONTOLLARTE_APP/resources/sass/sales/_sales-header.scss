@@ -1,0 +1,68 @@
+.title-container {
+    background: #190933;
+    -webkit-background: #190933;
+    -moz-background: #190933;
+    -ms-background: #190933;
+    -o-background: #190933;
+    color: #190933;
+	font-family: 'Merriweather', serif;
+	margin-top: 173px;
+    transition: margin .5s;
+    -webkit-transition: margin .5s;
+    -moz-transition: margin .5s;
+    -ms-transition: margin .5s;
+    -o-transition: margin .5s;
+}
+
+.title-before-container {
+	position: relative;
+	left: -720px;
+	min-width: 230px;
+    background: #5DD9C1;
+    -webkit-background: #5DD9C1;
+    -moz-background: #5DD9C1;
+    -ms-background: #5DD9C1;
+    -o-background: #5DD9C1;
+	margin: 0 auto;
+	text-align: center;
+    animation: title-left .9s ease-in 0s 1 forwards;
+    -webkit-animation: title-left .9s ease-in 0s 1 forwards;
+    -moz-animation: title-left .9s ease-in 0s 1 forwards;
+    -ms-animation: title-left .9s ease-in 0s 1 forwards;
+    -o-animation: title-left .9s ease-in 0s 1 forwards;
+    
+}
+
+.title-main-container {
+	position: relative;
+	right: -720px;
+	min-width: 230px;
+    background: #fff;
+    -webkit-background: #fff;
+    -moz-background: #fff;
+    -ms-background: #fff;
+    -o-background: #fff;
+	margin: 0 auto;
+    animation: title-right .9s ease-in 0s 1 forwards;
+    -webkit-animation: title-right .9s ease-in 0s 1 forwards;
+    -moz-animation: title-right .9s ease-in 0s 1 forwards;
+    -ms-animation: title-right .9s ease-in 0s 1 forwards;
+    -o-animation: title-right .9s ease-in 0s 1 forwards;
+}
+
+.title-before {
+	font-size: 1.3em;
+	letter-spacing: 5px;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 35px;
+}
+
+.title-main {
+	text-transform: uppercase;
+	font-family: 'Raleway', sans-serif;
+	font-size: 1.5em;
+	letter-spacing: 5px;
+	color: #190933;
+	text-align: center;
+}

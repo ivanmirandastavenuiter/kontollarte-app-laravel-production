@@ -1,0 +1,87 @@
+.footer-container {
+    background: linear-gradient(to right, #B084CC, #A5DDF8);
+    -webkit-background: #3b748e;
+    -moz-background: #3b748e;
+    -ms-background: #3b748e;
+    -o-background: #3b748e;
+    color: #190933;
+}
+
+.footer-column-title {
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 5px;
+}
+
+.footer-column-title .location-pg,
+.footer-column-title .contact-pg {
+    min-width: 125px;
+}
+
+.about-pg, .contact-pg, .location-pg {
+    font-size: .9em;
+}
+
+.about-text, 
+.location-text,
+.address-info,
+.location-info,
+.email-info {
+    font-size: 0.7em;
+}
+
+.footer-column-title .about-text,
+.footer-column-title .location-text,
+.footer-column-title .contact-text {
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 4px;
+    line-height: 20px;
+    text-align: justify;
+}
+
+.contact-media span i { font-size: 1.4em; }
+
+.social-media-container {
+    color: #190933;
+    margin-top: 50px;
+    font-size: 1.7em;
+}
+
+.social-media-container span { margin: 50px; }
+
+.social-media-container span i:hover {
+    color: #fff;
+}
+
+.sh-title-container {
+    padding: 100px 100px 50px 100px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 2em;
+    letter-spacing: 5px;
+}
+
+#update-form {
+    padding: 60px;
+}
+
+.footer-column-title div p:first-child {
+    font-weight: bold;
+}
+
+.about-title div {
+    width: 75%;
+}
+
+.footer-column-title p {
+    margin-bottom: 0.35rem;
+}
+
+.address-info small:hover,
+.address-info b:hover,
+.email-info b:hover,
+.footer-column-title p:hover,
+.phone-icon:hover, 
+.email-icon:hover,
+.address-icon:hover
+{
+    color: #fff;
+}

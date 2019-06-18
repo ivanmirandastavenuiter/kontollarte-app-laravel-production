@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="grito.png"/>
+    <title>Docs</title>
+    <style>
+        .main-container {
+            width: 80%;
+            margin: 50px auto;
+        }
+        h1, h2, h3, h4, h5 {
+            padding: 25px;
+            font-family: 'Playfair Display', serif;
+        }
+        p {
+            text-align: justify;
+            padding-right: 50px;
+            padding-left: 50px;
+            font-family: 'Open Sans', sans-serif;
+            line-height: 30px;
+        }
+        ul {
+            padding: 20px 0 20px 150px;
+        }
+        li {
+            padding: 5px 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .img-container {
+            width: 100%;
+        }
+        img {
+            display: block;
+            margin: 50px auto;
+        }
+        a[class^='par-lev'] {
+            display: block;
+            text-decoration: none;  
+            color: #000;
+            padding: 7.5px;
+        }
+
+        a[class^='par-lev']:hover {
+            color: #fb9825;
+        }
+        .par-lev-two { text-indent: 50px; }
+        .par-lev-three { text-indent: 100px; }
+        .par-lev-four { text-indent: 150px; }
+        .numbers {
+            color: #d57402;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main container -->
+    <div class="container-fluid main-container">
+
+        <!-- Header -->
+        <h1>Kontollarte DOCS</h1>
+
+        <p>A project made by Iván Miranda Stavenuiter. 2019.</p>
+
+        <!-- Índice -->
+        <h3>Índice</h3>
+
+        <a href="#intro" class="par-lev-one">1. Introducción</a>
+
+            <a href="#main-paths" class="par-lev-two">1. 1. Rutas principales</a>
+
+        <a href="#technologies" class="par-lev-one">2. Tecnologías</a>
+        <a href="#architechture" class="par-lev-one">3. Arquitectura en Laravel</a>
+
+            <a href="#architechture-app" class="par-lev-two">3. 1. App</a>
+            <a href="#architechture-bootstrap" class="par-lev-two">3. 2. Bootstrap</a>
+            <a href="#architechture-config" class="par-lev-two">3. 3. Config</a>
+            <a href="#architechture-database" class="par-lev-two">3. 4. Database</a>
+            <a href="#architechture-public" class="par-lev-two">3. 5. Public</a>
+            <a href="#architechture-resources" class="par-lev-two">3. 6. Resources</a>
+            <a href="#architechture-route" class="par-lev-two">3. 7. Route</a>
+            <a href="#architechture-storage" class="par-lev-two">3. 8. Storage</a>
+            <a href="#architechture-tests" class="par-lev-two">3. 9. Tests</a>
+            <a href="#architechture-vendor" class="par-lev-two">3. 10. Vendor</a>
+
+        <a href="#main-components" class="par-lev-one">4. Componentes principales</a>
+
+            <a href="#mc-entry-point" class="par-lev-two">4. 1. Punto de entrada: el archivo web</a>
+            <a href="#mc-middleware" class="par-lev-two">4. 2. Middleware</a>
+            <a href="#mc-controllers" class="par-lev-two">4. 3. Controladores</a>
+
+                <a href="#mc-controllers-login-register" class="par-lev-three">4. 3. 1. Controladores en la autenticación: <i>LoginController</i> y <i>RegisterController</i></a>
+                <a href="#mc-controllers-session" class="par-lev-three">4. 3. 2. <i>SessionController</i>: el gestor de entrada</a>
+                <a href="#mc-controllers" class="par-lev-three">4. 3. 3. Controladores internos</a>
+
+                    <a href="#mc-ic-shows" class="par-lev-four">4. 3. 3. 1. <i>ShowController</i></a>
+                    <a href="#mc-ic-account" class="par-lev-four">4. 3. 3. 2. <i>AccountController</i></a>
+                    <a href="#mc-ic-paintings" class="par-lev-four">4. 3. 3. 3. <i>PaintingsController</i></a>
+                    <a href="#mc-ic-galleries" class="par-lev-four">4. 3. 3. 4. <i>GalleriesController</i></a>
+                    <a href="#mc-ic-messages" class="par-lev-four">4. 3. 3. 5. <i>MessagesController</i></a>
+                    <a href="#mc-ic-sales" class="par-lev-four">4. 3. 3. 6. <i>SalesController</i></a>
+        
+        <a href="#models" class="par-lev-one">5. <i>Eloquent</i> y modelos</a>
+
+        <a href="#javascript" class="par-lev-one">6. Scripts del lado cliente: <i>Javascript / jQuery</i></a>
+
+            <a href="#js-shows" class="par-lev-two">6. 1. Shows</a>
+            <a href="#js-galleries" class="par-lev-two">6. 2. Galleries</a>
+            <a href="#js-paintings" class="par-lev-two">6. 3. Paintings</a>
+            <a href="#js-messages" class="par-lev-two">6. 4. Messages</a>
+            <a href="#js-navbar" class="par-lev-two">6. 5. Navbar</a>
+            <a href="#js-sales" class="par-lev-two">6. 6. Sales</a>
+
+        <a href="#styles" class="par-lev-one">7. Estilo. CSS3, HTML5, SASS</a>
+        <a href="#deploy" class="par-lev-one">8. Despliegue de la app</a>
+
+            <a href="#dp-private-hosting" class="par-lev-two">8. 1. Despliegue en hosting privado</a>
+            <a href="#dp-virtual-machine" class="par-lev-two">8. 2. Despliegue en máquina virtual</a>
+
+        <!-- Introducción -->
+        <h3 id="intro"><span class="numbers">1.</span> Introducción</h3>
+
+        <p>El siguiente proyecto consiste en una aplicación que tiene como objetivo gestionar obras de arte, 
+            ofrecer información adicional sobre eventos y galerías y, en última instancia, comercializar las
+             creaciones del usuario a través de la plataforma Ebay.</p>
+
+        <p>Dicho proyecto se basa en una versión previa realizada con php nativo y modelo MVC y pretende mejorar 
+            y optimizar el funcionamiento de este modelo inicial. Las diferencias con respecto a esta primera 
+            versión son notables: se ha modificado por completo el diseño css y la estructura html, además 
+            de reelaborar toda la lógica mediante Laravel. Esto ha permitido introducir numerosas mejoras a 
+            distintos niveles: optimización de las consultas a bases de datos, seguridad adicional para las 
+            rutas de entrada a la app, validaciones más robustas y una mayor modularización del código.</p>
+
+        <h4 id="main-paths"><span class="numbers">1. 1.</span> Rutas principales</h4>
+
+        <p>Dentro de la estructura de proyecto que presenta Laravel hay algunas rutas más usadas que otras. Se definen
+            , a continuación, aquellas que se han modificado más y en las que se encuentran los componentes más importantes 
+            de la app:
+        </p>
+
+        <ul>
+            <li>
+                <i><b>App\Http</b></i>: esta ruta puede considerarse el corazón de la aplicación. Dentro del directorio <i>Http</i> encontramos
+            los <b>controladores, las requests, servicios, middleware y el kernel, </b> que inicializa muchas utilidades necesarias
+            para el correcto funcionamiento de la app. Dentro de esta localización también encontramos los modelos.
+            </li>
+
+            <li>
+                <i><b>App\Libraries: </b></i>aquí se encuentran los servicios creados para las API's.
+            </li>
+
+            <li>
+                <i><b>Database</b></i>: contiene el directorio <i>migrations</i>, utilizado en la construcción de la base de datos durante el inicio.
+            </li>
+
+            <li>
+                <i><b>Public: </b></i> contiene todos los recursos que consume la aplicación. Esto incluye el javascript, css, imágenes o el archivo índice index.php, entre otros.
+            </li>
+
+            <li>
+                <i><b>Resources/Views: </b></i> en este directorio se incluyen todas las vistas a las que recurre el front de la aplicación.
+            </li>
+
+            <li>
+                <i><b>Routes/Web: </b></i> el archivo <i>web</i> es el punto de entrada de la aplicación; el enrutamiento. Se encarga de 
+                asignar cada ruta entrante con su operación correspondiente.
+            </li>
+
+            <li>
+                <i><b>Vendor: </b></i>contenedor de todas las librerías de Laravel. Cada vez que se necesita recurrir a la documentación, podemos 
+                explorar esta carpeta en búsqueda de información acerca de las clases.
+            </li>
+        </ul>
+
+        <!-- Tecnologías -->
+        <h3 id="technologies"><span class="numbers">2.</span> Tecnologías</h3>
+
+        <ul>
+            <li>Laravel Framework 5.8</li> 
+            <li>PHP 7.3.6</li> 
+            <li>MySQL 5.7</li> 
+            <li>HTML5</li>  
+            <li>CSS4</li> 
+            <li>Javascript / jQuery</li> 
+        </ul>
+
+        <!-- Arquitectura -->
+        <h3 id="architechture"><span class="numbers">3.</span> Arquitectura en Laravel</h3>
+
+        <p>Este framework de PHP se caracteriza por una estructura concreta que surge a la hora de lanzar la 
+            creación del proyecto. Se comenta a continuación cómo crear el proyecto a través de la consola 
+            Artisan incluida con Laravel y se realiza un breve acercamiento a la estructura para dar una visión 
+            general de sus elementos.</p>
+
+        <p>Para crear un proyecto en Laravel, se ha usado la consola <b>GitBash</b>. Laravel, asimismo, emplea <b>Composer</b> 
+            para la descarga de sus librerías. Composer es un gestor de paquetes muy conocido y ampliamente 
+            utilizado para este cometido. </p>
+        
+        <p>El primer paso es la descarga del framework. Para su instalación se debe ejecutar el siguiente comando:</p>
+        <p><i>composer global require laravel/installer</i></p>
+
+        <p>Una vez instalado el framework, podemos proceder a la creación de un proyecto. El comando sería este:</p>
+        <p><i>composer create-project –prefer-dist laravel/laravel projectname</i></p>
+
+        <p>En este proyecto se ha utilizado durante la producción el programa XAMPP para el despliegue de servidor Apache 
+            y el empleo de la herramienta phpMyAdmin. No obstante, si quisiéramos lanzarlo de forma manual, podemos lanzar 
+            un servidor de desarrollo mediante el comando <i>php artisan serve</i>.</p>
+
+        <p>Más adelante se amplía la información acerca de las ventajas de esta consola de Laravel.</p>
+
+        <p>Una vez creado el proyecto, podemos acceder a él para ver su estructura y componentes. Según la documentación, 
+            esta estructuración de elementos está pensada para la creación de aplicaciones de larga y pequeña envergadura. 
+            Los subdirectorios del <i>root directory</i> o directorio principal se explican a continuación.</p>
+
+        <h4 id="architechture-app"><span class="numbers">3. 1.</span> App</h4>
+
+        <p>Contiene el núcleo de la aplicación. Las principales clases y todo el conjunto de la lógica se encuentran aquí. 
+            En la realización de este proyecto ha sido el más utilizado.</p>
+
+        <h4 id="architechture-bootstrap"><span class="numbers">3. 2.</span> Bootstrap</h4>
+
+        <p>Contiene el archivo app.php que lanza la aplicación. Alberga otro subdirectorio, <i>cache</i>, que contiene archivos 
+            generados por el framework para la optimización del rendimiento.</p>
+
+        <h4 id="architechture-config"><span class="numbers">3. 3.</span> Config</h4>
+
+        <p>Como su nombre indica, contiene los archivos de configuración de la aplicación. Merece la pena echar un vistazo 
+            antes de empezar con la construcción en sí del proyecto.</p>
+
+        <h4 id="architechture-database"><span class="numbers">3. 4.</span> Database</h4>
+
+        <p>Contiene las migraciones (de crucial importancia para la creación de la base de datos en la ejecución del proyecto), 
+            la información base para la implementación de los modelos y los <i>seeds</i> o generadores de datos. Aquí se perfilan 
+            los detalles de la construcción de la base de datos, ya que se definen las tablas con sus respectivos elementos 
+            y restricciones (DDL en lenguaje de bases de datos).</p>
+        
+        <h4 id="architechture-public"><span class="numbers">3. 5.</span> Public</h4>
+
+        <p>Es el directorio principal y contiene el <i>index.php</i>. Es el punto de entrada para todas las peticiones dirigidas a la 
+            aplicación. También se incluyen aquí otros recursos, como los archivos Javascript, el css o las imágenes.</p>
+
+        <h4 id="architechture-resources"><span class="numbers">3. 6.</span> Resources</h4>
+
+        <p>Principalmente usado porque contiene todas las vistas del proyecto. Estas se organizan en diferentes secciones. Aparte de
+             ellas, encontramos archivos no compilados, como por ejemplo SASS o LESS, así como archivos de configuración de idiomas. </p>
+
+        <h4 id="architechture-routes"><span class="numbers">3. 7.</span> Routes</h4>
+
+        <p>Fundamental, ya que interviene mediante el archivo <i>web.php</i> en el enrutamiento de las peticiones lanzadas contra la aplicación. 
+            Aparte de este archivo, encontramos otros tres: <i>api.php, console.php</i> y <i>channels.php</i>. En este caso se ha usado principalmente el <i>web.php.</i></p>
+        
+        <h4 id="architechture-storage"><span class="numbers">3. 8.</span> Storage</h4>
+
+        <p>Aquí podemos encontrar los archivos blade compilados, archivos de la caché y otros generados por el framework. 
+            Estos se encuentran repartidos por otros tres directorios: app, framework y logs.</p>
+
+        <h4 id="architechture-tests"><span class="numbers">3. 9.</span> Tests</h4>
+
+        <p>Contiene los tests automatizados. Toda esta parte de testing y automatización se conoce con el nombre de Laravel Dusk, 
+            y te permite realizar una serie de pruebas de funcionamiento contra tu aplicación.</p>
+
+        <h4 id="architechture-vendor"><span class="numbers">3. 10.</span> Vendor</h4>
+
+        <p>De gran importancia por la información que contiene. En él se encuentran todas las clases y librerías del framework, por l
+            o que es una excelente fuente de datos para resolver dudas, ver cómo funciona el framework, así como la herencia entre distintas 
+            clases, los distintos objetos que podemos encontrar y los métodos a los que tendremos acceso. 
+            La explicación de la estructura general la vamos a dejar hasta aquí. Para comprender a fondo cada uno de los directorios 
+            y sus respectivos cometidos, se puede consultar la documentación aquí: <a href="https://laravel.com/docs/5.8">https://laravel.com/docs/5.8</a> 
+            . De cualquier manera, también se explicará más adelante la lógica seguida en los controladores de la aplicación, 
+            haciendo referencia a los detalles de la implementación.
+        </p>
+
+        <!-- Componentes principales -->
+        <h3 id="main-components"><span class="numbers">4.</span> Componentes principales</h3>
+
+        <h4 id="mc-entry-point"><span class="numbers">4. 1.</span> Punto de entrada: el archivo web</h4>
+
+        <pre>
+            <code>
+                <?php
+
+                    use Illuminate\Http\Request;
+                    use Illuminate\Validation\Factory;
+
+                    Route::get('/', [
+                        'uses' => 'ShowController@display',
+                        'as' => 'shows.display.root'
+                    ]);
+
+                    Route::group(['prefix' => 'shows'], function() {
+
+                        Route::get('display', [
+                            'uses' => 'ShowController@display',
+                            'as' => 'shows.display'
+                        ]);
+
+                        Route::get('next', [
+                            'uses' => 'ShowController@getNextSliderImage',
+                            'as' => 'shows.next',
+                            'middleware' => 'signed'
+                        ]);
+
+                        Route::get('previous', [
+                            'uses' => 'ShowController@getPreviousSliderImage',
+                            'as' => 'shows.previous',
+                            'middleware' => 'signed'
+                        ]);
+
+                        Route::get('count', [
+                            'uses' => 'ShowController@getNumberOfShows',
+                            'as' => 'shows.count',
+                            'middleware' => 'signed'
+                        ]);
+                        
+                        Route::post('get_hash_url_token', [
+                            'uses' => 'ShowController@getUrlHashToken'
+                        ]);
+                    });
+
+                    Route::group(['prefix' => 'account'], function() {
+
+                        Route::get('display', [
+                            'uses' => 'AccountController@display',
+                            'as' => 'account.display'
+                        ]);
+
+                        Route::post('validate', [
+                            'uses' => 'AccountController@validateUpdate',
+                            'as' => 'account.validate'
+                        ]);
+
+                        Route::post('delete', [
+                            'uses' => 'AccountController@deleteAccount',
+                            'as' => 'account.delete'
+                        ]);
+                        
+                    });
+
+                    Route::group(['prefix' => 'paintings'], function() {
+
+                    Route::get('display', [
+                            'uses' => 'PaintingsController@display',
+                            'as' => 'paintings.display'
+                        ]);
+
+                        Route::get('load/{id}/{imagesLoaded}/{remainingImages}', [
+                            'uses' => 'PaintingsController@loadMorePictures',
+                            'as' => 'paintings.load',
+                            'middleware' => 'signed'
+                        ]);
+                        
+                    Route::post('upload', [
+                        'uses' => 'PaintingsController@uploadPaint',
+                        'as' => 'paintings.upload'
+                        ]);
+
+                    Route::post('get_image_preview', [
+                            'uses' => 'PaintingsController@getImagePreview',
+                            'as' => 'paintings.get_preview'
+                        ]);
+
+                        Route::post('delete_preview', [
+                            'uses' => 'PaintingsController@deletePreviews',
+                            'as' => 'paintings.delete_preview'
+                        ]);
+
+                        Route::post('get_hash_url_token', [
+                            'uses' => 'PaintingsController@getUrlHashToken'
+                        ]);
+
+                        Route::post('update', [
+                            'uses' => 'PaintingsController@updatePaint',
+                            'as' => 'paintings.update'
+                        ]);
+
+                        Route::post('delete', [
+                            'uses' => 'PaintingsController@deletePaint',
+                            'as' => 'paintings.delete'
+                        ]);
+
+                    });
+
+                    Route::group(['prefix' => 'galleries'], function() {
+
+                        Route::get('display', [
+                            'uses' => 'GalleriesController@display',
+                            'as' => 'galleries.display'
+                        ]);
+
+                        Route::post('add/{galleryId}', [
+                            'uses' => 'GalleriesController@addGallery',
+                            'as' => 'galleries.add'
+                        ]);
+
+                        Route::get('details', [
+                            'uses' => 'GalleriesController@getGalleryDetails',
+                            'as' => 'galleries.details',
+                            'middleware' => 'signed'
+                        ]);
+
+                        Route::post('delete/{galleryId}', [
+                            'uses' => 'GalleriesController@deleteGallery',
+                            'as' => 'galleries.delete'
+                        ]);
+
+                        Route::get('reload', [
+                            'uses' => 'GalleriesController@reloadGalleries',
+                            'as' => 'galleries.reload',
+                            'middleware' => 'signed'
+                        ]);
+
+                        Route::post('get_hash_url_token', [
+                            'uses' => 'GalleriesController@getUrlHashToken'
+                        ]);
+
+                    });
+
+                    Route::group(['prefix' => 'paintings'], function() {
+
+                        Route::get('display', [
+                            'uses' => 'PaintingsController@display',
+                            'as' => 'paintings.display'
+                        ]);
+                    
+                        Route::get('load/{id}/{imagesLoaded}/{imagesToLoad}', [
+                            'uses' => 'PaintingsController@loadMorePictures',
+                            'as' => 'paintings.load'
+                        ]);
+                    
+                        Route::post('upload', [
+                            'uses' => 'PaintingsController@uploadPaint',
+                            'as' => 'paintings.upload'
+                        ]);
+                    
+                        Route::post('get_image_preview', [
+                            'uses' => 'PaintingsController@getImagePreview',
+                            'as' => 'paintings.get_preview'
+                        ]);
+                    
+                        Route::post('delete_preview', [
+                            'uses' => 'PaintingsController@deletePreviews',
+                            'as' => 'paintings.delete_preview'
+                        ]);
+                    
+                    });
+                    
+                    Route::group(['prefix' => 'messages'], function() {
+                    
+                        Route::get('display', [
+                            'uses' => 'MessagesController@display',
+                            'as' => 'messages.display'
+                        ]);
+
+                        Route::get('handle_request', [
+                            'uses' => 'MessagesController@handleMessageRequest',
+                            'as' => 'messages.request', 
+                            'middleware' => 'signed'
+                        ]);
+
+                        Route::post('execute_request', [
+                            'uses' => 'MessagesController@executeMessageRequest',
+                            'as' => 'messages.execute'
+                        ]);
+
+                        Route::post('get_hash_url_token', [
+                            'uses' => 'MessagesController@getUrlHashToken'
+                        ]);
+                    
+                    
+                    });
+
+                    Route::group(['prefix' => 'sales'], function() {
+
+                        Route::get('display', [
+                            'uses' => 'SalesController@display',
+                            'as' => 'sales.display'
+                        ]);
+
+                        Route::post('upload_on_ebay', [
+                            'uses' => 'SalesController@uploadPaintOnEbay',
+                            'as' => 'sales.upload'
+                        ]);
+
+                    });
+
+                    Auth::routes(['verify' => true]);
+
+                    Route::get('/home', 'HomeController@index')->name('home');
+
+            </code>
+        </pre>
+
+        <p>Lo primero que se ejecuta en la aplicación es el enrutamiento de la misma. Esta la lleva a cabo el archivo <i>web.php</i> dentro de la carpeta 
+            <i>Routes</i>. Esta clase se caracteriza por ser muy versátil y por aceptar distintos tipos de formato. En el caso de Kontollarte, se ha optado 
+            por la organización en distintos grupos según el controlador. De este modo, empleando la <i>facade Route</i> proporcionada por Laravel, se han 
+            construido diferentes grupos con el método <i>group</i>, mientras que las peticiones como tal se han hecho con <i>get</i> y <i>post</i>. Las <i>facades</i> son un 
+            tipo de clase en Laravel, cuyo funcionamiento es muy parecido sintácticamente al de una clase estática. De este modo, proporcionan métodos 
+            muy útiles en diversidad de ámbitos. </p>
+
+        <p>No vamos a extendernos más en la explicación de este archivo. Simplemente mencionaremos que, además de las utilidades que ofrece para el enrutamiento, 
+            proporciona además opciones para la asignación de middleware o para el retorno de vistas. </p>
+
+        <p>Para más información: <a href="https://laravel.com/docs/5.8/routing.">https://laravel.com/docs/5.8/routing.</a></p>
+
+        <h4 id="mc-middleware"><span class="numbers">4. 2.</span> Middleware</h4>
+
+        <p>Se puede entender el middleware como un entramado de contención que se ejecuta de forma previa a la gestión de una petición. Son muchos y 
+            eficientes los que Laravel propone. Entre ellos cabe destacar los referidos al control de sesiones, verificación de usuarios o autenticación, 
+            entre otros. No vamos a explicar todo su contenido. Para ello podemos consultar la documentación aquí: <a href="https://laravel.com/docs/5.8/middleware.">https://laravel.com/docs/5.8/middleware.</a></p>
+
+        <p>Como es costumbre en Laravel, esta parte también responde ante comandos para su creación. Si queremos crear uno, haremos lo siguiente:</p>
+        <p><i>php artisan make:middleware SessionManager</i></p>
+
+        <p>En el caso de Kontollarte, se ha empleado la estructura y funcionalidad del middleware para crear una clase concreta de este tipo llamada <i>SessionManager</i>. 
+            Esta se aplicará a los controladores “internos”, es decir, aquellos que gestionan el funcionamiento de la aplicación una vez que el usuario 
+            se ha logueado. De este modo, el siguiente paso a la creación del middleware, es la inyección del mismo en los respectivos controladores. 
+            Esto se puede hacer de distintos nodos: a través del archivo web del directorio <i>Routes</i> o directamente en el constructor del controlador. En 
+            este caso se ha optado por la inyección de la dependencia en el constructor, ya que facilita la segregación de los archivos y permite una 
+            mayor diferenciación entre los tipos de clase.</p>
+
+        <p>Clase <i>SessionManager: </i></p>
+
+        <pre>
+            <code>
+                class SessionManager
+                {
+                    /**
+                    * Handle an incoming request.
+                    *
+                    * @param  \Illuminate\Http\Request  $request
+                    * @param  \Closure  $next
+                    * @return mixed
+                    */
+                    public function handle($request, Closure $next)
+                    {
+                        return SessionController::getInstance($request)
+                                        ->handleRequest() ? $next($request) : redirect()->route('login');
+                    }
+                }
+            </code>
+        </pre>
+
+        <p>Como se viene explicando, se ha implementado un middleware que controlará las sesiones: <i>Session Manager</i>, que implementa el método <i>handle</i>, a través 
+            del cual se gestiona el flujo de datos a través de la aplicación, así como la navegación por parte del usuario. Este método devolverá <i>true</i> siempre 
+            que se pasen las validaciones correspondientes en la clase <i>SessionController</i> .En caso contrario, devolverá false y, por tanto, una redirección al login. </p>
+
+        <p>¿Qué es lo que hace esta clase <i>SessionController</i>? Pues bien, este controlador es, por decirlo de algún modo, el base; y, a partir de él, se pasa a 
+            concretar a qué controlador se dirige la app. Se ha tratado de dotar a esta clase de una estructura sólida y robusta, fuertemente protegida 
+            mediante métodos privados internos que llevan a cabo una escrupulosa validación. Esto se ha podido realizar gracias a elementos como la 
+            modularización en distintas funciones, la comprobación de nulos y la inclusión de las propiedades necesarias. </p>
+
+        <p>El middleware, además, debe registrarse en una clase de Laravel llamada <i>kernel</i>, que digamos que funciona a modo de carga de todos los servicios de 
+            middleware. Existen distintos tipos y cada uno de ellos se aplica con una frecuencia distinta. En nuestro caso, lo hemos registrado en el array 
+            <i>routeMiddleware</i>, donde se introducen los middleware aplicados a grupos o de forma individual. </p>
+
+        <h4 id="mc-controllers"><span class="numbers">4. 3.</span> Controladores</h4>
+
+        <!-- Controladores de login y registro -->
+        <h5 id="mc-controllers-login-register"><span class="numbers">4. 3. 1.</span> Controladores en la autenticación: <i>LoginController</i> y <i>RegisterController</i></h5>
+
+        <p>Gracias al paquete <i>auth</i> de Laravel, se generan una serie de clases relativas a la autenticación de los usuarios. Estas sirven de base para extender los 
+            métodos según las necesidades de la aplicación. El comando que hay que ejecutar es el siguiente:</p>
+        <p><i>php artisan make:auth</i></p>
+
+        <p>Más información sobre el paquete <i>auth</i>: <a href="https://laravel.com/docs/5.8/authentication.">https://laravel.com/docs/5.8/authentication.</a></p>
+
+        <p>Esto genera, como se indicaba, la creación de las clases necesarias para el login y registro. Lo siguiente es acomodarlo a las necesidades de la aplicación.</p>
+
+        <div class="img-container"><img src="PICS/1.PNG" width="85%"></div>
+        
+
+        <p>¿Cómo se ha llevado a cabo este paso? Sobre todo, haciendo uso de la clase <i>Request</i>. Esta clase hereda de otra llamada <i>FormRequest</i> y se utiliza para 
+            implementar validaciones, de modo que cada una se corresponde con un tipo de formulario completo. Gracias a ella, podemos hacer una para una función 
+            específica y asignarle la validación correspondiente. Esta clase se ha usado para todas las validaciones en el proyecto. Se caracteriza por tres 
+            métodos fundamentales: </p>   
+        <ul>
+            <li><i>Rules</i></li>
+            <li><i>Messages</i></li>
+            <li><i>Authorize</i></li>
+        </ul> 
+
+        <p>Mediante el primero se establecen los requisitos necesarios para pasar la validación. Los <i>messages</i> devuelven los mensajes mostrados en caso de algún error. 
+            <i>Authorize</i> es un boolean que permite la ejecución de la petición en caso de tener el valor <i>true</i>.</p>
+
+        <p>En la clase <i>LoginController</i>, así como también en la <i>RegisterController</i>, la implementación se organiza a través de la inclusión de <i>traits</i>. Estos son, de algún modo, 
+            parecidos a clases hijas que extienden la funcionalidad de las que heredan.</p>
+
+        <p>Los <i>traits</i> usados en <i>LoginController</i> son: </p>
+
+        <ul>
+            <li><i>AuthenticateUsers</i></li>
+            <li><i>RedirectUsers</i></li>
+            <li><i>ThrottlesLogin</i></li>
+        </ul> 
+
+        <p>En el <i>RegisterController</i>:</p>
+ 
+        <ul>
+            <li><i>RegisterUsers</i></li>
+            <li><i>RedirectUsers</i></li>
+        </ul> 
+
+        <p>¿Dónde encuentro estas clases? En el directorio <i>vendor</i>. Esta es una parte importantísima de Laravel: aquí encontramos todo el material relativo a la 
+            construcción del framework, de modo que siempre que usemos una clase nativa, recurriremos a este directorio a la hora de buscar información. En concreto, 
+            el paquete usado aquí es este:</p>
+
+        <p><i>Illuminate/Foundation/Auth</i></p>
+
+        <p>Así, navegando por los subdirectorios, podemos encontrar las distintas implementaciones del framework que nos interesen en cada momento del desarrollo.</p>
+
+        <p>¿Qué métodos se han modificado en <i>LoginController</i> y <i>RegisterController</i>? Tanto en uno como en otro, los <i>traits</i> se han tocado para aceptar <i>requests</i> concretas 
+            y personalizadas para la ejecución del login y el registro. Por otro lado, en lo relativo al login, se han modificado métodos, como por ejemplo el 
+            <i>authenticate</i>. En el registro, se han introducido cambios en <i>register</i>. Todos ellos se han pensado de cara a iniciar el control de sesiones necesario 
+            tanto en el login como en el registro. </p>
+        
+        <p>Para más información consultar sendos controladores en <i>App/Http/Controllers/Auth.</i></p>
+
+        <div class="img-container"><img src="PICS/2.PNG" width="85%"></div>
+
+        <p>Ejemplo de inserción de modificaciones en los traits de la clase <i>LoginController:</i></p>
+
+        <pre>   
+            <code>
+                /**
+                * Handle a login request to the application.
+                *
+                * @param  App\Http\Requests\LoginRequest $request
+                * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
+                *
+                * @throws \Illuminate\Validation\ValidationException
+                */
+               public function login(LoginRequest $request)
+               {
+                   $this->validateLogin($request);
+           
+                   // If the class is using the ThrottlesLogins trait, we can automatically throttle
+                   // the login attempts for this application. We'll key this by the username and
+                   // the IP address of the client making these requests into this application.
+                   if ($this->hasTooManyLoginAttempts($request)) {
+                       $this->fireLockoutEvent($request);
+           
+                       return $this->sendLockoutResponse($request);
+                   }
+           
+                   if ($this->attemptLogin($request)) {
+                       return $this->sendLoginResponse($request);
+                   }
+           
+                   // If the login attempt was unsuccessful we will increment the number of attempts
+                   // to login and redirect the user back to the login form. Of course, when this
+                   // user surpasses their maximum number of attempts they will get locked out.
+                   $this->incrementLoginAttempts($request);
+           
+                   return $this->sendFailedLoginResponse($request);
+               }
+            </code>
+        </pre>
+
+        <!-- Controlador de sesión -->
+        <h5 id="mc-controllers-session"><span class="numbers">4. 3. 2.</span> <i>SessionController</i>: el gestor de entrada</h5>
+
+        <p>Como ya se ha señalado previamente, este controlador es el que gestiona el método lanzado por <i>SessionManager</i>. Como cabe pensar, el control de sesiones se realiza 
+            solamente en los controladores indicados, que son los siguientes:</p>
+
+        <ul>
+            <li><i>ShowController</i></li>
+            <li><i>AccountController</i></li>
+            <li><i>PaintingsController</i></li>
+            <li><i>MessagesController</i></li>
+            <li><i>GalleriesController</i></li>
+            <li><i>SalesController</i></li>
+        </ul> 
+
+        <p>Las clases excluidas son <i>LoginController</i> y <i>RegisterController</i>. En el momento en el que el usuario se loguea, se lanza la instanciación de este controlador mediante <i>SessionManager</i>, 
+            que si recordamos, es el middleware aplicado para el control de sesiones. </p>
+
+        <p>Esto en un principio generó una problemática: los elementos <i>middleware</i> se ejecutan en Laravel antes que los controladores. Esto hizo que la inyección de dependencias provista por el 
+            <i>ServiceContainer</i> (algo así como un contenedor general de servicios para la aplicación) no se diese para cuando el controlador era instanciado. De este modo, 
+            no teníamos acceso a la petición mediante el objeto <i>Request</i>, también importantísimo.</p>
+
+        <p>Método principal de la clase <i>SessionController:</i></p>
+
+        <pre>
+            <code>
+                /**
+                * Provides session instance on middleware.
+                *
+                * @param  \Illuminate\Http\Request $request
+                * @return \App\Http\Controllers\SessionController
+                */
+               public static function getInstance(Request $request) 
+               {
+                   if ($request->session()->has(self::CURRENT_USER_SESSION)) {
+                       self::$instance = $request->session()->get(self::CURRENT_USER_SESSION);
+                       self::$instance->setRequest($request); // Updates actual request
+                       self::$instance->put(self::CURRENT_USER_SESSION, self::$instance); // Stores session controller
+                   } else {
+                       if (is_null(self::$instance)) {
+                           self::$instance = (new SessionController());
+                           self::$instance->setRequest($request); // Sets first request
+                           self::$instance->put(self::CURRENT_USER_SESSION, self::$instance); // Stores session controller
+                       }
+                   }
+                   return self::$instance;
+               }
+            </code>
+        </pre>
+
+        <p>Más información sobre <i>Request</i>: <a href="https://laravel.com/docs/5.8/requests">https://laravel.com/docs/5.8/requests.</a></p>
+
+        <p>Lo que se hizo para solucionar este escollo fue pasarle de forma manual el objeto <i>Request</i> al método estático <i>getInstance()</i>, lo que permitió desencadenar 
+            el resto de funciones. Este asigna el objeto <i>Request</i> y evalúa mediante <i>handleRequest()</i> si debe permitir el paso o no del usuario. Se recomienda ver la 
+            clase completa para su correcta comprensión.
+        </p>
+
+        <!-- Controladores internos -->
+        <h5 id="mc-internal-controllers"><span class="numbers">4. 3. 3.</span> Controladores internos</h5>
+
+        <p>Una vez pasada la validación, existen unos controladores que gestionan el funcionamiento de la aplicación para cada una de sus funciones. Todos ellos 
+            tienen en común que aplican de forma recursiva el <i>SessionController</i> mediante una propiedad privada: <i>session</i>. Por otro lado, también comparten la aplicación 
+            de la interfaz <i>IHasher</i>, que se encargará de asegurar las rutas <i>get</i> para evitar su acceso a través del exterior de la aplicación. Se excluyen de este grupo 
+            las rutas relativas a la función <i>display</i> de todos los controladores, ya que esta debe ser accesible para poder ver el contenido de cada una de las pestañas. 
+            Comentar que el método <i>getUrlHashToken</i> se aplica de un modo concreto para cada una de las clases. En todos ellos se da, asimismo, la inyección de la 
+            dependencia <i>Request</i>.</p>
+
+        <!-- ShowController -->
+        <h5 id="mc-ic-shows"><span class="numbers">4. 3. 3. 1.</span> <i>ShowController</i></h5>
+
+        <p>Este controlador es el primero que se lanza tras el logueo y es a dónde se dirige al usuario cuando este se registra. Esta página muestra una serie de 
+            eventos, todos ellos seleccionados uno a uno mediante un slider, acompañado de la información relativa a ese evento en concreto. Más adelante se comentará 
+            la lógica aplicada con <i>jQuery</i> para su funcionamiento. </p>
+
+        <p>Métodos aplicados: </p>
+
+        <ul>
+            <li>
+                <p><i>Display: </i>el método común de entrada. Muestra el aspecto inicial de la sección. En este caso, se utiliza el <i>ArtsyAPIProvider</i>, clase elaborada 
+                    para la interacción con la API de Artsy. Aplicación del método global <i>view()</i> y <i>with()</i>, que permiten acciones muy interesantes de cara a la 
+                    muestra de las vistas. </p>
+            </li>
+
+            <li>
+                <p><i>FixHeightAndWidth: </i>modifica altura y anchura de las imágenes para adaptarlas al contenedor existente en la vista.</p>
+            </li>
+
+            <li>
+                <p><i>ParseDataToJSON: </i>método que organiza en formato JSON y que será empleado por los métodos <i>GetNextSliderImage</i> y <i>GetPreviousSliderImage</i>.</p>
+            </li>
+                
+            <li>
+                <p><i>GetNextSliderImage: </i>extracción de la siguiente imagen. Uso del objeto <i>User</i> para proveer de la información necesaria. Uso de sesiones para almacenamiento del usuario.
+                </p>
+            </li>
+                
+            <li>
+                <p><i>GetPreviousSliderImage: </i>extracción de la imagen anterior a la actual. Uso del objeto User para proveer de la información necesaria. Uso de sesiones para almacenamiento del usuario.
+                </p>
+            </li>
+
+            <li>
+                <p><i>GetNumberOfShows: </i>devuelve un entero con el número total de eventos</p>
+            </li>
+
+        </ul>
+
+        <div class="img-container"><img src="PICS/3.PNG" width="85%"></div>
+
+        <!-- AccountController -->
+        <h5 id="mc-ic-account"><span class="numbers">4. 3. 3. 2.</span><i> AccountController</i></h5>
+
+        <p>El <i>AccounController</i> se encarga de gestionar la cuenta del usuario, pudiendo hacer modificaciones en la cuenta y ofreciendo la posibilidad de borrarla. </p>
+
+        <p>Métodos aplicados: </p>
+
+        <ul>
+            <li>
+                <p><i>GetUserLogged: </i>usa el controlador de sesiones para devolver el objeto <i>User</i> almacenado.</p>
+            </li>
+
+            <li>
+                <p><i>Display: </i>método común de entrada. Muestra el aspecto inicial de la sección.</p>
+            </li>
+
+            <li>
+                <p><i>ValidateUpdate: </i>se encarga de asegurar que las propiedades introducidas no se están repitiendo en la base de datos. Empleo de la <i>facade Validator</i> y 
+                    su método <i>make</i>, que se encarga de validar las reglas correspondientes a una petición. Uso del <i>global helper redirect()</i> y del método <i>route()</i>, que nos 
+                    permite introducir el nombre de una ruta (asignado en el archivo web en <i>Routes</i>).</p>
+            </li>
+
+            <li>
+                <p><i>DeleteAccount: </i>realiza el borrado del usuario y devuelve la vista correspondiente.</p>
+            </li>
+
+            <li>
+                <p><i>CheckNewInputsAgainstDatabase: </i>método auxiliar en la validación que comprobará que los valores obligatorios no se den más de una vez. 
+                    Resaltar la aplicación aquí de la clase <i>MessageBag</i>, la cual es la usada por Laravel para la construcción de errores. Tomamos como base la 
+                    documentación y generamos nuestros propios objetos de este tipo para acoplarlo con la estructura de las vistas. La clase se encuentra en la 
+                    ruta <i>Illuminate/Support/MessageBag</i>. En la API de Laravel se pueden consultar sus métodos y propiedades.</p>
+            </li>
+        </ul>
+
+        <div class="img-container"><img src="PICS/4.PNG" width="85%"></div>
+
+        <!-- PaintingsController -->
+        <h5 id="mc-ic-paintings"><span class="numbers">4. 3. 3. 3.</span> <i>PaintingsController</i></h5>
+
+        <p>Gestiona todo lo relativo a las obras del autor. Se comienza el proyecto con la perspectiva de que fuesen cuadros únicamente, pero se piensa en la 
+            posibilidad de cambiar esto para introducir todo tipo de géneros de arte. </p>
+        
+        <p>¿De qué se encarga principalmente esta clase? Pues permite las funcionalidades de subir una obra al servidor, modificarla y borrarla. 
+            </p>
+        
+        <p>Métodos aplicados: </p>
+
+        <ul>
+            <li>
+                <p><i>GetUserLogged: </i>usa el controlador de sesiones para devolver el objeto <i>User</i> almacenado.</p>
+            </li>
+
+            <li>
+                <p><i>Display: </i>método común de entrada. Muestra el aspecto inicial de la sección. Aquí nos vamos a parar en un par de detalles que 
+                    merece la pena comentar.</p>
+                <p>La lógica está pensada para cargar las obras de 2 en 2. Investigando sobre cómo hacer esto con Laravel y se descubren dos cosas:</p>
+
+                <ul>
+                    <li>
+                        <i>Eloquent Model: </i><a href="https://laravel.com/docs/5.8/eloquent"> https://laravel.com/docs/5.8/eloquent</a>
+                    </li>
+                    <li>
+                        <i>Query Builder: </i><a href="https://laravel.com/docs/5.8/queries">https://laravel.com/docs/5.8/eloquent</a>
+                    </li>
+                </ul>
+
+                <p><i>Eloquent</i> es la sección de Laravel que se refiere a la interacción con base de datos, así como su estructura. <i>Query Builder</i> es, como su propio 
+                    nombre indica, un objeto que permite realizar consultas similares sintácticamente hablando al lenguaje SQL.</p>
+                
+                <p>Siguiendo estas directrices, y usando los modelos propios de la clase, se recurre a métodos como <i>where(), count(), limit() y get(), </i>
+                    entre otros. Los primeros se parecen, como podemos apreciar, al nombre que tienen algunas funciones en SQL. El último de ellos, el 
+                    get es necesario para extraer el objeto y almacenarlo. Se recurre a <i>view()</i> y <i>with()</i> para el retorno de vistas. Estos permiten el 
+                    paso de variables a través de arrays asociativos.</p>
+            </li>
+
+            <li>
+                <p><i>LoadMorePictures: </i>este método se encarga de actualizar las obras del usuario en la vista, cargándolas de dos en dos. Se llama desde AJAX
+                     y emplea los métodos de <i>QueryBuilder skip()</i> y <i>take()</i>, que indican, respectivamente, un salto entre consultas y el número de ítems a devolver.</p>
+            </li>
+
+            <li>
+                <p><i>UploadPaint: </i>valida la subida de la obra. Obligará al usuario a introducir todos los campos requeridos, mostrando los errores en caso 
+                    contrario. Uso del método <i>input</i> en <i>Request</i> para extraer la información pasada desde el formulario. Uso del método <i>file</i> para devolver el archivo 
+                    con formato de imagen. Introducción de expresiones regulares para la eliminación de caracteres indeseados en el nombre de la imagen, los 
+                    cuales daban lugar a problemas en su uso posterior. Método <i>preg_replace</i> para su aplicación. Introducción en base de datos con el método 
+                    <i>create</i>. Envío de booleanos como anteriormente a través de las vistas.</p>
+            </li>
+
+            <li>
+                <p><i>UpdatePaint: </i>estructura similar al anterior, puesto que el proceso es el mismo salvo por la consulta de base de datos, que en este caso 
+                    actualiza en lugar de crear una nueva instancia. Mencionar aquí que surgió un problema al introducir la posibilidad de las actualizaciones: 
+                    debido a que los dos formularios comparten los mismos campos, aparecieron dificultades en la separación de ambos a la hora de devolver los 
+                    errores. En Laravel, estos se solapan de forma automática a la sesión actual del usuario, pero no se estaba identificando qué tipo de error se 
+                    estaba mostrando. O mejor dicho, qué tipo de formulario era el que estaba enviando los errores. Investigando, encontramos el objeto <i>MessageBag</i> 
+                    y vemos que una de sus propiedades (el nombre) permite una identificación de la estructura de errores. Para llevar a cabo el paso de información 
+                    se modifican los métodos <i>failedValidation</i> y <i>getRequestUrl</i>, sobrescribiendo así los de la clase padre. </p>
+            </li>
+
+            <li>
+                <p><i>DeletePaint: </i>borrado del elemento. Se usa el objeto <i>QueryBuilder</i> para su búsqueda con <i>where</i> y posterior borrado con <i>delete()</i>.</p>
+            </li>
+
+            <li>
+                <p><i>DeletePreviews: </i>en el formulario de subida, se dota a este de una función que ofrece al usuario la posibilidad de subir una imagen. 
+                    Surgía aquí el problema de dónde tomar la fuente de esa imagen, ya que esta en un principio se encontraba en local en el pc del usuario. 
+                    Por tanto, lo que se hace es cargar esa imagen, almacenarla para mostrar la vista previa y, en el momento de ejecutar la validación, proceder 
+                    a su borrado. De este modo, lo que asegura este método es que, después de cada operación, se borren todas las vistas previas. </p>
+            </li>
+
+            <li>
+                <p><i>GetImagePreview: </i>es el método que realiza el guardado de la imagen para su posterior introducción en el formulario.</p>
+            </li>
+
+            <li>
+                <p><i>GetUrlHashToken: </i>uso de la <i>facade URL</i> y su método <i>signedRoute</i> para devolver el token necesario que ejecute la operación deseada. 
+                    Se prevee el uso o no de parámetros según el contexto.</p>
+            </li>
+        </ul>
+
+        <!-- GalleriesController -->
+        <h5 id="mc-ic-galleries"><span class="numbers">4. 3. 3. 4.</span> <i>GalleriesController</i></h5>
+
+        <p>Se encarga de extraer la información relativa a las galerías. Lo que pretende es facilitar al usuario el descubrimiento de galerías para su posterior contacto 
+            y posible venta de trabajos.</p>
+
+        <p>Métodos aplicados: </p>
+
+        <ul>
+            <li>
+                <p><i>Display: </i>método común de entrada. Muestra el aspecto inicial de la sección. Aquí este método está bastante desarrollado.
+                    Hay varios detalles a comentar.</p>
+
+                <p>Como ya ocurre en otros controladores, se hace uso de la propiedad <i>session</i> para el manejo del objeto <i>User</i>.</p>
+
+                <p>Por otro lado, cabe destacar algunas utilidades de los modelos de <i>Eloquent</i>, como por ejemplo el método <i>refresh()</i>. Este trae de nuevo la información 
+                    de la base de datos. Se introdujo debido a que precisamente la información no se actualizaba correctamente.</p>
+                
+                <p>Otra utilidad es <i>old</i>, que trae los valores de la validación previa. En este caso se aplica para dirigir la lógica por un camino u otro.</p>
+
+                <p>Muy usada ha sido también la clase <i>Collection</i> de Laravel. Este ha sido uno de los mejores puntos del proyecto, puesto que este tipo de objetos es fácilmente 
+                    manipulable y altamente útiles. Podemos encontrar más información aquí:</p>
+
+                <p><a href="https://laravel.com/docs/5.8/collections">https://laravel.com/docs/5.8/collections</a></p>
+
+                <p>Aplicando todas estas utilidades, el código discierne entre cargar nuevas galerías o traer las que ya se habían cargado previamente.</p>
+
+            </li>
+
+            <li>
+                <p><i>AddGallery: </i>añade una nueva galería a la lista personal del usuario. ¿Qué aspectos controla este método? La lógica está estructurada de la 
+                    siguiente manera: se guardarán en base de datos aquellas galerías que no aparezcan en la misma. De este modo, la primera vez se guardaría y de 
+                    ahí en adelante podrá ser usada por otros usuarios sin ejecutar nuevas consultas innecesarias. Así, si el usuario elige una galería ya 
+                    almacenada en base de datos, simplemente se asignan las correspondientes ids en la tabla intermedia. Recapitulando, comprueba primero si el 
+                    usuario la tiene, y luego, si la base de datos la tiene. Si la base de datos no la tiene, se inserta. Si el usuario ya la tiene, se devuelve 
+                    un mensaje indicando el error. Destacar el uso de métodos interesantes como <i>replicate()</i> o <i>merge().</i></p>
+            </li>
+            
+            <li>
+                <p><i>GetGalleryDetails: </i>petición AJAX lanzada en el click de ver detalles.</p>
+            </li>
+
+            <li>
+                <p><i>DeleteGallery: </i>borra la galería de la lista del usuario.</p>
+            </li>
+
+            <li>
+                <p><i>ReloadGalleries: </i>toma nuevas galerías mediante el proveedor de la API. Uso de métodos <i>merge()</i> en <i>Request</i> y almacenamiento de 
+                    objetos en sesión.</p>
+            </li>
+
+            <li>
+                <p><i>GetUrlHashToken: </i>uso de la <i>facade URL</i> y su método <i>signedRoute</i> para devolver el token necesario que ejecute la operación deseada. Se prevee 
+                    el uso o no de parámetros según el contexto.</p>
+            </li>
+
+
+        </ul>
+
+        <!-- MessagesController -->
+        <h5 id="mc-ic-messages"><span class="numbers">4. 3. 3. 5.</span> <i>MessagesController</i></h5>
+
+        <p>Esta parte de la aplicación se encarga de la comunicación entre usuarios y galerías, haciendo uso de la librería PHPMailer para el envío de correo electrónico.</p>
+
+        <p>Métodos aplicados: </p>
+
+        <ul>
+            <li>
+                <p><i>Display: </i>sigue aplicando una estructura parecida a los que venimos describiendo. Primero toma la información almacenada en sesión o base de datos, 
+                    la manipula según el contexto y la muestra retornando la vista. </p>
+            </li>
+
+            <li>
+                <p><i>HandleMessageRequest: </i>gestiona en un primer momento el envío del mensaje, pero no lo ejecuta. Se produce al hacer click en el botón de enviar, 
+                    abriendo un modal en el que se pueden consultar los detalles del correo. Esta parte está muy elaborada, ofreciendo los detalles tanto del mensaje, 
+                    como los trabajos del usuario para que este pueda adjuntarlos al correo. Esta función se implementa mediante checkboxes que contienen la id de los trabajos.</p>
+                <p>En este método simplemente se recibe la información y se asigna al modal.</p>
+            </li>
+
+            <li>
+                <p><i>ExecuteMessageRequest: </i>ejecuta el envío del correo elaborado mediante el método anterior. Mediante jQuery se capturan los datos y se trasladan al controlador.
+                </p>
+
+                <p>La lógica a la hora de insertar mensajes y destinatarios funciona de la siguiente manera: </p>
+
+                <ul>
+                    <li>
+                        <p>Se inserta un mensaje por correo.</p>
+                    </li>
+
+                    <li>
+                        <p>Se insertan los destinatarios que no estén ya en la tabla. Si estos, a la hora de insertar el mensaje, se encontrasen ya almacenados, 
+                            simplemente se modifica la tabla intermedia. Esto pretende conseguir una mayor eficiencia en el rendimiento, evitando la repetición de 
+                            registros. ¿Qué cabe destacar de este método? Pues el empleo de la <i>facade DB</i> para el acceso a datos o, por ejemplo, el método <i>pluck</i>, que 
+                            te permite extraer una sola columna de la fila devuelta.</p>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <p><i>SendMailThroughSMTP: </i>es la aplicación de la librería PHPMailer. Por defecto, se encuentra deshabilitada para no mandar correos indeseados por accidente. Los 
+                    campos que habría que cambiar son <i>email (destinatario), username, password, setFrom</i> y <i>addReplyTo</i>.
+                </p>
+            </li>
+
+            <li>
+                <p><i>WriteHTMLMessage: </i>almacena el mensaje en formato HTML para adecuarlo al correo electrónico.</p>
+            </li>
+
+            <li>
+                <p><i>GetUrlHashToken: </i>uso de la <i>facade URL</i> y su método <i>signedRoute</i> para devolver el token necesario que ejecute la operación deseada. Se prevee el uso o no de 
+                    parámetros según el contexto.</p>
+            </li>
+
+        </ul>
+
+        <!-- SalesController -->
+        <h5 id="mc-ic-sales"><span class="numbers">4. 3. 3. 6.</span> <i>SalesController</i></h5>
+
+        <p>Es el último de los controladores. Se encarga de gestionar la subida de los trabajos a la plataforma de Ebay. Su aplicación fue de las más complicadas, puesto que la 
+            estructura de las peticiones así como el funcionamiento de la API son bastante tediosas y complejas de entender. </p>
+
+        <p>Métodos aplicados: </p>
+
+        <ul>
+            <li>
+                <p>
+                    <i>Display: </i>aplica la misma estructura que en los casos anteriores. Se obtiene la información, se procesa y se muestra la respectiva vista 
+                    con los parámetros que fuesen necesarios. Se sobrescribe de nuevo el método <i>failedValidation</i> de la clase <i>SellPaintRequest</i>, modificando la url 
+                    de redirección para que contenga un <i>flag</i> en caso de error. De este modo, el controlador sabe si la redirección procede o no de un error y actúa 
+                    en consecuencia. 
+                </p>
+            </li>
+
+            <li>
+                <p>
+                    <i>GetTokenForRequest: </i>token de 32 caracteres necesarios para el funcionamiento de las peticiones. 
+                </p>
+            </li>
+
+            <li>
+                <p>
+                    <i>UploadPaintOnEbay: </i>validación mediante <i>Validator</i> y asignación de variables procedentes del formulario. Establecimiento de las dos peticiones 
+                    necesarias, una para la subida y otra para la obtención del ítem. Utilización del <i>EbayAPIProvider</i>. Devolución de las vistas. 
+                </p>
+            </li>
+        </ul>
+
+        <div class="img-container"><img src="PICS/11.PNG" width="85%"></div>
+
+        <!-- Eloquent y modelos -->
+        <h3 id="models"><i><span class="numbers">5.</span> Eloquent</i> y modelos</h3>
+
+        <p>Eloquent es el ORM <i>(Object Relational Mapping)</i> que Laravel emplea. Provee una sencilla implementación de la base de datos mediante el objeto <i>Model</i>. Las instancias 
+            de estos últimos se corresponden con las tablas y están fuertemente ligados a las migraciones, otro factor de gran importancia.</p>
+        <p>En primer lugar, vamos a explicar los modelos. En Laravel, para crear un modelo, se usa el siguiente comando:</p>
+
+        <p><i>php artisan make:model Show</i></p>
+
+        <p>En realidad es preferible aplicarlo para que cree de manera automática la migración correspondiente:</p>
+        <p><i>php artisan make:model Show -m</i></p>
+
+        <p>Esto genera una clase con una idiosincrasia concreta. Toda la información relativa a este tipo de clase la encontraremos en la API. El tipo concreto es:</p>
+        <p><i>Illuminate/Database/Eloquent/Model</i></p>
+
+        <p>Si la consultamos veremos que se caracteriza por implementar propiedades y métodos que definirán su comportamiento en base de datos. 
+            Pongamos un ejemplo: la siguiente imagen muestra la implementación del modelo <i>Show:</i></p>
+
+        <p>Los métodos son muy importantes, ya que definen la relación y el posterior comportamiento de los modelos a la hora de interactuar con ellos. 
+            Los tipos de relaciones que podemos encontrar son las referentes a base de datos:</p>
+
+        <ul>
+            <li>
+                <p>Uno a uno: se aplican en las dos clases los métodos <i>hasOne</i>.</p>
+            </li>
+            <li>
+                <p>Uno a muchos: se aplica en una clase <i>hasOne</i> y en la que recibe <i>belongsTo</i>.</p>
+            </li>
+            <li>
+                <p>Muchos a muchos: se aplica <i>belongsTo</i> en ambas clases.</p>
+            </li>
+        </ul>
+
+        <p>La funcionalidad de los modelos es amplísima. Se recomienda su consulta en la documentación: <a href="https://laravel.com/docs/5.8/eloquent-relationships">https://laravel.com/docs/5.8/eloquent-relationships</a></p>
+        
+        <p>En el caso de Kontollarte, estos son los modelos aplicados: </p>
+
+        <ul>
+            <li><i>User</i></li>
+            <li><i>Paint</i></li>
+            <li><i>Show</i></li>
+            <li><i>Gallery</i></li>
+            <li><i>Message</i></li>
+            <li><i>Image</i></li>
+            <li><i>Sale</i></li>
+            <li><i>Receiver</i></li>
+        </ul>
+
+        <p>Ahora tiene sentido comentar cómo funcionan las migraciones. Para crearlas, se debe usar:</p>
+        <p><i>php artisan make:migration migrationName</i></p>
+
+        <p>Las migraciones definen la estructura de base de datos a través de la implementación de dos métodos: <i>up</i> y <i>down</i>. La definición de las tablas 
+            se realiza con la <i>facade Schema</i>, que aplicando el método <i>create()</i>, pasa la información de las tablas y los tipos de datos que esta contendrá.</p>
+
+        <p>Aquí se recurrió mucho a la documentación para la definición de tipos: </p>
+        <p><a href="https://laravel.com/docs/5.8/migrations">https://laravel.com/docs/5.8/migrations</a></p>
+
+        <p>Se recomienda visitar la documentación para entender las migraciones en su sentido más amplio.</p>
+
+        <p>Ejemplo de migración en Laravel: </p>
+
+        <pre>
+            <code>
+
+                use Illuminate\Support\Facades\Schema;
+                use Illuminate\Database\Schema\Blueprint;
+                use Illuminate\Database\Migrations\Migration;
+
+                class CreateGalleriesTable extends Migration
+                {
+                    /**
+                    * Run the migrations.
+                    *
+                    * @return void
+                    */
+                    public function up()
+                    {
+                        Schema::create('galleries', function (Blueprint $table) {
+                            $table->string('galleryId')->primary();
+                            $table->string('galleryName');
+                            $table->string('galleryAddress');
+                            $table->string('galleryEmail')->unique();
+                            $table->string('galleryWeb');
+                            $table->timestamps();
+                        });
+                    }
+
+                    /**
+                    * Reverse the migrations.
+                    *
+                    * @return void
+                    */
+                    public function down()
+                    {
+                        Schema::dropIfExists('galleries');
+                    }
+                }
+
+            </code>
+        </pre>
+
+        <!-- Javascript / jQuery -->
+        <h3 id="javascript"><span class="numbers">6.</span> Scripts del lado cliente. <i>Javascript / jQuery</i></h3>
+
+        <p>La aplicación de script de lado cliente, tanto Javascript como jQuery, ha sido frecuente a lo largo de todo el proyecto. 
+            Para su explicación, la dividiremos según las secciones, explicando brevemente cada una de sus funciones y su comportamiento.</p>
+
+        <h4 id="js-shows"><span class="numbers">6. 1.</span> Shows</h4>
+
+        <p>Archivo: <i>shows-script.js</i>.</p>
+
+        <p>En primer lugar, se encuentra la función <i>loadNextShowImage</i> y <i>loadPrevShowImage</i>. Para entender cómo funcionan, vamos a explicar primero 
+            el comportamiento de los clicks en los controles de la sección. La página controla mediante jQuery los clicks que se realizan en los 
+            botones siguiente y anterior mostrados bajo el slider. Al pulsarse, estos eliminan de forma dinámica la imagen que esté presente y pasan 
+            a cargar un gif que indicará que la página está buscando la siguiente. Para evitar que el usuario pulse de forma seguida el click, 
+            se añaden booleans para agregar o eliminar clases al div correspondiente y así evitar que se ejecute de forma repetida. El timeout 
+            que se establece es de 3 segundos. Los métodos usados aquí son:</p>
+
+        <ul>
+            <li>
+                <p><i>css()</i></p>
+            </li>
+            <li>
+                <p><i>setTimeout()</i></p>
+            </li>
+            <li>
+                <p><i>addClass() / removeClass()</i></p>
+            </li>
+            <li>
+                <p><i>hasClass()</i></p>
+            </li>
+            <li>
+                <p><i>click()</i></p>
+            </li>
+        </ul>
+
+        <p>En el momento que se detecta que el <i>flag</i> se encuentra a <i>true</i>, se pedirá la siguiente imagen o la anterior dependiendo del elemento pulsado. 
+            Tanto una función como la otra funcionan de modo similar. El proceso empieza comprobando la ruta. ¿Por qué? Porque la página de shows se 
+            sirve tanto en la ruta / como en la ruta /shows/display, de modo que tenemos que vigilar este aspecto para acoplar la petición en la url 
+            correcta. Esta conclusión se extrajo del fallo que se produjo cuando esta opción no se contempló. Empleo aquí de <i>window.location.href</i>. 
+            A continuación, se ejecuta el método <i>getUrlHashToken</i> (necesario para obtener el token para las rutas de tipo <i>get</i>). Se procede a realizar 
+            una petición AJAX que devolverá la información que nos interesa. Esta se acopla mediante selectores de jQuery. Se usan los métodos 
+            <i>children()</i> y <i>remove()</i> para limpiar el contenido previo. Se contemplan los errores de AJAX pasando los tres argumentos devueltos por la 
+            función de jQuery. El controlador de las imágenes se almacena en la variable <i>position.</i></p>
+
+        <p>
+            La lógica que se sigue en esta página es la siguiente: esta sección pretende informar al usuario de eventos que puedan interesarle. El código 
+            de Javascript está pensado para almacenar hasta un máximo de 25 imágenes por sesión de forma dinámica. Cuando el usuario cierra sesión, los 
+            shows se eliminan automáticamente. Además, el código está preparado para servir imágenes si estas ya existen en base de datos. De lo contrario, 
+            se solicita una nueva de la API.
+        </p>
+
+        <p>Los métodos comentados son los más relevantes de esta sección. No obstante, hay más aparte de estos: </p>
+
+        <ul>
+            <li>
+                <p><i>checkShowsOnDatabase(): </i>crea un simple formato para las fechas que se inyecta por html en el documento.</p>
+            </li>
+
+            <li>
+                <p><i>getUrlHashToken(): </i>sirve para hacer una petición al servidor y que este devuelva el token para la url.</p>
+            </li>
+        </ul>
+
+        <h4 id="js-galleries"><span class="numbers">6. 2.</span> Galleries</h4>
+
+        <p>Archivo: <i>galleries-script.js</i>.</p>
+
+        <p>El código de cliente se inserta aquí para varias acciones. En primer lugar, para la muestra de los detalles de la galería. 
+            En principio, el usuario tiene un símbolo de + en el que, al clickar, mostrará el contenido de la galería seleccionada. 
+            Esto se controla mediante las funciones <i>.click()</i> de los elementos <i>minusNodes</i> y <i>plusNodes</i>. Se agrega a cada uno de ellos la 
+            id de la galería cuando estas son impresas por la vista. Tomando esta id como referencia, es posible luego modificarles el 
+            css, lo cual se lleva a cabo con el método <i>.css()</i>.</p>
+
+        <p>Otro método a mencionar es el que se dispara cuando se muestra el formulario de confirmación de borrado de la galería. Al abrirse este, 
+            se traen los detalles de dicha galería mediante una función de AJAX, que recupera los datos del servidor y los agrega dinámicamente. 
+            Una vez realizado el proceso, se llama al modal.</p>
+
+        <p>También cuenta con una última función de AJAX, que traerá más galerías en caso de querer recargar la página con más contenido.</p>
+
+        <h4 id="js-paintings"><span class="numbers">6. 3.</span> Paintings</h4>
+
+        <p>Archivo: <i>paintings-script.js</i>.</p>
+
+        <p>Uso de nuevos métodos:</p>
+
+        <ul>
+            <li>
+                <p><i>change()</i></p>
+            </li>
+            <li>
+                <p><i>attr()</i></p>
+            </li>
+            <li>
+                <p><i>toggleClass()</i></p>
+            </li>
+            <li>
+                <p><i>fadeIn() / fadeOut()</i></p>
+            </li>
+        </ul>
+
+        <p>
+            La primera función que observamos es la referida a la ejecución de la vista previa en el formulario de subida de imagen al servidor. 
+            Esta función pretende mostrar el aspecto que tendrá la imagen una vez insertada. Para ello, comienza detectando el click y el cambio 
+            en la barra de carga para que el botón de la vista previa responda ante ello. El código comprueba qué clase tiene el botón y agrega 
+            el texto correspondiente según tenga una u otra. De la misma manera, mostrará o cerrará la imagen dependiendo de la petición. Cabe 
+            destacar el uso de <i>FormData</i>, un objeto que alberga todos los elementos de un formulario y los agrupa en uno solo.
+        </p>
+
+        <p>Se usan métodos para el parseo a JSON, así como manipulación de strings con <i>split</i>.</p>
+
+        <p><i>LoadImage()</i> se encarga de traer nuevas imágenes de 2 en 2. Controla la cantidad mediante las variables correspondientes. 
+            <i>ControlLoadButtonFlow()</i> se encarga de mostrar o no el botón de cargar nuevas unidades siempre que se detecten en la base de datos. 
+            De lo contrario, este desaparece. <i>CatchDataOnUpdateClick</i> y <i>CatchDataOnDeleteClick</i> sirven para trasladar los detalles del trabajo 
+            seleccionado a los respectivos modales. Por último, <i>relocateLastChild</i> recoloca el elemento en el centro si este no está agrupado con otro.</p>
+
+        <h4 id="js-messages"><span class="numbers">6. 4.</span> Messages</h4>
+
+        <p>Archivo: <i>messages-script.js</i>.</p>
+
+        <p>El primer método que encontramos es el click en el menú que despliega los mensajes, siempre y cuando estos existan. Al pulsar, se 
+            abre un cuadro que contiene la información de los mensajes enviados. Uso frecuente del método <i>css</i>.</p>
+
+        <p>Sin embargo, este método no es el más importante. El principal es el desencadenado al pulsar en enviar el formulario. Cuando esto sucede, 
+            la acción se previene con <i>e.preventDefault()</i>. Acto seguido, se capturan los elementos y se comprueban las galerías seleccionadas 
+            seleccionando todos los checkbox y pasándoles la función <i>each()</i>. Se obtiene el token de seguridad y se lanza la petición de AJAX 
+            para proceder a la muestra del modal en el que se señalarán los detalles del envío. En dicho modal veremos qué destinatarios hemos 
+            seleccionado, qué trabajos queremos añadir y el contenido del mensaje.</p>
+
+        <p>A continuación, si el usuario acepta, se recogen todos los checkboxes marcados relativos a los trabajos y se pasan las galerías, 
+            los trabajos y el mensaje al controlador, que se encargará de la ejecución del envío.</p>
+
+        <p>Como antes, vemos aquí también el uso de <i>relocateLastChild()</i>. <i>changeOnCheckboxClick()</i> y <i>enableDisableSubmitButton()</i> 
+            van a controlar que el botón de enviar solo esté disponible cuando tanto mensaje como galerías estén seleccionados. </p>
+
+        
+        <h4 id="js-navbar"><span class="numbers">6. 5.</span> Navbar</h4>
+
+        <p>Archivo: <i>navbar-script.js</i>.</p>
+
+        <p>La barra de navegación contiene bastante código para asegurar un buen funcionamiento <i>responsive</i>. Las funciones <i>resize</i> y <i>scroll</i> se usan 
+            para definir comportamientos según el tamaño y la altura a la que se encuentre la página. Se introducen factores de carácter condicional 
+            para que solo se ejecuten en caso de cumplir ciertas características, como por ejemplo en el <i>scroll</i>, que controla la altura y la anchura 
+            al mismo tiempo incluyendo o quitando clases. Se coloca también un boolean para permitir que el menú se abra o no según la disposición 
+            de la página en cada momento.</p>
+
+        <p>Las dos funciones principales son la de aumento de la altura en el scroll ascendente y la reestructuración vertical del menú en el punto de ruptura 
+            seleccionado. La primera de ellas se consigue añadiendo y colocando la clase <i>scrolled-bar</i>. La segunda se hace mediante comprobaciones de 
+            anchuras, siendo muy usado de nuevo el método <i>css()</i>.
+            </p>
+
+        <h4 id="js-sales"><span class="numbers">6. 6.</span> Sales</h4>
+
+        <p>Archivo: <i>sales-script.js</i>.</p>
+
+        <p>Contiene la aplicación más elaborada de jQuery. Esta se aplica en el formulario enviado a la Ebay.</p>
+
+        <p>Lo primero que destacaría sería la función que se desencadena al pinchar en el botón de <i>submit</i>. Justo después, se captura el elemento clickado
+            (el botón) y partir de él, se navega por los nodos cercanos para conseguir los elementos que se encuentran alrededor. Esto permite localizar
+            elementos convenientes para el funcionamiento de la página. Así es, por ejemplo, como se selecciona el formulario apropiado según en qué botón
+            se esté ejecutando el click. Una vez recuperados los elementos, se desencadena una animación y, a los tres segundos, se envía el formulario.</p>
+
+        <p>Lo más interesante es lo siguiente: en el formulario, al enviarse, este lleva una variable de tipo <i>hidden</i> que almacenará la altura de la 
+            pantalla en el momento del envío, pasando esta información al servidor. En el método <i>failedValidation</i> de la petición correspondiente, este 
+            elemento se recupera y se devuelve a la vista. Una vez recuperado, se toma de nuevo por jQuery y se hace una bajada animada hasta el punto 
+            en el que se encontraba el usuario. Destacar, aparte de los métodos, la captura de elementos con jQuery, que lo hace todo más sencillo.</p>
+
+        <p>Un ejemplo de código Javascript muy bueno es el de la sección de sales, que usa mucho la captura de elementos cercanos: </p>
+
+        <pre>
+            <code>
+                // Executed on submit click
+                $('.submit-btn').click(function(e) {
+            
+                    e.preventDefault();
+            
+                    // All needed relatives are caught
+                    formContainer = $(this).parentsUntil('.paint-row').last()
+                    formContentContainer = formContainer.find('.form-content-container')
+                    sellingForm = formContainer.find('form')
+                    loadingContainer = formContainer.parent().find('.loading-container')
+                    loadingParagraph = loadingContainer.children()
+                    scrollReference = formContainer.parent().find('.paint-name');
+                    
+                    $('.current-path').val(window.location.href);
+            
+                    $(formContentContainer).css({
+                        'height' : '0'
+                    })
+            
+                    $('html, body').animate({scrollTop: scrollReference.offset().top - 100}, {duration: 500, easing: 'linear'});
+            
+                    $(loadingContainer).css({
+                        'left' : '-30%'
+                    })
+            
+                    // Loading bar beginning
+                    setTimeout(function() {
+            
+                        $(loadingParagraph).css({
+                            'opacity' : '0'
+                        })
+            
+                    }, 1000)
+            
+                    // Loading bar growing
+                    setTimeout(function() {
+            
+                        $(loadingContainer).css({
+                            'left' : '0%'
+                        })
+            
+                        $(loadingParagraph).text('Executing...');
+            
+                        $(loadingParagraph).css({
+                            'opacity' : '1'
+                        })
+            
+                    }, 2000)
+            
+                    // Finally, form is submitted
+                    setTimeout(function() {
+                        sellingForm.submit();
+                    }, 3000)
+            
+                })
+            </code>
+        </pre>
+
+        <!-- Estilo. CSS / HTML -->
+        <h3 id="styles"><span class="numbers">7.</span> Estilo. CSS3, HTML5.</h3>
+
+        <p>Los siguientes elementos propios de CSS han sido introducidos en la página:</p>
+
+        <ul>
+            <li>
+                <p>Bootstrap grid layout: se usa bootstrap como base para el empleo del grid y flexbox, usándolos para la mayoría de las estructuras en la aplicación. 
+                    Se recurre sobre todo a puntos de ruptura intermedios <i>(col-md-x)</i>, aunque en algunas ocasiones se emplea el <i>lg</i> por falta de anchura en el 
+                    redimensionamiento de la página. Otras clases son, por ejemplo, <i>container-fluid y container, row, </i> o clases relacionadas con la disposición 
+                    de los elementos flex: <i>justify-content-center, align-items-start, flex-column,</i> etc.
+                </p>
+            </li>
+            <li>
+                <p>Bootstrap margins & padings: Bootstrap es muy versátil y ofrece muchísimas utilidades. Una de ellas es la relativa a márgenes y paddings mediante
+                    clases <i>m-x y p-x</i>, que contienen niveles del 1 al 5 para indicar su intensidad.
+                </p>
+            </li>
+            <li>
+                <p>Adaptación a navegadores: uso de las directivas <i>moz, webkit, ms</i> y <i>o</i> para la adaptación a todos los navegadores posibles. Esta se aplica a las 
+                    propiedades más relevantes: <i>background, animation y transition</i>.
+                </p>
+            </li>
+            <li>
+                <p>Aplicación de pseudoelementos <i>::after</i> y <i>::before</i>: en muchas partes se incluyen estos pseudoelementos para agregar una mayor 
+                    funcionalidad a las posibilidades del css.
+                </p>
+            </li>
+            <li>
+                <p>Amplia variedad de selectores: se recurre a distintos tipos, como por ejemplo <i>last-child, nth-last-child, div[class=’’], div[class^=’’]</i> 
+                    o selectores anidados.
+                </p>
+            </li>
+            <li>
+                <p>Uso de SASS: se emplea SASS para crear clases generales a partir de importación de parciales. Estas se engloban dentro de un documento 
+                    .scss que mediante el comando sass en consola genera el css correspondiente.
+                </p>
+            </li>
+            <li>
+                <p>Animaciones: la página contiene animaciones en casi todas las páginas, la mayoría de ellas implementando movimientos sencillos. 
+                    Se usa frecuentemente la aplicación de la propiedad <i>position</i>, sobre todo a la hora de colocarlas como <i>absolute</i> con los padres a 
+                    <i>relative</i> para un correcto redimensionamiento de la página. 
+                </p>
+            </li>
+            <li>
+                <p>Transiciones: también muy frecuentes en la app. Se usan, sobre todo, las propiedades de <i>transition, display, background y position.</i>
+                </p>
+            </li>
+            <li>
+                <p>Media query: uso de la etiqueta media query para la disposición correcta de los elementos al cambiar el tamaño de la pantalla. 
+                    En la mayoría de las secciones se ha optado por centrar los elementos en la reducción de los tamaños.</p>
+            </li>
+        </ul>
+
+        <!-- Documentación del despliegue -->
+        <h3 id="deploy"><span class="numbers">8.</span> Despliegue de la app</h3>
+
+        <!-- Despliegue en hosting -->
+        <h3 id="dp-private-hosting"><span class="numbers">8. 1.</span> Despliegue en hosting privado</h3>
+
+        <p>Dominio elegido: <a href="http://www.kontollarte.com">www.kontollarte.com</a></p>
+
+        <p>El hosting elegido ha sido <b>Fast Comet</b>. Se trata de un hosting privado. ¿Por qué se ha elegido finalmente un hosting de pago?</p>
+
+        <p>Por dos razones: </p>
+        <ul>
+            <li>
+                Por las limitaciones en la customización del sitio que tienen los hostings gratuitos
+            </li>
+
+            <li>
+                Por las críticas en foros hablando acerca de los despliegues con Laravel. 
+                En muchos de ellos se recomendaba la utilización de Fast Comet para lanzar la app.
+            </li>
+        </ul>
+
+        <p>El proceso ha sido el siguiente: </p>
+
+        <p>Empiezas logueándote con las credenciales. Accedes a esta pantalla: </p>
+
+        <div class="img-container"><img src="PICS/12.PNG" width="85%"></div>
+
+        <p>Nos vamos al cPanel tal y como se ve en esta imagen: </p>
+
+        <div class="img-container"><img src="PICS/13.PNG" width="85%"></div>
+        <div class="img-container"><img src="PICS/14.PNG" width="85%"></div>
+
+        <p>Vas a file manager y partir de aquí es todo muy intuitivo, por lo que no se incluirán capturas reflejando exactamente cada paso.
+            De ahí en adelante, puedes crear archivos, directorios, mover, copiar, etc.
+        </p>
+
+        <p>Lo fundamental es que el contenido tiene que residir en <b>public_html</b>. De ahí en adelante, la personalización va en función de cada usuario.</p>
+
+        <p>Aquí es donde empezó la problemática: <b>el .htaccess para generar los redireccionamientos apropiados</b>. Lo que ocurrió en un principio, o más bien lo que se usó
+            en un principo fue este .htaccess para el root del servidor web:
+        </p>
+
+        <pre>
+            <code>
+                #Pruebas
+    
+                #RewriteRule ^/?documentacion/?$ /documentacion/ [L]
+                #RewriteRule ^documentacion$ /aplicacion/public/documentacion [L,END]
+                #RewriteRule ^(.*)$ /aplicacion/public/$1 [L]
+                
+                #RewriteCond %{REQUEST_URI} ^/documentacion/
+                #RewriteRule (.*) /aplicacion/public/$1 [L]
+                
+                #RewriteRule ^/?documentacion/?$ /documentacion [L]
+                
+                #RewriteCond %{REQUEST_FILENAME} !-f
+                #RewriteCond %{REQUEST_FILENAME} !-d
+                #RewriteRule . /?aplicacion/public/?$ [L,R=301]
+            </code>
+        </pre>
+
+        <p>Sin embargo, la línea verdaderamente conflictiva era esta: </p>
+
+        <pre>
+            <code>
+    
+                #RewriteRule ^(.*)$ /aplicacion/public/$1 [L]
+                
+            </code>
+        </pre>
+
+        <p>¿Por qué? Pues porque, al contemplar todo tipo de caracteres, incluso la ausencia de los mismos, estaba "tragándose" todas las peticiones. De este modo,
+            cualquier RewriteCond que se pusiera acababa fallando. Finalmente la solución la di con el siguiente código:
+        </p>
+
+        <pre>
+            <code>
+
+                <IfModule mod_rewrite.c>
+                        RewriteEngine On
+                        Options FollowSymLinks
+                        Options +Indexes
+                        RewriteBase /
+                        IndexOptions ShowForbidden
+                        
+                        RewriteCond %{REQUEST_URI} !^/documentacion/
+                        RewriteRule ^ /aplicacion/public/%{REQUEST_URI} [L]
+                </IfModule>
+
+            </code>
+        </pre>
+
+        <p>
+            La opción <i>FollowSymLinks</i> sirve para contemplar los enlaces simbólicos. <i>+Indexes permite indexar el contenido</i>
+         <i>RewriteBase establece el directorio sobre el que se actúa</i>. Y, por último, <i>IndexOptions ShowForbidden</i> muestra los elementos ocultos.
+        </p>
+
+        <p>Siguiente problemática: <b>el .htaccess y el .htpasswd</b>. Esto fue complicado porque generaba un problema concreto: arrojaba, 
+        tras la autenticación, un error 403 Forbidden. Buscando y buscando, parece ser que hay que añadir la siguiente línea al .htaccess de /documentacion:</p>
+
+        <pre>
+            <code>
+                    ErrorDocument 401 "Authorisation Required"
+            </code>
+        </pre>
+
+        <p>No tiene mucho sentido, porque debería funcionar como tal mediante los dos archivos arriba mencionados. Sin embargo, fue el ajuste que permitió que finalmente
+            funcionara.
+        </p>
+        
+        <p>Luego la configuración de la base de datos es muy sencilla. Te vas al cPanel, aquí:</p>
+
+        <div class="img-container"><img src="PICS/15.PNG" width="85%"></div>
+
+        <p>Asegúrate de que haces los siguientes pasos:</p>
+
+        <ul>
+            <li>Crea la base de datos</li>
+            <li>Crea un usuario para la base de datos</li>
+            <li>Asocia la base de datos con el usuario</li>
+        </ul>
+
+        <div class="img-container"><img src="PICS/16.PNG" width="85%"></div>
+        <div class="img-container"><img src="PICS/17.PNG" width="85%"></div>
+
+        <p>Realizados estos puntos, vas al phpMyAdmin del host y únicamente importas la base de datos con el archivo .sql</p>
+
+        <div class="img-container"><img src="PICS/18.PNG" width="85%"></div>
+
+        <!-- Despliegue en máquina virtual -->
+        <h3 id="dp-virtual-machine"><span class="numbers">8. 2.</span> Despliegue en máquina virtual</h3>
+
+        <p><b>Máquina servidora: </b>Debian9</p>
+        <p><b>Máquina cliente: </b>Windows XP</p>
+
+        <p>Se intenta el despliegue de la aplicación con una máquina Debian8 en un principio. Finalmente, arrojaba un error a la hora de mostrar la página de inicio:
+            no mostraba absolutamente nada; aparecía una pantalla en blanco. Todo esto, lógicamente, habiendo hecho ya los direccionamientos dns correspondientes, así 
+            como la creación del servidor virtual. 
+        </p>
+
+        <p>Lo que estaba ocurriendo era que php <b>no estaba desplegando/mostrando los errores</b>. Para ello, se incluyó en el archivo index.php del directorio /public
+         las siguientes directivas: </p>
+
+         <pre>
+            <code>
+                ini_set('display_errors', 1);
+                ini_set('display_startup_errors', 1);
+                error_reporting(E_ALL);
+            </code>
+        </pre>
+
+        <p>Tras ello, al actualizar, se mostraba el error: un problema de caracteres en el archivo <i><b>Illuminate\Support\Arr.php on line 384</b></i>. Tirando
+        de google, descubro qué es lo que ocurre en realidad: que la versión de php que maneja apache es obsoleta para Laravel, que requiere versiones superiores a 7.1.
+    </p>
+
+    <p>Tras este fallo, se suceden una gran cantidad de intentos, todos ellos sin resultado. En un primer momento, el más lógico parecía ser limpiar php y reinstalar 
+        en la versión más reciente, configurando claro está la presencia de los módulos adecuados en el servidor apache. ¿Qué es lo que pasó? Pues que muchos comandos
+        no funcionaba por falta de paquetes o de repositorios en /etc/apt/sources.list. Precisamente por esto, por manipular aquí y allí, se generaron otro tipo de errores,
+        como por ejemplo fallos en el archivo <b>sources.list</b>. En resumen, tuve que tirar la máquina en repetidas ocasiones.</p>
+
+        <p>Uno de los fallos más recurrentes fue la caída de apache. Esto ocurrió muy a menudo, por lo que solía comprobar el estado del servidor con <i>systemctl status apache2</i>.
+        No llegué a averigüar cuál era la razón por la cual el servidor se estaba cayendo, ya que el motivo que pensé que lo estaba provocando no resultó ser el único.</p>
+
+        <p>Resumiendo de nuevo, tiré la máquina y reinstalé con Debian9. Los pasos para, finalmente, lograr que funcionara fueron estos:</p>
+
+        <ul>
+            <li>Instalar el paquete net-tools</li>
+            <li>Instalar el paquete php7.2. Esto incluye los siguientes comandos: 
+                <ul>
+                    <li>apt update && apt upgrade</li>
+                    <li>apt install apt-transport-https lsb-release ca-certificates</li>
+                    <li>wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg</li>
+                    <li>echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list</li>
+                    <li>apt update</li>
+                    <li>apt install php7.2</li>
+                    <li>apt search php7.2</li>
+                    <li>apt install php7.2 php7.2-cli php7.2-common php7.2-json php7.2-opcache php7.2-mysql php7.2-zip php7.2-fpm php7.2-mbstring
+                        </li>
+                    <li>a2dismod php7.0</li>
+                    <li>systemctl restart apache2</li>
+                    <li>a2enmod php7.2</li>
+                    <li>systemctl restart apache2</li>
+                </ul>
+            </li>
+            <li>Transferencia de los archivos a través de pscp. Necesario incluir -r para la copia recursiva de los directorios, así como modificación de los permisos 
+                en linux en la carpeta de destino con <i>chmod 777 carpeta</i>.</li>
+            <li>Reestablecer la password de Webmin. Para ello, se necesita el siguiente comando: /usr/share/webmin/changepass.pl /etc/webmin admin newpassword</li>
+            <li>Reinstalar el servidor bind9 dns, ya que, por alguna razón, viene inhabilitado. Para ello, se necesita el siguiente comando: sudo apt install bind9 bind9utils bind9-doc
+            </li>
+            <li>Crear una zona maestra. La nombro knt.</li>
+            <li>Crear un dominio: www.kontollarte.knt resuelto por la ip 10.0.2.12 (Debian9)</li>
+            <li>Crear un servidor virtual. Puerto 80. Dominio: el citado arriba. DirectoryRoot: /var/www/html/kontollarte/public</li>
+            <li>Crear la base de datos, el usuario y reestablecer la pass de phpmyamdin: 
+                <ul>
+                    <li>mysql -u root -p</li>
+                    <li>CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'user_password'; <b>Importante el ;</b></li>
+                    <li>GRANT ALL PRIVILEGES ON *.* TO 'database_user'@'localhost';</li>
+                </ul>
+            </li>
+            <li>Entrar al dominio por http: <a href="http://www.kontollarte.com">http://www.kontollarte.com</a></li>
+        </ul>
+
+        <p>Y de forma mágica, tras estos <i>sencillísimos pasos</i>, la app está lista. O se supone, más bien, que debería estar lista. Sin embargo, lo que
+            ocurre es que aparece un error 404 Not Found en el navegador. Investigo y resulta que es por unas directivas que han de ir en el archivo de configuración
+            del sitio. Para ello nos vamos a la ruta <i>/etc/apache/sites-avialable</i> y entramos a nuestro archivo de configuración para que tenga el siguiente aspecto:
+        </p>
+
+        <p>No será el único cambio necesario. Las carpetas por defecto están a forbidden para el usuario, con lo que ejecuto un <i>chmod -R</i>. El parámetro -R sirve para
+        indicar una modificación recursiva de los directorios y archivos subyacentes.</p>
+
+        <p>Una vez realizados estos ajustes, parece que el dominio ya funciona correctamente.</p>
+
+        <p>Por último, para la creación del servicio ftp se siguen los siguientes pasos: </p>
+
+        <p>Ejecuto <i>apt-get install proftpd</i>.</p>
+        <div class="img-container"><img src="PICS/19.PNG" width="85%"></div>
+        <p>Se descarga el cliente <i>Filezilla</i>.</p>
+        <p>Creación del servidor ftp en el módulo correspondiente. Se establecen dirección, puerto y nombre.</p>
+        <div class="img-container"><img src="PICS/20.PNG" width="85%"></div>
+        <p>Creación del usuario virtual mediante el comando <i>ftpasswd</i>.</p>
+        <div class="img-container"><img src="PICS/21.PNG" width="85%"></div>
+        <p>Eliminación de la restricción para logueo sin shell válida.</p>
+        <div class="img-container"><img src="PICS/22.PNG" width="85%"></div>
+        <p>Cambio de permisos mediante <i>chmod</i> y la <i>uid</i> del usuario.</p>
+        <div class="img-container"><img src="PICS/23.PNG" width="85%"></div>
+        <p>Enjaulamiento del usuario creado mediante la opción <i>Archivos y directorios</i>.</p>
+        <div class="img-container"><img src="PICS/24.PNG" width="85%"></div>
+
+    </div> <!-- Container end -->
+</body>
+</html>

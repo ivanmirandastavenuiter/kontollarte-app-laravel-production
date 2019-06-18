@@ -1,0 +1,134 @@
+/* Page core css */
+
+a:hover { text-decoration: none !important; }
+
+.logout a span {
+    cursor: pointer !important;
+}
+
+.logout-hidden {
+    display: none !important;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.logout-hidden .col-lg {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.navbar-title::first-letter { font-weight: bold; font-size: 1.5em; }
+
+.navbar-title {
+    min-width: 170px;
+    font-family: 'Raleway', sans-serif;
+    font-size: .6em;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.sections-container {
+    font-family: 'Raleway', sans-serif;
+    transition: all 1s ease-out;
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s ease-out;
+    -ms-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+}
+
+.mr-nav a {
+    font-family: 'Raleway', sans-serif;
+    font-size: .6em;
+    letter-spacing: 5px;
+    text-transform: uppercase !important;
+}
+
+.logout {
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.title-section-row div {
+    margin: 10px;
+    padding: 0;
+    text-align: center;
+    min-width: 80px;
+}
+
+.color-bar {
+    margin-top: 20px;
+    width: 0%;
+    background: linear-gradient(to right, #5DD9C1, #190933);
+    background: -webkit-linear-gradient(to right, #5DD9C1, #190933);
+    background: -moz-linear-gradient(to right, #5DD9C1, #190933);
+    background: -ms-linear-gradient(to right, #5DD9C1, #190933);
+    background: -o-linear-gradient(to right, #5DD9C1, #190933);
+    height: 2px;
+    transition: all 1s;
+}
+
+.navbar-row {
+    position: fixed;
+    top: 0;
+    background: linear-gradient(to right, #B084CC, #A5DDF8);
+    background: -webkit-linear-gradient(to right, #B084CC, #A5DDF8);
+    background: -moz-linear-gradient(to right, #B084CC, #A5DDF8);
+    background: -ms-linear-gradient(to right, #B084CC, #A5DDF8);
+    background: -o-linear-gradient(to right, #B084CC, #A5DDF8);
+    padding: 60px 0;
+    color: #fff !important;
+    z-index: 9998;
+    width: 100%;
+    transition: padding .5s;
+    -webkit-transition: padding .5s;
+    -moz-transition: padding .5s;
+    -ms-transition: padding .5s;
+    -o-transition: padding .5s;
+}
+
+.navbar-row a {
+    color: #fff;
+}
+
+.navbar-row a:hover,
+.navbar-row span:hover {
+    color: #279680;
+}
+
+.scrolled-nav {
+    padding: 0px;
+}
+
+/* Media queries */
+
+@media (max-width: 991.5px) {
+    
+    .title-section-row div {
+        margin: 20px auto !important;
+        text-align: center;
+    }
+    
+    .navbar-title {
+        text-align: center;
+    }
+
+    .logout-hidden {
+        display: block !important;
+        line-height: 1.5rem;
+        margin: 40px auto;
+        cursor: pointer;
+    }
+
+    .logout {
+        display: none !important;
+    }
+
+    .sections-container {
+        height: 0px;
+        overflow: hidden;   
+    }
+
+}

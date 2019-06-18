@@ -1,0 +1,17 @@
+/* Media queries */
+
+@media (max-width: 550px) {
+
+    .social-media-container span {
+        margin: 20px !important;
+    }
+
+}
+
+@media (max-width: 380px) {
+
+    .social-media-container span {
+        display: block;
+    }
+
+}

@@ -1,0 +1,38 @@
+.no-info-btn {
+	color: #190933;
+    background: #5DD9C1;
+    -webkit-background: #5DD9C1;
+    -moz-background: #5DD9C1;
+    -ms-background: #5DD9C1;
+    -o-background: #5DD9C1;
+    border-color: #5DD9C1;
+    border-radius: 0;
+	font-family: 'Raleway', sans-serif;
+    font-size: .8em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.no-info-btn:hover {
+	color: #fff;
+    background: #41baa2;
+    -webkit-background: #41baa2;
+    -moz-background: #41baa2;
+    -ms-background: #41baa2;
+    -o-background: #41baa2;
+	border-color: #41baa2;
+}
+
+.no-info-btn:active {
+	color: #fff !important;
+    background: #2d8473 !important;
+    -webkit-background: #2d8473;
+    -moz-background: #2d8473;
+    -ms-background: #2d8473;
+    -o-background: #2d8473;
+	border-color: #2d8473 !important;
+}
+
+.no-info-btn:focus {
+	box-shadow: 0 0 0 0.2rem rgba(93, 217, 193, .5)
+}

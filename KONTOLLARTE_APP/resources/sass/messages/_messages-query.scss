@@ -1,0 +1,40 @@
+@media (max-width: 767px) {
+  .rc, .rh {
+      display: none;
+  }
+  .rc-hidden, .rh-hidden {
+      display: block;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .pm-title-container,
+  .wm-title-container {
+    text-align: center;
+  }
+  .wm-lbl .checkmark:after {
+    width: 1%;
+  }
+}
+
+@media (max-width: 1500px) {
+
+  .wm-lbl .checkmark:after {
+    width: 1.1%;
+  }
+}
+
+@media (max-width: 1400px) {
+
+  .wm-lbl .checkmark:after {
+    width: 1.2%;
+  }
+}
+
+@media (max-width: 1200px) {
+
+  .wm-lbl .checkmark:after {
+    width: 1.3%;
+  }
+}

@@ -1,0 +1,252 @@
+/* Page core css */
+html, body {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* vh es la medida con respecto a la altura del viewport / vw es la medida con respecto a la anchura del viewport */
+.main {
+  height: 150%;
+  background: url("../images/login/login-bg.jpg");
+  -webkit-background: url("../images/login/login-bg.jpg");
+  -moz-background: url("../images/login/login-bg.jpg");
+  -ms-background: url("../images/login/login-bg.jpg");
+  -o-background: url("../images/login/login-bg.jpg");
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  background-position: center;
+}
+
+/* Con height a auto y width a 100% la imagen se ajusta al contenedor del padre */
+.form-container {
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-background: rgba(0, 0, 0, 0.8);
+  -moz-background: rgba(0, 0, 0, 0.8);
+  -ms-background: rgba(0, 0, 0, 0.8);
+  -o-background: rgba(0, 0, 0, 0.8);
+  margin-top: 150px !important;
+  min-width: 500px;
+}
+
+div {
+  color: #fff;
+}
+
+.title {
+  text-transform: uppercase;
+  letter-spacing: 26px;
+  font-size: 1.5em;
+  font-family: "Julius Sans One";
+  padding: 50px 0px;
+}
+
+.tags {
+  font-family: "Raleway";
+}
+
+.login-form {
+  width: 100%;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+.input-container {
+  margin: 0 auto;
+  width: 50%;
+  position: relative;
+  border-bottom: 1px solid #adadad;
+  margin-bottom: 37px;
+}
+
+.input-box {
+  font-family: "Raleway";
+  font-size: 15px;
+  color: #fff;
+  line-height: 1.2;
+  display: block;
+  width: 100%;
+  height: 45px;
+  background: transparent;
+  -webkit-background: transparent;
+  -moz-background: transparent;
+  -ms-background: transparent;
+  -o-background: transparent;
+  padding: 0 5px;
+}
+
+.input-span {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.input-span::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  transition: all 0.4s;
+  background: #6a7dfe;
+  background: -webkit-linear-gradient(left, #21d4fd, #b721ff);
+  background: -o-linear-gradient(left, #21d4fd, #b721ff);
+  background: -moz-linear-gradient(left, #21d4fd, #b721ff);
+  background: linear-gradient(left, #21d4fd, #b721ff);
+}
+
+.input-span::after {
+  font-family: "Raleway";
+  font-size: 15px;
+  color: #999999;
+  line-height: 1.2;
+  content: attr(data-placeholder);
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 16px;
+  left: 0px;
+  padding-left: 5px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.input-box:focus + .input-span::after {
+  top: -15px;
+}
+
+.input-box:focus + .input-span::before {
+  width: 100%;
+}
+
+.has-val.input-box + .input-span::after {
+  top: -15px;
+}
+
+.has-val.input-box + .input-span::before {
+  width: 100%;
+}
+
+.form-btn-container-first {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 13px;
+  margin-bottom: 150px;
+}
+
+.form-btn-container-second {
+  width: 50%;
+  display: block;
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.form-btn-container-third {
+  position: absolute;
+  z-index: -1;
+  width: 300%;
+  height: 100%;
+  background: #a64bf4;
+  background: -webkit-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
+  background: -o-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
+  background: -moz-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
+  background: linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
+  top: 0;
+  left: -100%;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.form-login-btn {
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  -webkit-background: transparent;
+  -moz-background: transparent;
+  -ms-background: transparent;
+  -o-background: transparent;
+  border: none;
+  outline: none;
+}
+
+.form-btn-container-second:hover .form-btn-container-third {
+  left: 0;
+}
+
+.signup-container {
+  text-align: center;
+  padding: 20px;
+  font-family: "Raleway";
+  color: #fff;
+  line-height: 1.2;
+  font-size: 0.8em;
+  margin-bottom: 30px;
+}
+
+.signup-container > a {
+  text-decoration: none;
+  color: #21d4fd;
+}
+
+.invalid-feedback {
+  display: block !important;
+  position: relative;
+  width: 100% !important;
+  margin: 0.25rem 0 0.25rem 0.35rem !important;
+  font-size: 80% !important;
+  color: #aa57d1 !important;
+  font-family: "Raleway";
+  font-size: 10px;
+  padding-right: calc(1.5em + .75rem);
+}
+
+.cross-icon i {
+  position: absolute;
+  right: 5px;
+}
+
+/*# sourceMappingURL=login-main.css.map */

@@ -1,0 +1,28 @@
+@media (max-width: 991.5px) {
+    
+    .title-section-row div {
+        margin: 20px auto !important;
+        text-align: center;
+    }
+    
+    .navbar-title {
+        text-align: center;
+    }
+
+    .logout-hidden {
+        display: block !important;
+        line-height: 1.5rem;
+        margin: 40px auto;
+        cursor: pointer;
+    }
+
+    .logout {
+        display: none !important;
+    }
+
+    .sections-container {
+        height: 0px;
+        overflow: hidden;   
+    }
+
+}

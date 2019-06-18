@@ -1,0 +1,16 @@
+/* Media queries */
+
+@media (max-width: 768px) {
+
+	.account-box-right, .account-box-left { 
+		text-align: center;
+		padding-right: 0 !important;
+		padding-left: 0 !important;
+		border-right: none !important;
+	}
+	.btn-container { text-align: center; }
+	.ac-title-container {
+		text-align: center;
+	}
+	
+}

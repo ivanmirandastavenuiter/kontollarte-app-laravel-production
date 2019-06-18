@@ -1,0 +1,253 @@
+.dlt-btn {
+    background: #665687;
+    -webkit-background: #665687;
+    -moz-background: #665687;
+    -ms-background: #665687;
+    -o-background: #665687;
+	border-color: #665687;
+}
+
+.dlt-btn:hover {
+	color: #fff !important;
+    background: #423263;
+    -webkit-background: #423263;
+    -moz-background: #423263;
+    -ms-background: #423263;
+    -o-background: #423263;
+	border-color: #423263;
+}
+
+.dlt-btn:active {
+	color: #fff !important;
+    background: #24193a !important;
+    -webkit-background: #24193a;
+    -moz-background: #24193a;
+    -ms-background: #24193a;
+    -o-background: #24193a;
+	border-color: #24193a !important;
+}
+
+.dlt-btn:focus {
+	box-shadow: 0 0 0 0.2rem rgba(102, 86, 135, .5)
+}
+
+.dlt-btn:not(:disabled):not(.disabled).active:focus, 
+.dlt-btn:not(:disabled):not(.disabled):active:focus, 
+.show > .dlt-btn.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(102, 86, 135, .5)
+}
+
+.add-btn {
+	color: #190933 !important;
+    background: #5DD9C1;
+    -webkit-background: #5DD9C1;
+    -moz-background: #5DD9C1;
+    -ms-background: #5DD9C1;
+    -o-background: #5DD9C1;
+	border-color: #5DD9C1;
+}
+
+.add-btn:hover {
+	color: #fff !important;
+    background: #41baa2;
+    -webkit-background: #41baa2;
+    -moz-background: #41baa2;
+    -ms-background: #41baa2;
+    -o-background: #41baa2;
+	border-color: #41baa2;
+}
+
+.add-btn:active {
+	color: #fff !important;
+    background: #2d8473 !important;
+    -webkit-background: #2d8473;
+    -moz-background: #2d8473;
+    -ms-background: #2d8473;
+    -o-background: #2d8473;
+	border-color: #2d8473 !important;
+}
+
+.add-btn:focus {
+	box-shadow: 0 0 0 0.2rem rgba(93, 217, 193, .5)
+}
+
+.add-btn:not(:disabled):not(.disabled).active:focus, 
+.add-btn:not(:disabled):not(.disabled):active:focus, 
+.show > .add-btn.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(93, 217, 193, .5)
+}
+
+.site-btn {
+	color: #190933 !important;
+    background: #A5DDF8;
+    -webkit-background: #A5DDF8;
+    -moz-background: #A5DDF8;
+    -ms-background: #A5DDF8;
+    -o-background: #A5DDF8;
+	border-color: #A5DDF8;
+}
+
+.site-btn:hover {
+	color: #fff !important;
+    background: #75acc6;
+    -webkit-background: #75acc6;
+    -moz-background: #75acc6;
+    -ms-background: #75acc6;
+    -o-background: #75acc6;
+	border-color: #75acc6;
+}
+
+.site-btn:active {
+	color: #fff !important;
+    background: #3b748e !important;
+    -webkit-background: #3b748e;
+    -moz-background: #3b748e;
+    -ms-background: #3b748e;
+    -o-background: #3b748e;
+	border-color: #3b748e !important;
+}
+
+.site-btn:focus {
+	box-shadow: 0 0 0 0.2rem rgba(165, 221, 248, .5)
+	
+}
+
+.site-btn:not(:disabled):not(.disabled).active:focus, 
+.site-btn:not(:disabled):not(.disabled):active:focus, 
+.show > .site-btn.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(165, 221, 248, .5)
+}
+
+.lm-btn {
+	color: #190933 !important;
+    background: #5DD9C1;
+    -webkit-background: #5DD9C1;
+    -moz-background: #5DD9C1;
+    -ms-background: #5DD9C1;
+    -o-background: #5DD9C1;
+	border-color: #5DD9C1;
+}
+
+.lm-btn:hover {
+	color: #fff !important;
+    background: #41baa2;
+    -webkit-background: #41baa2;
+    -moz-background: #41baa2;
+    -ms-background: #41baa2;
+    -o-background: #41baa2;
+	border-color: #41baa2;
+}
+
+.lm-btn:active {
+	color: #fff !important;
+    background: #2d8473 !important;
+    -webkit-background: #2d8473;
+    -moz-background: #2d8473;
+    -ms-background: #2d8473;
+    -o-background: #2d8473;
+	border-color: #2d8473 !important;
+}
+
+.lm-btn:focus {
+	box-shadow: 0 0 0 0.2rem rgba(93, 217, 193, .5)
+}
+
+.lm-btn:not(:disabled):not(.disabled).active:focus, 
+.lm-btn:not(:disabled):not(.disabled):active:focus, 
+.show > .lm-btn.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(93, 217, 193, .5)
+}
+
+.dlt-gallery-btn,
+.add-gallery-btn {
+	color: #190933;
+    background: #5DD9C1;
+    -webkit-background: #5DD9C1;
+    -moz-background: #5DD9C1;
+    -ms-background: #5DD9C1;
+    -o-background: #5DD9C1;
+	border-color: #5DD9C1;
+}
+
+.dlt-gallery-btn:hover,
+.add-gallery-btn:hover {
+	color: #fff;
+    background: #41baa2;
+    -webkit-background: #41baa2;
+    -moz-background: #41baa2;
+    -ms-background: #41baa2;
+    -o-background: #41baa2;
+	border-color: #41baa2;
+}
+
+.dlt-gallery-btn:active,
+.add-gallery-btn:active {
+	color: #fff !important;
+    background: #2d8473 !important;
+    -webkit-background: #2d8473;
+    -moz-background: #2d8473;
+    -ms-background: #2d8473;
+    -o-background: #2d8473;
+	border-color: #2d8473 !important;
+}
+
+.dlt-gallery-btn:focus,
+.add-gallery-btn:focus {
+	box-shadow: 0 0 0 0.2rem rgba(93, 217, 193, .5)
+}
+
+.dlt-gallery-btn:not(:disabled):not(.disabled).active:focus, 
+.dlt-gallery-btn:not(:disabled):not(.disabled):active:focus, 
+.show > .dlt-gallery-btn.dropdown-toggle:focus,
+.add-gallery-btn:not(:disabled):not(.disabled).active:focus, 
+.add-gallery-btn:not(:disabled):not(.disabled):active:focus, 
+.show > .add-gallery-btn.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(93, 217, 193, .5)
+}
+
+.close-gallery-btn,
+.add-close-gallery-btn {
+	color: #190933;
+    background: #A5DDF8;
+    -webkit-background: #A5DDF8;
+    -moz-background: #A5DDF8;
+    -ms-background: #A5DDF8;
+    -o-background: #A5DDF8;
+	border-color: #A5DDF8;
+}
+
+.close-gallery-btn:hover,
+.add-close-gallery-btn:hover {
+	color: #fff;
+    background: #75acc6;
+    -webkit-background: #75acc6;
+    -moz-background: #75acc6;
+    -ms-background: #75acc6;
+    -o-background: #75acc6;
+	border-color: #75acc6;
+}
+
+.close-gallery-btn:active,
+.add-close-gallery-btn:active {
+	color: #fff !important;
+    background: #3b748e !important;
+    -webkit-background: #3b748e;
+    -moz-background: #3b748e;
+    -ms-background: #3b748e;
+    -o-background: #3b748e;
+	border-color: #3b748e !important;
+}
+
+.close-gallery-btn:focus,
+.add-close-gallery-btn:focus {
+	box-shadow: 0 0 0 0.2rem rgba(165, 221, 248, .5)
+}
+
+.close-gallery-btn:not(:disabled):not(.disabled).active:focus, 
+.close-gallery-btn:not(:disabled):not(.disabled):active:focus, 
+.show > .close-gallery-btn.dropdown-toggle:focus,
+.add-close-gallery-btn:not(:disabled):not(.disabled).active:focus, 
+.add-close-gallery-btn:not(:disabled):not(.disabled):active:focus, 
+.show > .add-close-gallery-btn.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(165, 221, 248, .5)
+}
