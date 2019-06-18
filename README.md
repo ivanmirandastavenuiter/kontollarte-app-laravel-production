@@ -3,6 +3,11 @@ Kontollarte DOCS
 
 A project made by Iván Miranda Stavenuiter. 2019.
 
+### LINKS
+
+Kontollarte app: www.kontollarte.com
+Kontollarte docs: www.kontollarte.com/documentacion
+
 ### 1. Introducción
 
 El siguiente proyecto consiste en una aplicación que tiene como objetivo gestionar obras de arte, ofrecer información adicional sobre eventos y galerías y, en última instancia, comercializar las creaciones del usuario a través de la plataforma Ebay.
