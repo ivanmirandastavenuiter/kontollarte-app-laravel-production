@@ -354,7 +354,7 @@ Más información sobre el paquete _auth_: [https://laravel.com/docs/5.8/authent
 
 Esto genera, como se indicaba, la creación de las clases necesarias para el login y registro. Lo siguiente es acomodarlo a las necesidades de la aplicación.
 
-![](PICS/1.PNG)
+![login](https://github.com/ivanmirandastavenuiter/kontollarte-app-laravel-production/blob/master/KONTOLLARTE_DOCS/PICS/1.PNG)
 
 ¿Cómo se ha llevado a cabo este paso? Sobre todo, haciendo uso de la clase _Request_. Esta clase hereda de otra llamada _FormRequest_ y se utiliza para implementar validaciones, de modo que cada una se corresponde con un tipo de formulario completo. Gracias a ella, podemos hacer una para una función específica y asignarle la validación correspondiente. Esta clase se ha usado para todas las validaciones en el proyecto. Se caracteriza por tres métodos fundamentales:
 
