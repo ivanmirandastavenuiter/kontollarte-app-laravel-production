@@ -3,10 +3,6 @@ Kontollarte DOCS
 
 A project made by Iván Miranda Stavenuiter. 2019.
 
-### Índice
-
-[1\. Introducción](#intro) [1\. 1. Rutas principales](#main-paths) [2\. Tecnologías](#technologies) [3\. Arquitectura en Laravel](#architechture) [3\. 1. App](#architechture-app) [3\. 2. Bootstrap](#architechture-bootstrap) [3\. 3. Config](#architechture-config) [3\. 4. Database](#architechture-database) [3\. 5. Public](#architechture-public) [3\. 6. Resources](#architechture-resources) [3\. 7. Route](#architechture-route) [3\. 8. Storage](#architechture-storage) [3\. 9. Tests](#architechture-tests) [3\. 10. Vendor](#architechture-vendor) [4\. Componentes principales](#main-components) [4\. 1. Punto de entrada: el archivo web](#mc-entry-point) [4\. 2. Middleware](#mc-middleware) [4\. 3. Controladores](#mc-controllers) [4\. 3. 1. Controladores en la autenticación: _LoginController_ y _RegisterController_](#mc-controllers-login-register) [4\. 3. 2. _SessionController_: el gestor de entrada](#mc-controllers-session) [4\. 3. 3. Controladores internos](#mc-controllers) [4\. 3. 3. 1. _ShowController_](#mc-ic-shows) [4\. 3. 3. 2. _AccountController_](#mc-ic-account) [4\. 3. 3. 3. _PaintingsController_](#mc-ic-paintings) [4\. 3. 3. 4. _GalleriesController_](#mc-ic-galleries) [4\. 3. 3. 5. _MessagesController_](#mc-ic-messages) [4\. 3. 3. 6. _SalesController_](#mc-ic-sales) [5\. _Eloquent_ y modelos](#models) [6\. Scripts del lado cliente: _Javascript / jQuery_](#javascript) [6\. 1. Shows](#js-shows) [6\. 2. Galleries](#js-galleries) [6\. 3. Paintings](#js-paintings) [6\. 4. Messages](#js-messages) [6\. 5. Navbar](#js-navbar) [6\. 6. Sales](#js-sales) [7\. Estilo. CSS3, HTML5, SASS](#styles) [8\. Despliegue de la app](#deploy) [8\. 1. Despliegue en hosting privado](#dp-private-hosting) [8\. 2. Despliegue en máquina virtual](#dp-virtual-machine)
-
 ### 1. Introducción
 
 El siguiente proyecto consiste en una aplicación que tiene como objetivo gestionar obras de arte, ofrecer información adicional sobre eventos y galerías y, en última instancia, comercializar las creaciones del usuario a través de la plataforma Ebay.
@@ -311,7 +307,9 @@ Para más información: [https://laravel.com/docs/5.8/routing.](https://laravel.
 
 #### 4\. 2. Middleware
 
-Se puede entender el middleware como un entramado de contención que se ejecuta de forma previa a la gestión de una petición. Son muchos y eficientes los que Laravel propone. Entre ellos cabe destacar los referidos al control de sesiones, verificación de usuarios o autenticación, entre otros. No vamos a explicar todo su contenido. Para ello podemos consultar la documentación aquí: [https://laravel.com/docs/5.8/middleware.](https://laravel.com/docs/5.8/middleware.)
+Se puede entender el middleware como un entramado de contención que se ejecuta de forma previa a la gestión de una petición. Son muchos y eficientes los que Laravel propone. Entre ellos cabe destacar los referidos al control de sesiones, verificación de usuarios o autenticación, entre otros. No vamos a explicar todo su contenido. Para ello podemos consultar la documentación aquí:
+
+[https://laravel.com/docs/5.8/middleware.](https://laravel.com/docs/5.8/middleware.)
 
 Como es costumbre en Laravel, esta parte también responde ante comandos para su creación. Si queremos crear uno, haremos lo siguiente:
 
