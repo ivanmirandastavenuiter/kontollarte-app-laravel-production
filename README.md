@@ -387,7 +387,7 @@ Así, navegando por los subdirectorios, podemos encontrar las distintas implemen
 
 Para más información consultar sendos controladores en _App/Http/Controllers/Auth._
 
-![](PICS/2.PNG)
+![register](https://github.com/ivanmirandastavenuiter/kontollarte-app-laravel-production/blob/master/KONTOLLARTE_DOCS/PICS/2.PNG)
 
 Ejemplo de inserción de modificaciones en los traits de la clase _LoginController:_
 
@@ -493,7 +493,7 @@ Métodos aplicados:
 *   _GetNumberOfShows:_ devuelve un entero con el número total de eventos
     
 
-![](PICS/3.PNG)
+![shows](https://github.com/ivanmirandastavenuiter/kontollarte-app-laravel-production/blob/master/KONTOLLARTE_DOCS/PICS/3.PNG)
 
 ##### 4\. 3. 3. 2. _AccountController_
 
@@ -512,7 +512,7 @@ Métodos aplicados:
 *   _CheckNewInputsAgainstDatabase:_ método auxiliar en la validación que comprobará que los valores obligatorios no se den más de una vez. Resaltar la aplicación aquí de la clase _MessageBag_, la cual es la usada por Laravel para la construcción de errores. Tomamos como base la documentación y generamos nuestros propios objetos de este tipo para acoplarlo con la estructura de las vistas. La clase se encuentra en la ruta _Illuminate/Support/MessageBag_. En la API de Laravel se pueden consultar sus métodos y propiedades.
     
 
-![](PICS/4.PNG)
+![account](https://github.com/ivanmirandastavenuiter/kontollarte-app-laravel-production/blob/master/KONTOLLARTE_DOCS/PICS/4.PNG)
 
 ##### 4\. 3. 3. 3. _PaintingsController_
 
@@ -579,7 +579,6 @@ Métodos aplicados:
 *   _ReloadGalleries:_ toma nuevas galerías mediante el proveedor de la API. Uso de métodos _merge()_ en _Request_ y almacenamiento de objetos en sesión.
     
 *   _GetUrlHashToken:_ uso de la _facade URL_ y su método _signedRoute_ para devolver el token necesario que ejecute la operación deseada. Se prevee el uso o no de parámetros según el contexto.
-    
 
 ##### 4\. 3. 3. 5. _MessagesController_
 
@@ -621,7 +620,7 @@ Métodos aplicados:
 *   _UploadPaintOnEbay:_ validación mediante _Validator_ y asignación de variables procedentes del formulario. Establecimiento de las dos peticiones necesarias, una para la subida y otra para la obtención del ítem. Utilización del _EbayAPIProvider_. Devolución de las vistas.
     
 
-![](PICS/11.PNG)
+![sales](https://github.com/ivanmirandastavenuiter/kontollarte-app-laravel-production/blob/master/KONTOLLARTE_DOCS/PICS/11.PNG)
 
 ### _5. Eloquent_ y modelos
 
@@ -904,13 +903,13 @@ El proceso ha sido el siguiente:
 
 Empiezas logueándote con las credenciales. Accedes a esta pantalla:
 
-![](PICS/12.PNG)
+![credentials](https://github.com/ivanmirandastavenuiter/kontollarte-app-laravel-production/blob/master/KONTOLLARTE_DOCS/PICS/12.PNG)
 
 Nos vamos al cPanel tal y como se ve en esta imagen:
 
-![](PICS/13.PNG)
+![cpanel](https://github.com/ivanmirandastavenuiter/kontollarte-app-laravel-production/blob/master/KONTOLLARTE_DOCS/PICS/13.PNG)
 
-![](PICS/14.PNG)
+![cpanel](https://github.com/ivanmirandastavenuiter/kontollarte-app-laravel-production/blob/master/KONTOLLARTE_DOCS/PICS/14.PNG)
 
 Vas a file manager y partir de aquí es todo muy intuitivo, por lo que no se incluirán capturas reflejando exactamente cada paso. De ahí en adelante, puedes crear archivos, directorios, mover, copiar, etc.
 
@@ -962,7 +961,7 @@ No tiene mucho sentido, porque debería funcionar como tal mediante los dos arch
 
 Luego la configuración de la base de datos es muy sencilla. Te vas al cPanel, aquí:
 
-![](PICS/15.PNG)
+![database](https://github.com/ivanmirandastavenuiter/kontollarte-app-laravel-production/blob/master/KONTOLLARTE_DOCS/PICS/15.PNG)
 
 Asegúrate de que haces los siguientes pasos:
 
@@ -970,13 +969,13 @@ Asegúrate de que haces los siguientes pasos:
 *   Crea un usuario para la base de datos
 *   Asocia la base de datos con el usuario
 
-![](PICS/16.PNG)
+![ddb-credentials](https://github.com/ivanmirandastavenuiter/kontollarte-app-laravel-production/blob/master/KONTOLLARTE_DOCS/PICS/16.PNG)
 
-![](PICS/17.PNG)
+![db-credentials](https://github.com/ivanmirandastavenuiter/kontollarte-app-laravel-production/blob/master/KONTOLLARTE_DOCS/PICS/17.PNG)
 
 Realizados estos puntos, vas al phpMyAdmin del host y únicamente importas la base de datos con el archivo .sql
 
-![](PICS/18.PNG)
+![phpmyadmin](https://github.com/ivanmirandastavenuiter/kontollarte-app-laravel-production/blob/master/KONTOLLARTE_DOCS/PICS/18.PNG)
 
 ### 8\. 2. Despliegue en máquina virtual
 
@@ -1037,26 +1036,26 @@ Por último, para la creación del servicio ftp se siguen los siguientes pasos:
 
 Ejecuto _apt-get install proftpd_.
 
-![](PICS/19.PNG)
+![cmd-linux](https://github.com/ivanmirandastavenuiter/kontollarte-app-laravel-production/blob/master/KONTOLLARTE_DOCS/PICS/19.PNG)
 
 Se descarga el cliente _Filezilla_.
 
 Creación del servidor ftp en el módulo correspondiente. Se establecen dirección, puerto y nombre.
 
-![](PICS/20.PNG)
+![virtual-server](https://github.com/ivanmirandastavenuiter/kontollarte-app-laravel-production/blob/master/KONTOLLARTE_DOCS/PICS/20.PNG)
 
 Creación del usuario virtual mediante el comando _ftpasswd_.
 
-![](PICS/21.PNG)
+![ftpd](https://github.com/ivanmirandastavenuiter/kontollarte-app-laravel-production/blob/master/KONTOLLARTE_DOCS/PICS/21.PNG)
 
 Eliminación de la restricción para logueo sin shell válida.
 
-![](PICS/22.PNG)
+![not-valid-shell](https://github.com/ivanmirandastavenuiter/kontollarte-app-laravel-production/blob/master/KONTOLLARTE_DOCS/PICS/22.PNG)
 
 Cambio de permisos mediante _chmod_ y la _uid_ del usuario.
 
-![](PICS/23.PNG)
+![chmod](https://github.com/ivanmirandastavenuiter/kontollarte-app-laravel-production/blob/master/KONTOLLARTE_DOCS/PICS/23.PNG)
 
 Enjaulamiento del usuario creado mediante la opción _Archivos y directorios_.
 
-![](PICS/24.PNG
+![chroot](https://github.com/ivanmirandastavenuiter/kontollarte-app-laravel-production/blob/master/KONTOLLARTE_DOCS/PICS/24.PNG)
